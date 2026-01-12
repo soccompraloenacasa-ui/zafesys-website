@@ -1,9 +1,5 @@
-# Redirects ZAFESYS
+# Redirects ZAFESYS - URLs amigables
 
-# WWW a no-WWW (canonical)
-https://www.zafesys.com/* https://zafesys.com/:splat 301
-
-# URLs amigables
 /cerradura-digital-huella /productos/os566f.html 301
 /cerradura-app-tuya /productos/os514f.html 301
 /cerradura-wifi-remoto /productos/os809tye.html 301
