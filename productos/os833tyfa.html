@@ -534,18 +534,21 @@
             line-height: 1.6;
         }
         
-        /* REVIEWS WITH GLOW */
+        /* REVIEWS WITH GLOW - FIXED SIZE */
         .reviews-section { padding: 80px 40px; }
         
         .reviews-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 24px;
         }
         
-        @media (max-width: 968px) {
+        @media (max-width: 1100px) {
+            .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        @media (max-width: 700px) {
             .reviews-grid { grid-template-columns: 1fr; }
-            .review-card.featured { grid-row: auto; }
         }
         
         @keyframes rotateBorder {
@@ -557,17 +560,11 @@
             background: rgba(10, 10, 15, 0.95);
             border: 1px solid rgba(255,255,255,0.06);
             border-radius: 24px;
-            padding: 28px;
+            padding: 24px;
             position: relative;
             overflow: hidden;
             z-index: 1;
             transition: all 0.4s ease;
-        }
-        
-        .review-card.featured {
-            grid-row: span 2;
-            display: flex;
-            flex-direction: column;
         }
         
         .review-card::before {
@@ -575,8 +572,8 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 500px;
-            height: 500px;
+            width: 400px;
+            height: 400px;
             background: conic-gradient(
                 from 0deg,
                 transparent 0%,
@@ -610,13 +607,13 @@
                 0 0 80px rgba(34, 211, 238, 0.1);
         }
         
+        /* Foto pequeña tipo thumbnail */
         .review-photo {
             width: 100%;
-            border-radius: 16px;
+            height: 140px;
+            border-radius: 12px;
             overflow: hidden;
-            margin-bottom: 20px;
-            flex: 1;
-            min-height: 200px;
+            margin-bottom: 16px;
         }
         
         .review-photo img {
@@ -628,7 +625,7 @@
         .review-stars {
             display: flex;
             gap: 2px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         
         .review-stars i {
@@ -644,11 +641,11 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         
         .review-info h4 {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 600;
             margin-bottom: 0;
         }
@@ -662,7 +659,7 @@
         .review-text {
             font-size: 14px;
             color: var(--text-secondary);
-            line-height: 1.7;
+            line-height: 1.6;
         }
         
         .reviews-row-2 {
@@ -1151,7 +1148,8 @@
             </div>
             
             <div class="reviews-grid">
-                <div class="review-card featured reveal">
+                <!-- Review con foto 1 -->
+                <div class="review-card reveal">
                     <div class="review-photo">
                         <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/OS833TYFA/resena-cerradura-facial-3d-os833tyfa-cliente.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT1M4MzNUWUZBL3Jlc2VuYS1jZXJyYWR1cmEtZmFjaWFsLTNkLW9zODMzdHlmYS1jbGllbnRlLndlYnAiLCJpYXQiOjE3NjgyMzQ1NTQsImV4cCI6MjA4MzU5NDU1NH0.ZboUrcFjQ1i3zMAreZi1pox-tgWp_szt7xmucPIPx_I" alt="Reseña cliente cerradura facial 3D">
                     </div>
@@ -1170,7 +1168,8 @@
                     <p class="review-text">Me encantó</p>
                 </div>
                 
-                <div class="review-card featured reveal">
+                <!-- Review con foto 2 -->
+                <div class="review-card reveal">
                     <div class="review-photo">
                         <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/OS833TYFA/opinion-cerradura-reconocimiento-facial-os833tyfa.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT1M4MzNUWUZBL29waW5pb24tY2VycmFkdXJhLXJlY29ub2NpbWllbnRvLWZhY2lhbC1vczgzM3R5ZmEud2VicCIsImlhdCI6MTc2ODIzNDU4MSwiZXhwIjoyMDgzNTk0NTgxfQ.GQXsW08Wx2027OlwP93cyPPMOLcCz7CqWlxZbXekDzY" alt="Opinión cliente cerradura reconocimiento facial">
                     </div>
@@ -1188,9 +1187,8 @@
                     </div>
                     <p class="review-text">Estoy impresionado con la calidad del producto, hasta ahora no he tenido problemas, pero más impresionado aún con la rapidez de la entrega.</p>
                 </div>
-            </div>
-            
-            <div class="reviews-row-2">
+                
+                <!-- Review sin foto -->
                 <div class="review-card reveal">
                     <div class="review-stars">
                         <i class="fa-solid fa-star"></i>
@@ -1206,7 +1204,9 @@
                     </div>
                     <p class="review-text">Súper recomiendo, producto de óptima calidad y facilidad al momento de pagar.</p>
                 </div>
-                
+            </div>
+            
+            <div class="reviews-row-2">
                 <div class="review-card reveal">
                     <div class="review-stars">
                         <i class="fa-solid fa-star"></i>
