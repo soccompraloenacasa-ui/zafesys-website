@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
+<channel>
+    <title>Zafesys Productos</title>
+    <link>https://zafesys.com</link>
+    <description>Catálogo de Cerraduras Digitales Zafesys Colombia</description>
+
+    <item>
+        <g:id>OS566F</g:id>
+        <g:title>Cerradura Digital Zafesys OS566F</g:title>
+        <g:description>Cerradura digital con huella, tarjeta, código y llave. La más económica y confiable. Ideal para apartamentos y oficinas. Garantía de 1 año.</g:description>
+        <g:link>https://zafesys.com/productos/os566f.html</g:link>
+        <g:image_link>https://zafesys.com/Webp/Productos/OS566F/main.webp</g:image_link>
+        <g:availability>in_stock</g:availability>
+        <g:price>345000 COP</g:price>
+        <g:brand>Zafesys</g:brand>
+        <g:condition>new</g:condition>
+    </item>
+
+    <item>
+        <g:id>OS514F</g:id>
+        <g:title>Cerradura Digital Zafesys OS514F</g:title>
+        <g:description>Cerradura digital inteligente con App Tuya Smart, huella dactilar, tarjeta RFID, código y llave de emergencia. Control total desde tu celular.</g:description>
+        <g:link>https://zafesys.com/productos/os514f.html</g:link>
+        <g:image_link>https://zafesys.com/Webp/Productos/OS514F/main.webp</g:image_link>
+        <g:availability>in_stock</g:availability>
+        <g:price>360000 COP</g:price>
+        <g:brand>Zafesys</g:brand>
+        <g:condition>new</g:condition>
+    </item>
+
+    <item>
+        <g:id>OS809TYE</g:id>
+        <g:title>Cerradura Digital Zafesys OS809TYE</g:title>
+        <g:description>Cerradura inteligente con conexión WiFi y desbloqueo remoto. Compatible con App Tuya Smart, huella, tarjeta, código y llave mecánica.</g:description>
+        <g:link>https://zafesys.com/productos/os809tye.html</g:link>
+        <g:image_link>https://zafesys.com/Webp/Productos/OS809TYE/main.webp</g:image_link>
+        <g:availability>in_stock</g:availability>
+        <g:price>370000 COP</g:price>
+        <g:brand>Zafesys</g:brand>
+        <g:condition>new</g:condition>
+    </item>
+
+    <item>
+        <g:id>OS784TYFA</g:id>
+        <g:title>Cerradura Digital Zafesys OS784TYFA</g:title>
+        <g:description>Cerradura premium con reconocimiento facial 3D, videollamada y alarma antipalanca. Conectividad WiFi y control total vía App Tuya Smart.</g:description>
+        <g:link>https://zafesys.com/productos/os784tyfa.html</g:link>
+        <g:image_link>https://zafesys.com/Webp/Productos/OS784TYFA/main.webp</g:image_link>
+        <g:availability>in_stock</g:availability>
+        <g:price>700000 COP</g:price>
+        <g:brand>Zafesys</g:brand>
+        <g:condition>new</g:condition>
+    </item>
+
+    <item>
+        <g:id>OS709TYFA</g:id>
+        <g:title>Cerradura Digital Zafesys OS709TYFA</g:title>
+        <g:description>Cerradura con reconocimiento facial 3D y batería de larga duración (4200mAh). Incluye videollamada, WiFi y múltiples métodos de acceso seguro.</g:description>
+        <g:link>https://zafesys.com/productos/os709tyfa.html</g:link>
+        <g:image_link>https://zafesys.com/Webp/Productos/OS709TYFA/main.webp</g:image_link>
+        <g:availability>in_stock</g:availability>
+        <g:price>790000 COP</g:price>
+        <g:brand>Zafesys</g:brand>
+        <g:condition>new</g:condition>
+    </item>
+
+    <item>
+        <g:id>OS833TYFA</g:id>
+        <g:title>Cerradura Digital Zafesys OS833TYFA</g:title>
+        <g:description>Cerradura avanzada con reconocimiento facial 3D, videollamada e intercomunicador integrado. Seguridad biométrica de última generación y WiFi.</g:description>
+        <g:link>https://zafesys.com/productos/os833tyfa.html</g:link>
+        <g:image_link>https://zafesys.com/Webp/Productos/OS833TYFA/main.webp</g:image_link>
+        <g:availability>in_stock</g:availability>
+        <g:price>680000 COP</g:price>
+        <g:brand>Zafesys</g:brand>
+        <g:condition>new</g:condition>
+    </item>
+
+    <item>
+        <g:id>OS840TYFA</g:id>
+        <g:title>Cerradura Digital Zafesys OS840TYFA</g:title>
+        <g:description>La cerradura más avanzada de Colombia. Reconocimiento facial 3D, videollamada, App Tuya Smart, huella, tarjeta y llave. Instalación profesional disponible.</g:description>
+        <g:link>https://zafesys.com/productos/os840tyfa.html</g:link>
+        <g:image_link>https://zafesys.com/Webp/Productos/OS840TYFA/main.webp</g:image_link>
+        <g:availability>in_stock</g:availability>
+        <g:price>830000 COP</g:price>
+        <g:brand>Zafesys</g:brand>
+        <g:condition>new</g:condition>
+    </item>
+
+</channel>
+</rss>
