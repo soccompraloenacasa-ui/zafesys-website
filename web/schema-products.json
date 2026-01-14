@@ -1,0 +1,102 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Cerraduras Inteligentes ZAFESYS",
+  "description": "Catálogo de cerraduras inteligentes con huella, Face ID 3D, WiFi",
+  "numberOfItems": 7,
+  "itemListElement": [
+    {
+      "@type": "Product",
+      "position": 1,
+      "name": "Cerradura Digital OS566F",
+      "description": "Cerradura digital con huella dactilar, tarjeta RFID, código y llave mecánica",
+      "image": "https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/cerradura-digital-huella-tarjeta-os566f.webp",
+      "brand": {"@type": "Brand", "name": "ZAFESYS"},
+      "offers": {
+        "@type": "Offer",
+        "price": "345000",
+        "priceCurrency": "COP",
+        "availability": "https://schema.org/InStock",
+        "seller": {"@type": "Organization", "name": "ZAFESYS"}
+      }
+    },
+    {
+      "@type": "Product",
+      "position": 2,
+      "name": "Cerradura Digital OS514F con App",
+      "description": "Cerradura digital con App Tuya Smart, NB-IoT y Zigbee",
+      "brand": {"@type": "Brand", "name": "ZAFESYS"},
+      "offers": {
+        "@type": "Offer",
+        "price": "360000",
+        "priceCurrency": "COP",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Product",
+      "position": 3,
+      "name": "Cerradura WiFi OS809TYE",
+      "description": "Cerradura con WiFi, desbloqueo remoto, App Tuya Smart, 150 usuarios",
+      "brand": {"@type": "Brand", "name": "ZAFESYS"},
+      "offers": {
+        "@type": "Offer",
+        "price": "370000",
+        "priceCurrency": "COP",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Product",
+      "position": 4,
+      "name": "Cerradura Facial 3D OS833TYFA",
+      "description": "Cerradura con reconocimiento facial 3D, videollamada, intercomunicador",
+      "brand": {"@type": "Brand", "name": "ZAFESYS"},
+      "offers": {
+        "@type": "Offer",
+        "price": "680000",
+        "priceCurrency": "COP",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Product",
+      "position": 5,
+      "name": "Cerradura Facial 3D OS784TYFA con Alarma",
+      "description": "Cerradura facial 3D con alarma antipalanca, 291 usuarios",
+      "brand": {"@type": "Brand", "name": "ZAFESYS"},
+      "offers": {
+        "@type": "Offer",
+        "price": "700000",
+        "priceCurrency": "COP",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Product",
+      "position": 6,
+      "name": "Cerradura Facial 3D OS709TYFA",
+      "description": "Cerradura facial 3D con batería 4200mAh, la de mayor autonomía",
+      "brand": {"@type": "Brand", "name": "ZAFESYS"},
+      "offers": {
+        "@type": "Offer",
+        "price": "790000",
+        "priceCurrency": "COP",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "Product",
+      "position": 7,
+      "name": "Cerradura Facial 3D OS840TYFA Premium",
+      "description": "Cerradura facial 3D premium con todas las funciones avanzadas",
+      "brand": {"@type": "Brand", "name": "ZAFESYS"},
+      "offers": {
+        "@type": "Offer",
+        "price": "830000",
+        "priceCurrency": "COP",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+  ]
+}

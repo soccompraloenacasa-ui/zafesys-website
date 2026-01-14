@@ -1,0 +1,2644 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZAFESYS - Cerraduras Inteligentes | Seguridad que te Reconoce</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Sora', sans-serif; scroll-behavior: smooth; }
+        body { background: #050508; color: #fff; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #00d4ff 0%, #22d3ee 50%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+        }
+        .navbar.scrolled {
+            background: rgba(10,10,15,0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #3b82f6, #22d3ee);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-icon i { color: #fff; font-size: 18px; }
+        .logo-text { font-size: 22px; font-weight: 700; }
+        .nav-links { display: flex; gap: 32px; }
+        .nav-links a { font-size: 14px; color: #9ca3af; transition: color 0.3s; }
+        .nav-links a:hover { color: #fff; }
+        .nav-cta {
+            padding: 12px 24px;
+            background: #fff;
+            color: #000;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        .nav-cta:hover { background: #22d3ee; }
+        @media (max-width: 968px) { .nav-links, .nav-cta { display: none; } }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 40px 80px;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.1s ease-out;
+        }
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(10,10,15,0.6), rgba(10,10,15,0.3), rgba(10,10,15,0.9));
+        }
+        .hero-png {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s ease-out;
+            pointer-events: none;
+        }
+        .hero-png img {
+            max-width: 55%;
+            max-height: 85%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 80px rgba(0, 212, 255, 0.4));
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 15;
+        }
+        @media (max-width: 968px) {
+            .hero { padding: 100px 20px 60px; }
+            .hero-container { grid-template-columns: 1fr; text-align: center; }
+            .hero-buttons { justify-content: center; }
+            .hero-features { justify-content: center; }
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 9999px;
+            margin-bottom: 24px;
+        }
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        .hero-badge span {
+            font-size: 12px;
+            font-weight: 600;
+            color: #22c55e;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .hero-title {
+            font-size: clamp(40px, 6vw, 64px);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+        .hero-desc {
+            font-size: 18px;
+            color: #9ca3af;
+            line-height: 1.7;
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            padding: 16px 32px;
+            background: #22d3ee;
+            color: #000;
+            font-weight: 600;
+            font-size: 15px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        .btn-primary:hover { background: #06b6d4; transform: translateY(-2px); }
+        .btn-secondary {
+            padding: 16px 32px;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+            font-weight: 600;
+            font-size: 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+        .btn-secondary:hover { background: rgba(255,255,255,0.05); }
+        .btn-secondary i { color: #fff; }
+        .hero-feature-chip {
+            position: absolute;
+            top: 110px;
+            left: -170px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            z-index: 10;
+        }
+        @media (max-width: 1200px) {
+            .hero-feature-chip { display: none; }
+        }
+        .hero-feature-chip-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(59, 130, 246, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #60a5fa;
+        }
+        .hero-feature-chip span {
+            font-size: 13px;
+            color: #d1d5db;
+        }
+        .hero-feature-chip strong {
+            display: block;
+            font-size: 14px;
+            color: #fff;
+        }
+        .hero-features {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .hero-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #9ca3af;
+        }
+        .hero-feature-item i { color: #22d3ee; }
+
+        /* Hero Right - Keypad UI */
+        .hero-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 20px;
+            position: relative;
+        }
+        @media (max-width: 968px) {
+            .hero-right { align-items: center; margin-top: 40px; }
+        }
+        .status-badge {
+            position: absolute;
+            top: 30px;
+            left: -170px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 12px;
+            z-index: 10;
+        }
+        @media (max-width: 1200px) {
+            .status-badge { display: none; }
+        }
+        .status-badge i { color: #22c55e; font-size: 18px; }
+        .status-badge span { font-size: 12px; color: #9ca3af; }
+        .status-badge strong { font-size: 14px; color: #22c55e; display: block; }
+        .keypad-ui {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 32px;
+            width: 280px;
+            position: relative;
+        }
+        .keypad-camera {
+            width: 56px;
+            height: 56px;
+            border: 2px solid rgba(34, 211, 238, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            color: #22d3ee;
+            font-size: 20px;
+        }
+        .keypad-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .keypad-btn {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 500;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .keypad-btn:hover {
+            background: rgba(34, 211, 238, 0.1);
+            border-color: rgba(34, 211, 238, 0.3);
+        }
+        .keypad-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #9ca3af;
+            letter-spacing: 0.1em;
+        }
+        .keypad-status-dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+        }
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: #6b7280;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        .scroll-indicator span {
+            display: block;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 8px;
+        }
+
+        /* FEATURES SECTION */
+        .features-section {
+            padding: 100px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        @media (max-width: 768px) { .features-section { padding: 60px 20px; } }
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 24px;
+        }
+        @media (max-width: 968px) {
+            .features-grid { 
+                grid-template-columns: 1fr; 
+            }
+            .feature-card {
+                grid-column: auto !important;
+            }
+        }
+        .feature-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 24px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+        }
+        .feature-card:hover {
+            border-color: rgba(34, 211, 238, 0.2);
+            transform: translateY(-4px);
+        }
+        /* Card 1 - GRANDE arriba izquierda (2 columnas) */
+        .feature-card:nth-child(1) {
+            grid-column: 1 / 3;
+        }
+        /* Card 2 - pequeña arriba derecha (1 columna) */
+        .feature-card:nth-child(2) {
+            grid-column: 3;
+        }
+        /* Card 3 - pequeña abajo izquierda (1 columna) */
+        .feature-card:nth-child(3) {
+            grid-column: 1;
+        }
+        /* Card 4 - GRANDE abajo derecha (2 columnas) */
+        .feature-card:nth-child(4) {
+            grid-column: 2 / 4;
+        }
+
+        /* IMAGE AUTO SLIDER */
+        @keyframes scrollSlider {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .slider-section {
+            padding: 60px 0;
+            background: #050508;
+            overflow: hidden;
+        }
+        .slider-container {
+            width: 100%;
+            mask: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+            -webkit-mask: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+        }
+        .slider-track {
+            display: flex;
+            gap: 24px;
+            width: max-content;
+            animation: scrollSlider 40s linear infinite;
+        }
+        .slider-track:hover {
+            animation-play-state: paused;
+        }
+        .slider-item {
+            flex-shrink: 0;
+            width: 200px;
+            height: 356px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .slider-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(34, 211, 238, 0.2);
+        }
+        .slider-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .video-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        .slider-item:hover .video-play-btn {
+            opacity: 0;
+        }
+        .slider-item.playing .video-play-btn {
+            opacity: 0;
+        }
+        @media (max-width: 768px) {
+            .slider-item {
+                width: 160px;
+                height: 284px;
+            }
+        }
+        .feature-card-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .feature-card-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+        }
+        .feature-card-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10,10,15,1) 20%, rgba(10,10,15,0.5) 100%);
+        }
+        .feature-card-content {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        .feature-icon.blue { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+        .feature-icon.cyan { background: rgba(34, 211, 238, 0.2); color: #22d3ee; }
+        .feature-icon.purple { background: rgba(168, 85, 247, 0.2); color: #a855f7; }
+        .feature-icon.green { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
+        .feature-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .feature-desc {
+            font-size: 15px;
+            color: #9ca3af;
+            line-height: 1.6;
+        }
+        /* Battery visual */
+        .battery-visual {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 24px;
+        }
+        .battery-bar {
+            flex: 1;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        .battery-fill {
+            height: 100%;
+            width: 92%;
+            background: linear-gradient(90deg, #22c55e, #4ade80);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: #000;
+        }
+        .battery-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(250, 204, 21, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #facc15;
+            font-size: 20px;
+        }
+        /* Progress circle */
+        .progress-circle {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 32px;
+            right: 32px;
+        }
+        .progress-circle svg {
+            transform: rotate(-90deg);
+        }
+        .progress-circle circle {
+            fill: none;
+            stroke-width: 8;
+        }
+        .progress-circle .bg { stroke: rgba(255,255,255,0.1); }
+        .progress-circle .progress { stroke: #22d3ee; stroke-linecap: round; stroke-dasharray: 251; stroke-dashoffset: 25; }
+
+        /* APP SECTION */
+        .app-section {
+            padding: 100px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        @media (max-width: 768px) { .app-section { padding: 60px 20px; } }
+        .app-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        @media (max-width: 968px) {
+            .app-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
+        
+        /* iPhone Premium Mockup */
+        .phone-mockup {
+            position: relative;
+            max-width: 340px;
+            margin: 0 auto;
+        }
+        .phone-frame {
+            background: linear-gradient(145deg, #2a2a35, #1a1a22);
+            border-radius: 55px;
+            padding: 12px;
+            position: relative;
+            box-shadow: 
+                0 50px 100px rgba(0,0,0,0.6),
+                0 0 0 1px rgba(255,255,255,0.1),
+                inset 0 1px 1px rgba(255,255,255,0.1);
+        }
+        /* Botones laterales iPhone */
+        .phone-frame::before {
+            content: '';
+            position: absolute;
+            right: -3px;
+            top: 120px;
+            width: 4px;
+            height: 35px;
+            background: linear-gradient(180deg, #3a3a45, #2a2a35);
+            border-radius: 0 3px 3px 0;
+        }
+        .phone-frame::after {
+            content: '';
+            position: absolute;
+            left: -3px;
+            top: 100px;
+            width: 4px;
+            height: 70px;
+            background: linear-gradient(180deg, #3a3a45, #2a2a35);
+            border-radius: 3px 0 0 3px;
+            box-shadow: 0 50px 0 #2a2a35;
+        }
+        .phone-screen {
+            background: linear-gradient(180deg, #0d1117 0%, #0a0e14 100%);
+            border-radius: 45px;
+            overflow: hidden;
+            position: relative;
+        }
+        /* Dynamic Island */
+        .phone-notch {
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 34px;
+            background: #000;
+            border-radius: 20px;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 12px;
+        }
+        .phone-notch-camera {
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle, #1a3a5c 30%, #0d1f33 70%);
+            border-radius: 50%;
+            box-shadow: inset 0 0 2px rgba(59, 130, 246, 0.5);
+        }
+        /* Status bar */
+        .phone-statusbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 28px 8px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .phone-statusbar-time {
+            font-weight: 600;
+        }
+        .phone-statusbar-icons {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+        }
+        .phone-statusbar-icons i {
+            font-size: 14px;
+        }
+        /* App Content */
+        .phone-app-content {
+            padding: 60px 20px 20px;
+        }
+        .phone-header {
+            padding: 0 4px 16px;
+        }
+        .phone-title {
+            font-size: 26px;
+            font-weight: 700;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .phone-status {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .phone-status-label {
+            font-size: 14px;
+            color: #6b7280;
+        }
+        .phone-status-value {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .phone-status-dot {
+            width: 12px;
+            height: 12px;
+            background: #22c55e;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+        }
+        .phone-status-text {
+            font-size: 32px;
+            font-weight: 700;
+            font-style: italic;
+        }
+        .phone-camera {
+            position: relative;
+            margin: 16px 4px;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 200px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .phone-camera img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .phone-camera-live {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            padding: 6px 14px;
+            background: #ef4444;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+        }
+        .phone-camera-play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 56px;
+            height: 56px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 18px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .phone-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            padding: 16px 4px;
+        }
+        .phone-action-btn {
+            padding: 24px 20px;
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .phone-action-btn:hover {
+            background: rgba(30, 41, 59, 0.9);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+        .phone-action-btn i {
+            font-size: 28px;
+            margin-bottom: 12px;
+            display: block;
+            color: #64748b;
+        }
+        .phone-action-btn span {
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .phone-notification {
+            margin: 8px 4px 8px;
+            padding: 16px 18px;
+            background: rgba(30, 58, 95, 0.5);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .phone-notification-icon {
+            width: 44px;
+            height: 44px;
+            background: #3b82f6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 18px;
+        }
+        .phone-notification-text strong {
+            font-size: 15px;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 3px;
+        }
+        .phone-notification-text span {
+            font-size: 13px;
+            color: #9ca3af;
+        }
+        /* Home indicator */
+        .phone-home-indicator {
+            width: 140px;
+            height: 5px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 3px;
+            margin: 16px auto 12px;
+        }
+
+        /* TRUSTED BY / AVATARS SECTION */
+        .trusted-section {
+            padding: 80px 40px;
+            background: #050508;
+            text-align: center;
+        }
+        .trusted-title {
+            font-size: 14px;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+        }
+        .avatars-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .avatar-item {
+            position: relative;
+            margin-left: -16px;
+            cursor: pointer;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        .avatar-item:first-child {
+            margin-left: 0;
+        }
+        .avatar-item:hover {
+            z-index: 50;
+            transform: scale(1.1);
+        }
+        .avatar-img {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #050508;
+            transition: all 0.3s ease;
+        }
+        .avatar-item:hover .avatar-img {
+            border-color: #22d3ee;
+            box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+        }
+        .avatar-tooltip {
+            position: absolute;
+            bottom: calc(100% + 16px);
+            left: 50%;
+            transform: translateX(-50%) scale(0.8);
+            background: #050508;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 12px 20px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            z-index: 100;
+        }
+        .avatar-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 8px solid transparent;
+            border-top-color: #1a1a24;
+        }
+        .avatar-item:hover .avatar-tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) scale(1);
+        }
+        .avatar-tooltip-name {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .avatar-tooltip-role {
+            font-size: 13px;
+            color: #9ca3af;
+        }
+        .avatar-tooltip-glow {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #22d3ee, #3b82f6, transparent);
+            border-radius: 2px;
+        }
+        .trusted-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 50px;
+        }
+        @media (max-width: 640px) {
+            .trusted-stats { flex-direction: column; gap: 24px; }
+            .avatar-img { width: 52px; height: 52px; }
+            .avatar-item { margin-left: -12px; }
+        }
+        .trusted-stat {
+            text-align: center;
+        }
+        .trusted-stat-number {
+            font-size: 36px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, #9ca3af);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .trusted-stat-label {
+            font-size: 14px;
+            color: #6b7280;
+            margin-top: 4px;
+        }
+        .app-content h2 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+        .app-content > p {
+            font-size: 17px;
+            color: #9ca3af;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+        .app-features {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        .app-feature {
+            display: flex;
+            gap: 16px;
+        }
+        .app-feature-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(34, 211, 238, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #22d3ee;
+            flex-shrink: 0;
+        }
+        .app-feature-text h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .app-feature-text p {
+            font-size: 14px;
+            color: #9ca3af;
+        }
+        .app-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .store-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 28px;
+            background: #fff;
+            color: #000;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .store-btn:hover { transform: translateY(-2px); }
+        .store-btn i { font-size: 22px; }
+        .store-btn.dark {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: #fff;
+        }
+
+        /* PRODUCTS SECTION */
+        .products-section {
+            padding: 100px 40px;
+            background: #050508;
+        }
+        @media (max-width: 768px) { .products-section { padding: 60px 20px; } }
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(34, 211, 238, 0.1);
+            border: 1px solid rgba(34, 211, 238, 0.2);
+            border-radius: 9999px;
+            margin-bottom: 20px;
+        }
+        .section-badge span {
+            font-size: 12px;
+            font-weight: 600;
+            color: #22d3ee;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .section-title {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .section-subtitle {
+            font-size: 17px;
+            color: #9ca3af;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .products-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        @media (max-width: 1200px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 640px) { .products-grid { grid-template-columns: 1fr; } }
+        .product-card {
+            background: linear-gradient(145deg, rgba(20,20,30,1), rgba(15,15,22,1));
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(34, 211, 238, 0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        .product-image {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+        }
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #0a0a0f;
+            transition: transform 0.6s ease;
+        }
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+        /* Premium Product Style */
+        .product-card.premium {
+            border: 1px solid rgba(234, 179, 8, 0.3);
+            background: linear-gradient(145deg, rgba(30,25,15,1), rgba(15,15,22,1));
+        }
+        .product-card.premium:hover {
+            border-color: rgba(234, 179, 8, 0.6);
+            box-shadow: 0 20px 60px rgba(234, 179, 8, 0.15);
+            transform: translateY(-8px);
+        }
+        .product-card.premium .product-badge {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #000;
+        }
+        .product-tag {
+            color: #f59e0b;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .product-features-list {
+            margin: 16px 0 20px;
+        }
+        .product-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #d1d5db;
+        }
+        .product-feature-item i {
+            color: #f59e0b;
+            font-size: 12px;
+        }
+        .product-card.premium .product-footer {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            margin-top: 8px;
+        }
+        .product-card.premium .product-price {
+            font-size: 26px;
+        }
+        .btn-premium {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #000;
+            font-weight: 700;
+            font-size: 13px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn-premium:hover {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            transform: translateY(-2px);
+        }
+        .product-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            padding: 6px 14px;
+            background: #22c55e;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #000;
+        }
+        .product-content {
+            padding: 24px;
+        }
+        .product-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .product-type {
+            font-size: 13px;
+            color: #9ca3af;
+            margin-bottom: 16px;
+        }
+        .product-features {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .product-feature-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        .product-feature-icon.cyan { color: #22d3ee; }
+        .product-feature-icon.blue { color: #3b82f6; }
+        .product-feature-icon.purple { color: #a855f7; }
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .product-price {
+            font-size: 22px;
+            font-weight: 700;
+        }
+        .product-price span {
+            font-size: 13px;
+            font-weight: 400;
+            color: #9ca3af;
+        }
+        .product-cart-btn {
+            width: 44px;
+            height: 44px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .product-cart-btn:hover {
+            background: #22d3ee;
+            border-color: #22d3ee;
+            color: #000;
+        }
+
+        /* TESTIMONIALS */
+        .testimonials-section {
+            padding: 100px 40px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0a1628 0%, #0d2847 30%, #0f3060 60%, #0a1628 100%);
+        }
+        .testimonials-content {
+            position: relative;
+            z-index: 10;
+        }
+        @media (max-width: 768px) { .testimonials-section { padding: 60px 20px; } }
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .testimonials-header h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 700;
+        }
+        .trustpilot-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 50px;
+        }
+        .trustpilot-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .trustpilot-logo i { color: #00b67a; font-size: 24px; }
+        .trustpilot-stars {
+            display: flex;
+            gap: 4px;
+        }
+        .trustpilot-star {
+            width: 28px;
+            height: 28px;
+            background: #00b67a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 14px;
+        }
+        .trustpilot-rating {
+            font-size: 14px;
+            color: #9ca3af;
+        }
+        .trustpilot-rating strong {
+            color: #fff;
+        }
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        @media (max-width: 968px) { .testimonials-grid { grid-template-columns: 1fr; } }
+        .testimonial-card {
+            background: rgba(10, 10, 15, 0.95);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 24px;
+            padding: 32px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            border-color: transparent;
+        }
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .testimonial-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .testimonial-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .testimonial-info span {
+            font-size: 13px;
+            color: #22d3ee;
+        }
+        .testimonial-quote {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            font-size: 48px;
+            color: rgba(255,255,255,0.05);
+            font-family: Georgia, serif;
+            z-index: 2;
+        }
+        .testimonial-text {
+            font-size: 15px;
+            color: #d1d5db;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .testimonial-stars {
+            display: flex;
+            gap: 4px;
+            position: relative;
+            z-index: 2;
+        }
+        .testimonial-stars i {
+            color: #facc15;
+            font-size: 14px;
+        }
+
+        /* Animated Glow Border Effect for Testimonials */
+        @keyframes rotateBorder {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 500px;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0%,
+                #22d3ee 8%,
+                transparent 18%,
+                transparent 42%,
+                #22c55e 52%,
+                transparent 62%,
+                transparent 100%
+            );
+            animation: rotateBorder 5s linear infinite;
+            z-index: -2;
+            opacity: 0.7;
+        }
+        .testimonial-card::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: linear-gradient(145deg, rgba(10, 10, 15, 0.98), rgba(8, 8, 12, 0.98));
+            border-radius: 22px;
+            z-index: -1;
+        }
+        .testimonial-card:hover::before {
+            opacity: 1;
+        }
+        .testimonial-card:hover {
+            box-shadow: 
+                0 0 40px rgba(34, 211, 238, 0.15),
+                0 0 80px rgba(34, 197, 94, 0.1);
+        }
+
+        /* CTA */
+        .cta-section {
+            padding: 120px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: #050508;
+        }
+        .cta-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(13, 40, 71, 0.5) 0%, rgba(10, 25, 50, 0.3) 40%, transparent 70%);
+            pointer-events: none;
+        }
+        .cta-content {
+            position: relative;
+            z-index: 10;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .cta-content h2 {
+            font-size: clamp(32px, 5vw, 52px);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .cta-content p {
+            font-size: 18px;
+            color: #9ca3af;
+            margin-bottom: 40px;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* LOCATION */
+        /* SERVICES / INSTALLATION SECTION */
+        .services-section {
+            padding: 100px 40px;
+            background: #050508;
+        }
+        @media (max-width: 768px) { .services-section { padding: 60px 20px; } }
+        .services-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .services-header h2 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+        }
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        @media (max-width: 968px) { .services-grid { grid-template-columns: 1fr; } }
+        .service-card {
+            background: linear-gradient(145deg, rgba(20,20,25,1), rgba(12,12,16,1));
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        .service-card:hover {
+            border-color: rgba(34, 211, 238, 0.2);
+            transform: translateY(-4px);
+        }
+        .service-image {
+            aspect-ratio: 1 / 1;
+            position: relative;
+            border-radius: 20px 20px 0 0;
+            overflow: hidden;
+        }
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) brightness(0.5);
+            transition: all 0.6s ease;
+        }
+        .service-card:hover .service-image img {
+            filter: grayscale(50%) brightness(0.6);
+            transform: scale(1.05);
+        }
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #fff;
+            z-index: 5;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+        .service-icon.cyan {
+            background: linear-gradient(135deg, #22d3ee, #0891b2);
+        }
+        .service-icon.blue {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        }
+        .service-icon.purple {
+            background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+        }
+        .service-content {
+            padding: 40px 24px 24px;
+            position: relative;
+        }
+        .service-content .service-icon {
+            position: absolute;
+            top: -28px;
+            left: 24px;
+        }
+        .service-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .service-desc {
+            font-size: 14px;
+            color: #9ca3af;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .service-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .service-list-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #d1d5db;
+        }
+        .service-list-item i {
+            color: #22d3ee;
+            font-size: 12px;
+        }
+
+        .location-section {
+            padding: 100px 40px;
+            background: #050508;
+        }
+        @media (max-width: 768px) { .location-section { padding: 60px 20px; } }
+        .location-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .location-header h2 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .location-header p {
+            font-size: 17px;
+            color: #9ca3af;
+        }
+        .location-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: stretch;
+        }
+        @media (max-width: 968px) {
+            .location-grid { grid-template-columns: 1fr; }
+        }
+        .location-map {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            min-height: 400px;
+        }
+        .location-map iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            filter: invert(1) hue-rotate(180deg) grayscale(0.2);
+        }
+        .location-info {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 40px;
+        }
+        .location-info h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+        .location-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        .location-item:last-child { margin-bottom: 0; }
+        .location-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(34, 211, 238, 0.1);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #22d3ee;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .location-text h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .location-text p {
+            font-size: 14px;
+            color: #9ca3af;
+            line-height: 1.5;
+        }
+
+        /* BLOG */
+        .blog-section {
+            padding: 100px 40px;
+            background: #050508;
+        }
+        @media (max-width: 768px) { .blog-section { padding: 60px 20px; } }
+        .blog-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .blog-header h2 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+        }
+        .blog-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        @media (max-width: 968px) { .blog-grid { grid-template-columns: 1fr; } }
+        .blog-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        .blog-card:hover {
+            border-color: rgba(34, 211, 238, 0.3);
+            transform: translateY(-8px);
+        }
+        .blog-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .blog-card:hover .blog-image img {
+            transform: scale(1.1);
+        }
+        .blog-date {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            padding: 6px 14px;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            font-size: 12px;
+            color: #d1d5db;
+        }
+        .blog-content {
+            padding: 24px;
+        }
+        .blog-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+        .blog-excerpt {
+            font-size: 14px;
+            color: #9ca3af;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .blog-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #22d3ee;
+            transition: gap 0.3s;
+        }
+        .blog-card:hover .blog-link { gap: 12px; }
+
+        /* FOOTER */
+        .footer {
+            background: #050508;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 80px 40px 40px;
+        }
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 60px;
+        }
+        @media (max-width: 968px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 640px) { .footer-grid { grid-template-columns: 1fr; } }
+        .footer-brand p {
+            font-size: 14px;
+            color: #9ca3af;
+            line-height: 1.8;
+            margin: 20px 0;
+        }
+        .footer-social {
+            display: flex;
+            gap: 12px;
+        }
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+            transition: all 0.3s;
+        }
+        .footer-social a:hover { background: #22d3ee; color: #000; }
+        .footer-column h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .footer-column ul { list-style: none; }
+        .footer-column li { margin-bottom: 14px; }
+        .footer-column a {
+            font-size: 14px;
+            color: #9ca3af;
+            transition: color 0.3s;
+        }
+        .footer-column a:hover { color: #22d3ee; }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .footer-bottom p { font-size: 13px; color: #6b7280; }
+
+        /* WHATSAPP */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 100;
+        }
+        .whatsapp-btn a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s;
+        }
+        .whatsapp-btn a:hover { transform: scale(1.1); }
+        .whatsapp-btn i { font-size: 28px; color: #fff; }
+
+        /* ANIMATIONS */
+        @keyframes pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+        @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <span class="logo-text"><span style="color:#fff">ZAFE</span><span class="text-gradient">SYS</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="#features">Características</a>
+                <a href="#productos">Productos</a>
+                <a href="#app">App</a>
+                <a href="#testimonios">Reseñas</a>
+                <a href="#ubicacion">Ubicación</a>
+                <a href="#blog">Blog</a>
+            </div>
+            <a href="#productos" class="nav-cta">Comprar Ahora</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <img id="hero-webp" src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/A_highend_futuristic_1080p_202601091031-ezgif.com-video-to-webp-converter.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvQV9oaWdoZW5kX2Z1dHVyaXN0aWNfMTA4MHBfMjAyNjAxMDkxMDMxLWV6Z2lmLmNvbS12aWRlby10by13ZWJwLWNvbnZlcnRlci53ZWJwIiwiaWF0IjoxNzY3OTczMTM1LCJleHAiOjIwODMzMzMxMzV9.pzy3hSfMy0AV3vwgSv67VNdYbFxxmsDUy9yCQTe-C00" alt="Background">
+        </div>
+        <div class="hero-container">
+            <div class="hero-left">
+                <div class="hero-badge">
+                    <div class="hero-badge-dot"></div>
+                    <span>Nueva Generación 2026</span>
+                </div>
+                <h1 class="hero-title">Seguridad que<br><span class="text-gradient">te reconoce.</span></h1>
+                <p class="hero-desc">ZAFESYS transforma tu puerta en una fortaleza inteligente. Acceso biométrico, reconocimiento facial y control total desde tu smartphone.</p>
+                <div class="hero-buttons">
+                    <a href="#productos" class="btn-primary">Ver Modelos <i class="fa-solid fa-arrow-right"></i></a>
+                    <button class="btn-secondary"><i class="fa-solid fa-play"></i> Ver Demo</button>
+                </div>
+                <div class="hero-features">
+                    <div class="hero-feature-item"><i class="fa-solid fa-shield-halved"></i> Grado Militar</div>
+                    <div class="hero-feature-item"><i class="fa-solid fa-wifi"></i> Conexión 24/7</div>
+                    <div class="hero-feature-item"><i class="fa-solid fa-battery-full"></i> 1 Año Batería</div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="keypad-ui">
+                    <div class="status-badge">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <div>
+                            <span>Estado</span>
+                            <strong>Seguro</strong>
+                        </div>
+                    </div>
+                    <div class="hero-feature-chip">
+                        <div class="hero-feature-chip-icon"><i class="fa-solid fa-fingerprint"></i></div>
+                        <div>
+                            <span>Acceso</span>
+                            <strong>Biométrico</strong>
+                        </div>
+                    </div>
+                    <div class="keypad-camera"><i class="fa-solid fa-camera"></i></div>
+                    <div class="keypad-grid">
+                        <div class="keypad-btn">1</div>
+                        <div class="keypad-btn">2</div>
+                        <div class="keypad-btn">3</div>
+                        <div class="keypad-btn">4</div>
+                        <div class="keypad-btn">5</div>
+                        <div class="keypad-btn">6</div>
+                        <div class="keypad-btn">7</div>
+                        <div class="keypad-btn">8</div>
+                        <div class="keypad-btn">9</div>
+                        <div class="keypad-btn">*</div>
+                        <div class="keypad-btn">0</div>
+                        <div class="keypad-btn">#</div>
+                    </div>
+                    <div class="keypad-status">
+                        <div class="keypad-status-dot"></div>
+                        LOCKED
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Descubre más</span>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features-section" id="features">
+        <div class="features-grid">
+            <!-- Card 1 - Reconocimiento Dactilar -->
+            <div class="feature-card reveal">
+                <div class="feature-card-bg">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/fondo%20dactilar.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvZm9uZG8gZGFjdGlsYXIucG5nIiwiaWF0IjoxNzY3OTk0ODU4LCJleHAiOjE3OTk1MzA4NTh9.gX0hjAvDvFhDL6e6o03l-N5LVheMp-Zqlgz4iKpWC04" alt="Fingerprint">
+                </div>
+                <div class="feature-card-content">
+                    <div class="feature-icon blue"><i class="fa-solid fa-fingerprint"></i></div>
+                    <h3 class="feature-title">Reconocimiento Dactilar 3D</h3>
+                    <p class="feature-desc">Sensor capacitivo de última generación que desbloquea tu puerta en 0.3 segundos. Almacena hasta 100 huellas únicas.</p>
+                </div>
+            </div>
+            <!-- Card 2 - Visión HD -->
+            <div class="feature-card reveal">
+                <div class="progress-circle">
+                    <svg width="100" height="100" viewBox="0 0 100 100">
+                        <circle class="bg" cx="50" cy="50" r="40"></circle>
+                        <circle class="progress" cx="50" cy="50" r="40"></circle>
+                    </svg>
+                </div>
+                <div class="feature-card-content">
+                    <div class="feature-icon cyan"><i class="fa-solid fa-video"></i></div>
+                    <h3 class="feature-title">Visión HD Nocturna</h3>
+                    <p class="feature-desc">Cámara 1080p integrada con visión nocturna por infrarrojos para ver quién llama, día y noche.</p>
+                </div>
+            </div>
+            <!-- Card 3 - Batería -->
+            <div class="feature-card reveal">
+                <div class="feature-card-content">
+                    <div class="feature-icon green"><i class="fa-solid fa-battery-full"></i></div>
+                    <h3 class="feature-title">Energía para 12 Meses</h3>
+                    <p class="feature-desc">Olvídate de las recargas constantes. Nuestra tecnología de bajo consumo garantiza un año completo de uso con una sola carga.</p>
+                    <div class="battery-visual">
+                        <div class="battery-bar">
+                            <div class="battery-fill">92%</div>
+                        </div>
+                        <div class="battery-icon"><i class="fa-solid fa-bolt"></i></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 - Control Remoto -->
+            <div class="feature-card reveal">
+                <div class="feature-card-content">
+                    <div class="feature-icon purple"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <h3 class="feature-title">Control Remoto Total</h3>
+                    <p class="feature-desc">Abre la puerta desde la oficina o crea llaves temporales para invitados desde la app Zafesys.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO AUTO SLIDER -->
+    <section class="slider-section">
+        <div class="slider-container">
+            <div class="slider-track">
+                <!-- First set of videos -->
+                <div class="slider-item">
+                    <video loop muted playsinline>
+                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/primero.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvcHJpbWVyby5tcDQiLCJpYXQiOjE3Njc5OTE4NjMsImV4cCI6MTc5OTUyNzg2M30.yHi6MB5mnZ3cKYv9GPbEm-m9OJnffR36vfroyfBbc-s" type="video/mp4">
+                    </video>
+                    <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
+                </div>
+                <div class="slider-item">
+                    <video loop muted playsinline>
+                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/segundo.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvc2VndW5kby5tcDQiLCJpYXQiOjE3Njc5OTE4OTgsImV4cCI6MTc5OTUyNzg5OH0.Qa1iUSfD4Cglq6Be6VKzichfhxQO43jtkzGCekzhMeQ" type="video/mp4">
+                    </video>
+                    <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
+                </div>
+                <div class="slider-item">
+                    <video loop muted playsinline>
+                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/tercero.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvdGVyY2Vyby5tcDQiLCJpYXQiOjE3Njc5OTE5MTQsImV4cCI6MTc5OTUyNzkxNH0.k1I3ddqAuzVwe2iiLTQ4zHDKLQyMnfSZSYWAMJ6B5Y0" type="video/mp4">
+                    </video>
+                    <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
+                </div>
+                <div class="slider-item">
+                    <video loop muted playsinline>
+                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/video%204.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvdmlkZW8gNC5tcDQiLCJpYXQiOjE3Njc5OTE5MzAsImV4cCI6MTc5OTUyNzkzMH0.Q8atgS-4Dd4macDUtFe0R46afQWbrd2kkp-zJnsgxqo" type="video/mp4">
+                    </video>
+                    <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
+                </div>
+                <div class="slider-item">
+                    <video loop muted playsinline>
+                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/quinto.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvcXVpbnRvLm1wNCIsImlhdCI6MTc2Nzk5MTk0NywiZXhwIjoxNzk5NTI3OTQ3fQ.eGMKldUDSEc_YQJbnAh0WruyK5dnP7jxi0ZVuMwPZ40" type="video/mp4">
+                    </video>
+                    <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
+                </div>
+                <div class="slider-item">
+                    <video loop muted playsinline>
+                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/sexto.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvc2V4dG8ubXA0IiwiaWF0IjoxNzY3OTkxOTY3LCJleHAiOjE3OTk1Mjc5Njd9.2qlownHUvKLhQtQ7Wzyrk2DzDyV7ykl0nDGFezHL_Us" type="video/mp4">
+                    </video>
+                    <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
+                </div>
+                <!-- Duplicate for infinite loop -->
+                <div class="slider-item">
+                    <video loop muted playsinline>
+                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/primero.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvcHJpbWVyby5tcDQiLCJpYXQiOjE3Njc5OTE4NjMsImV4cCI6MTc5OTUyNzg2M30.yHi6MB5mnZ3cKYv9GPbEm-m9OJnffR36vfroyfBbc-s" type="video/mp4">
+                    </video>
+                    <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
+                </div>
+                <div class="slider-item">
+                    <video loop muted playsinline>
+                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/segundo.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvc2VndW5kby5tcDQiLCJpYXQiOjE3Njc5OTE4OTgsImV4cCI6MTc5OTUyNzg5OH0.Qa1iUSfD4Cglq6Be6VKzichfhxQO43jtkzGCekzhMeQ" type="video/mp4">
+                    </video>
+                    <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
+                </div>
+                <div class="slider-item">
+                    <video loop muted playsinline>
+                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/tercero.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvdGVyY2Vyby5tcDQiLCJpYXQiOjE3Njc5OTE5MTQsImV4cCI6MTc5OTUyNzkxNH0.k1I3ddqAuzVwe2iiLTQ4zHDKLQyMnfSZSYWAMJ6B5Y0" type="video/mp4">
+                    </video>
+                    <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
+                </div>
+                <div class="slider-item">
+                    <video loop muted playsinline>
+                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/video%204.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvdmlkZW8gNC5tcDQiLCJpYXQiOjE3Njc5OTE5MzAsImV4cCI6MTc5OTUyNzkzMH0.Q8atgS-4Dd4macDUtFe0R46afQWbrd2kkp-zJnsgxqo" type="video/mp4">
+                    </video>
+                    <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
+                </div>
+                <div class="slider-item">
+                    <video loop muted playsinline>
+                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/quinto.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvcXVpbnRvLm1wNCIsImlhdCI6MTc2Nzk5MTk0NywiZXhwIjoxNzk5NTI3OTQ3fQ.eGMKldUDSEc_YQJbnAh0WruyK5dnP7jxi0ZVuMwPZ40" type="video/mp4">
+                    </video>
+                    <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
+                </div>
+                <div class="slider-item">
+                    <video loop muted playsinline>
+                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/sexto.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvc2V4dG8ubXA0IiwiaWF0IjoxNzY3OTkxOTY3LCJleHAiOjE3OTk1Mjc5Njd9.2qlownHUvKLhQtQ7Wzyrk2DzDyV7ykl0nDGFezHL_Us" type="video/mp4">
+                    </video>
+                    <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- APP SECTION -->
+    <section class="app-section" id="app">
+        <div class="app-grid">
+            <div class="phone-mockup reveal">
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <!-- Dynamic Island -->
+                        <div class="phone-notch">
+                            <div class="phone-notch-camera"></div>
+                        </div>
+                        <!-- Status Bar -->
+                        <div class="phone-statusbar">
+                            <span class="phone-statusbar-time">9:41</span>
+                            <div class="phone-statusbar-icons">
+                                <i class="fa-solid fa-signal"></i>
+                                <i class="fa-solid fa-wifi"></i>
+                                <i class="fa-solid fa-battery-full"></i>
+                            </div>
+                        </div>
+                        <!-- App Content -->
+                        <div class="phone-app-content">
+                            <div class="phone-header">
+                                <div class="phone-title">Mi Casa</div>
+                                <div class="phone-status">
+                                    <span class="phone-status-label">Estado Actual</span>
+                                    <div class="phone-status-value">
+                                        <span class="phone-status-dot"></span>
+                                        <span class="phone-status-text">Cerrado</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="phone-camera">
+                                <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&w=400" alt="Camera Feed">
+                                <span class="phone-camera-live">LIVE</span>
+                                <div class="phone-camera-play"><i class="fa-solid fa-play"></i></div>
+                            </div>
+                            <div class="phone-actions">
+                                <div class="phone-action-btn">
+                                    <i class="fa-solid fa-lock-open"></i>
+                                    <span>Abrir</span>
+                                </div>
+                                <div class="phone-action-btn">
+                                    <i class="fa-solid fa-key"></i>
+                                    <span>eKey</span>
+                                </div>
+                            </div>
+                            <div class="phone-notification">
+                                <div class="phone-notification-icon"><i class="fa-solid fa-bell"></i></div>
+                                <div class="phone-notification-text">
+                                    <strong>Movimiento Detectado</strong>
+                                    <span>Puerta Principal • Hace 2 min</span>
+                                </div>
+                            </div>
+                            <div class="phone-home-indicator"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="app-content reveal">
+                <h2>Tu hogar en la palma de tu mano</h2>
+                <p>La aplicación ZAFESYS es el centro de comando de tu seguridad. Recibe notificaciones instantáneas, visualiza quién está en tu puerta en tiempo real y gestiona accesos desde cualquier lugar del mundo.</p>
+                <div class="app-features">
+                    <div class="app-feature">
+                        <div class="app-feature-icon"><i class="fa-solid fa-share-nodes"></i></div>
+                        <div class="app-feature-text">
+                            <h4>Llaves Temporales</h4>
+                            <p>Envía códigos de acceso que expiran automáticamente para invitados o servicios.</p>
+                        </div>
+                    </div>
+                    <div class="app-feature">
+                        <div class="app-feature-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                        <div class="app-feature-text">
+                            <h4>Registro de Actividad</h4>
+                            <p>Historial detallado de quién entró y salió, con fecha, hora y método de acceso.</p>
+                        </div>
+                    </div>
+                    <div class="app-feature">
+                        <div class="app-feature-icon"><i class="fa-solid fa-bell"></i></div>
+                        <div class="app-feature-text">
+                            <h4>Alertas Inteligentes</h4>
+                            <p>Detección de intentos forzados o puerta mal cerrada con notificación inmediata.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-buttons">
+                    <a href="#" class="store-btn"><i class="fa-brands fa-apple"></i> App Store</a>
+                    <a href="#" class="store-btn dark"><i class="fa-brands fa-google-play"></i> Google Play</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="products-section" id="productos">
+        <div class="section-header">
+            <div class="section-badge"><span>Catálogo 2026</span></div>
+            <h2 class="section-title">Nuestros Modelos</h2>
+            <p class="section-subtitle">Encuentra la cerradura perfecta para tu hogar o negocio</p>
+        </div>
+        <div class="products-grid">
+            <article class="product-card reveal">
+                <div class="product-image">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/New%20magic%20design%20(2)%20(1).png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvTmV3IG1hZ2ljIGRlc2lnbiAoMikgKDEpLnBuZyIsImlhdCI6MTc2Nzk5Mjc4NSwiZXhwIjoxNzk5NTI4Nzg1fQ.rKvAa611uIw5ZnrwxV8MfAHnkQ4Om4YRT3bsB2bhuXU" alt="Zafe Rim Pro">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-name">Zafe Rim Pro</h3>
+                    <p class="product-type">Cerradura de Sobreponer</p>
+                    <div class="product-features">
+                        <div class="product-feature-icon cyan"><i class="fa-solid fa-fingerprint"></i></div>
+                        <div class="product-feature-icon blue"><i class="fa-brands fa-bluetooth-b"></i></div>
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price">$ 420.000 <span>COP</span></div>
+                        <button class="product-cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                    </div>
+                </div>
+            </article>
+            <article class="product-card reveal">
+                <div class="product-image">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/chapita%202.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2hhcGl0YSAyLnBuZyIsImlhdCI6MTc2Nzk5MzUyNCwiZXhwIjoxNzk5NTI5NTI0fQ.gLHaMtzaUWaXpdMEks_Idg_muECPcPIpw_aIA6-q3ws" alt="Zafe Handle">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-name">Zafe Handle</h3>
+                    <p class="product-type">Manija Inteligente Minimalista</p>
+                    <div class="product-features">
+                        <div class="product-feature-icon cyan"><i class="fa-solid fa-fingerprint"></i></div>
+                        <div class="product-feature-icon blue"><i class="fa-brands fa-bluetooth-b"></i></div>
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price">$ 680.000 <span>COP</span></div>
+                        <button class="product-cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                    </div>
+                </div>
+            </article>
+            <article class="product-card reveal">
+                <div class="product-image">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/chapita%203.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2hhcGl0YSAzLnBuZyIsImlhdCI6MTc2Nzk5MzU1NiwiZXhwIjoxNzk5NTI5NTU2fQ.8OTbTfL9XNbL26F9madSgNa5MClP-Edt16C8J7C79x0" alt="Zafe Deadbolt">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-name">Zafe Deadbolt</h3>
+                    <p class="product-type">Cerrojo de Alta Seguridad</p>
+                    <div class="product-features">
+                        <div class="product-feature-icon cyan"><i class="fa-solid fa-lock"></i></div>
+                        <div class="product-feature-icon blue"><i class="fa-solid fa-wifi"></i></div>
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price">$ 490.000 <span>COP</span></div>
+                        <button class="product-cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                    </div>
+                </div>
+            </article>
+            <!-- Premium Product -->
+            <article class="product-card premium reveal">
+                <div class="product-badge">PREMIUM</div>
+                <div class="product-image">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/chapita%204.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2hhcGl0YSA0LnBuZyIsImlhdCI6MTc2Nzk5MzU3MSwiZXhwIjoxNzk5NTI5NTcxfQ.MMFhvXCSP_YA6xJZ5ErXDktIQtg-rh4rcqarWYkZSh8" alt="Zafe Elite Max">
+                </div>
+                <div class="product-content">
+                    <div class="product-tag">PREMIUM</div>
+                    <h3 class="product-name">Zafe Elite Max</h3>
+                    <div class="product-features-list">
+                        <div class="product-feature-item"><i class="fa-solid fa-check"></i> Facial + Huella</div>
+                        <div class="product-feature-item"><i class="fa-solid fa-check"></i> Pantalla AMOLED</div>
+                        <div class="product-feature-item"><i class="fa-solid fa-check"></i> Todo integrado</div>
+                    </div>
+                    <div class="product-footer">
+                        <div class="product-price">$3.499.000</div>
+                        <button class="btn-premium">Ver más</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials-section" id="testimonios">
+        <div class="testimonials-content">
+            <div class="testimonials-header">
+                <h2>Lo que dicen nuestros clientes</h2>
+            </div>
+            <div class="trustpilot-badge">
+                <div class="trustpilot-logo">
+                    <i class="fa-solid fa-star"></i> Trustpilot
+                </div>
+                <div class="trustpilot-stars">
+                    <div class="trustpilot-star"><i class="fa-solid fa-star"></i></div>
+                    <div class="trustpilot-star"><i class="fa-solid fa-star"></i></div>
+                    <div class="trustpilot-star"><i class="fa-solid fa-star"></i></div>
+                    <div class="trustpilot-star"><i class="fa-solid fa-star"></i></div>
+                    <div class="trustpilot-star"><i class="fa-solid fa-star"></i></div>
+                </div>
+                <div class="trustpilot-rating"><strong>4.9</strong> basado en 847 reseñas</div>
+            </div>
+            <div class="testimonials-grid">
+                <article class="testimonial-card reveal">
+                    <div class="testimonial-quote">"</div>
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Carlos" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Carlos Rodríguez</h4>
+                            <span>Arquitecto</span>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Instalé la Zafe Os800 en mi oficina y la experiencia ha sido increíble. El reconocimiento facial es instantáneo y el diseño encaja perfecto con nuestra estética moderna."</p>
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </article>
+                <article class="testimonial-card reveal">
+                    <div class="testimonial-quote">"</div>
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Ana" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Ana María Vélez</h4>
+                            <span>Propietaria Airbnb</span>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Gestionar mis propiedades de Airbnb nunca fue tan fácil. Genero códigos temporales desde mi casa y me olvido de entregar llaves físicas. Servicio 10/10."</p>
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </article>
+                <article class="testimonial-card reveal">
+                    <div class="testimonial-quote">"</div>
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Felipe" class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <h4>Felipe Torres</h4>
+                            <span>Ingeniero de Sistemas</span>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"La integración con Alexa y Google Home funciona de maravilla. La calidad de construcción de la Zafe Deadbolt se siente muy robusta y segura."</p>
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUSTED BY / AVATARS -->
+    <section class="trusted-section">
+        <p class="trusted-title">Más de 5,000 hogares confían en nosotros</p>
+        <div class="avatars-row">
+            <div class="avatar-item">
+                <div class="avatar-tooltip">
+                    <div class="avatar-tooltip-name">Carlos Mendoza</div>
+                    <div class="avatar-tooltip-role">Arquitecto</div>
+                    <div class="avatar-tooltip-glow"></div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=150&h=150&fit=crop" alt="Carlos" class="avatar-img">
+            </div>
+            <div class="avatar-item">
+                <div class="avatar-tooltip">
+                    <div class="avatar-tooltip-name">María González</div>
+                    <div class="avatar-tooltip-role">Empresaria</div>
+                    <div class="avatar-tooltip-glow"></div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop" alt="María" class="avatar-img">
+            </div>
+            <div class="avatar-item">
+                <div class="avatar-tooltip">
+                    <div class="avatar-tooltip-name">Andrés Rodríguez</div>
+                    <div class="avatar-tooltip-role">Ingeniero</div>
+                    <div class="avatar-tooltip-glow"></div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop" alt="Andrés" class="avatar-img">
+            </div>
+            <div class="avatar-item">
+                <div class="avatar-tooltip">
+                    <div class="avatar-tooltip-name">Laura Martínez</div>
+                    <div class="avatar-tooltip-role">Diseñadora UX</div>
+                    <div class="avatar-tooltip-glow"></div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop" alt="Laura" class="avatar-img">
+            </div>
+            <div class="avatar-item">
+                <div class="avatar-tooltip">
+                    <div class="avatar-tooltip-name">Felipe Torres</div>
+                    <div class="avatar-tooltip-role">CEO TechCorp</div>
+                    <div class="avatar-tooltip-glow"></div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop" alt="Felipe" class="avatar-img">
+            </div>
+            <div class="avatar-item">
+                <div class="avatar-tooltip">
+                    <div class="avatar-tooltip-name">Sofía Herrera</div>
+                    <div class="avatar-tooltip-role">Propietaria Airbnb</div>
+                    <div class="avatar-tooltip-glow"></div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop" alt="Sofía" class="avatar-img">
+            </div>
+        </div>
+        <div class="trusted-stats">
+            <div class="trusted-stat">
+                <div class="trusted-stat-number">5,000+</div>
+                <div class="trusted-stat-label">Hogares Protegidos</div>
+            </div>
+            <div class="trusted-stat">
+                <div class="trusted-stat-number">98%</div>
+                <div class="trusted-stat-label">Clientes Satisfechos</div>
+            </div>
+            <div class="trusted-stat">
+                <div class="trusted-stat-number">24/7</div>
+                <div class="trusted-stat-label">Soporte Técnico</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION -->
+    <!-- SERVICES / INSTALLATION -->
+    <section class="services-section" id="servicios">
+        <div class="services-header">
+            <h2>Instalación & <span class="text-gradient">Reparaciones</span></h2>
+        </div>
+        <div class="services-grid">
+            <article class="service-card reveal">
+                <div class="service-image">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/instalacion.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvaW5zdGFsYWNpb24ucG5nIiwiaWF0IjoxNzY3OTk1MTYwLCJleHAiOjE3OTk1MzExNjB9.ncx32q4H1p2MGMKJx6RGsJG57iq1WRyAiyq3UMuAIgM" alt="Instalación">
+                </div>
+                <div class="service-content">
+                    <div class="service-icon cyan"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                    <h3 class="service-title">Instalación Profesional</h3>
+                    <p class="service-desc">Nuestros técnicos certificados realizan la instalación completa y capacitación.</p>
+                    <div class="service-list">
+                        <div class="service-list-item"><i class="fa-solid fa-check"></i> Visita técnica previa</div>
+                        <div class="service-list-item"><i class="fa-solid fa-check"></i> Instalación en 2 horas</div>
+                    </div>
+                </div>
+            </article>
+            <article class="service-card reveal">
+                <div class="service-image">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/mantenimiento.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvbWFudGVuaW1pZW50by5wbmciLCJpYXQiOjE3Njc5OTUzMDYsImV4cCI6MTc5OTUzMTMwNn0.e-HhXwkKh-N-To3l_old9iacWqcHS9NKsf2eqRjeWS4" alt="Mantenimiento">
+                </div>
+                <div class="service-content">
+                    <div class="service-icon blue"><i class="fa-solid fa-gear"></i></div>
+                    <h3 class="service-title">Mantenimiento Preventivo</h3>
+                    <p class="service-desc">Programa anual para garantizar el funcionamiento óptimo de tus dispositivos.</p>
+                    <div class="service-list">
+                        <div class="service-list-item"><i class="fa-solid fa-check"></i> Revisión semestral</div>
+                        <div class="service-list-item"><i class="fa-solid fa-check"></i> Actualización firmware</div>
+                    </div>
+                </div>
+            </article>
+            <article class="service-card reveal">
+                <div class="service-image">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Gemini_Generated_Image_apdgj7apdgj7apdg.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvR2VtaW5pX0dlbmVyYXRlZF9JbWFnZV9hcGRnajdhcGRnajdhcGRnLnBuZyIsImlhdCI6MTc2Nzk5NTQzOCwiZXhwIjoxNzk5NTMxNDM4fQ.q2jwagGDicpek2TuVJzAEiRWC700Sq7eKG_uATcFASE" alt="Soporte">
+                </div>
+                <div class="service-content">
+                    <div class="service-icon purple"><i class="fa-solid fa-headset"></i></div>
+                    <h3 class="service-title">Soporte Técnico 24/7</h3>
+                    <p class="service-desc">Nuestro equipo está disponible en todo momento para resolver incidencias.</p>
+                    <div class="service-list">
+                        <div class="service-list-item"><i class="fa-solid fa-check"></i> Asistencia remota</div>
+                        <div class="service-list-item"><i class="fa-solid fa-check"></i> Garantía extendida</div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="location-section" id="ubicacion">
+        <div class="location-header">
+            <h2>Nuestra <span class="text-gradient">Ubicación</span></h2>
+            <p>Visítanos en Medellín, cerca del Estadio Atanasio Girardot.</p>
+        </div>
+        <div class="location-grid">
+            <div class="location-map reveal">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.1234567890123!2d-75.5902!3d6.2476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4428dfb80fad05%3A0x42137cfcc7b53b56!2sEstadio%20Atanasio%20Girardot!5e0!3m2!1ses!2sco!4v1704800000000!5m2!1ses!2sco" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="location-info reveal">
+                <h3>Showroom ZAFESYS</h3>
+                <div class="location-item">
+                    <div class="location-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="location-text">
+                        <h4>Dirección</h4>
+                        <p>Cra 70 # 48-50, Sector Estadio<br>Medellín, Antioquia</p>
+                    </div>
+                </div>
+                <div class="location-item">
+                    <div class="location-icon"><i class="fa-solid fa-clock"></i></div>
+                    <div class="location-text">
+                        <h4>Horario</h4>
+                        <p>Lun-Vie: 9AM-6PM | Sáb: 10AM-2PM</p>
+                    </div>
+                </div>
+                <div class="location-item">
+                    <div class="location-icon"><i class="fa-solid fa-phone"></i></div>
+                    <div class="location-text">
+                        <h4>Teléfono</h4>
+                        <p>+57 (604) 555-0123</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG -->
+    <section class="blog-section" id="blog">
+        <div class="blog-header">
+            <h2>Últimos <span class="text-gradient">Artículos</span></h2>
+        </div>
+        <div class="blog-grid">
+            <article class="blog-card reveal">
+                <div class="blog-image">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/articulo%201.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvYXJ0aWN1bG8gMS5qcGciLCJpYXQiOjE3Njc5OTQxNTMsImV4cCI6MTc5OTUzMDE1M30.gecpwdiiDVxde7bc8BQByw3zFduvMy0cSHVXFid-MEE" alt="Biometría">
+                    <span class="blog-date">8 Ene 2026</span>
+                </div>
+                <div class="blog-content">
+                    <h3 class="blog-title">Beneficios de la Biometría en tu Hogar 2026</h3>
+                    <p class="blog-excerpt">Descubre cómo la tecnología biométrica está revolucionando la seguridad residencial...</p>
+                    <a href="#" class="blog-link">Leer más <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </article>
+            <article class="blog-card reveal">
+                <div class="blog-image">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Articulo%202.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvQXJ0aWN1bG8gMi5qcGciLCJpYXQiOjE3Njc5OTQxOTAsImV4cCI6MTc5OTUzMDE5MH0.C9ZRXXUUpwXi2U4TGJI2yQ3IhuSAdaVlHrw8mn90qHw" alt="Smart Home">
+                    <span class="blog-date">5 Ene 2026</span>
+                </div>
+                <div class="blog-content">
+                    <h3 class="blog-title">Hogar Inteligente: Guía Completa</h3>
+                    <p class="blog-excerpt">Todo lo que necesitas saber para convertir tu casa en un ecosistema conectado...</p>
+                    <a href="#" class="blog-link">Leer más <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </article>
+            <article class="blog-card reveal">
+                <div class="blog-image">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Articulo%203.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvQXJ0aWN1bG8gMy5wbmciLCJpYXQiOjE3Njc5OTQyMDAsImV4cCI6MTc5OTUzMDIwMH0.LhOOBz4X-sZ_EVTI6ictgVPXlYneXawHcgRfcpL_JsA" alt="Cerradura">
+                    <span class="blog-date">2 Ene 2026</span>
+                </div>
+                <div class="blog-content">
+                    <h3 class="blog-title">¿Cómo elegir la Cerradura Ideal?</h3>
+                    <p class="blog-excerpt">Factores clave para seleccionar el sistema de seguridad perfecto para tu puerta...</p>
+                    <a href="#" class="blog-link">Leer más <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="contacto">
+        <div class="cta-glow"></div>
+        <div class="cta-content">
+            <h2>Protege lo que <span class="text-gradient">más importa</span></h2>
+            <p>Únete a miles de hogares colombianos que ya confían en ZAFESYS. Envío gratis y garantía de 2 años.</p>
+            <div class="cta-buttons">
+                <a href="#productos" class="btn-primary">Ver Catálogo <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="https://wa.me/573001234567" target="_blank" class="btn-secondary"><i class="fa-brands fa-whatsapp" style="color:#25D366"></i> Hablar con Ventas</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo">
+                    <div class="logo-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <span class="logo-text">ZAFESYS</span>
+                </div>
+                <p>Transformamos la seguridad de tu hogar con tecnología de punta. Cerraduras inteligentes diseñadas para Colombia.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Productos</h4>
+                <ul>
+                    <li><a href="#">Zafe Rim Pro</a></li>
+                    <li><a href="#">Zafe Handle</a></li>
+                    <li><a href="#">Zafe Deadbolt</a></li>
+                    <li><a href="#" style="color:#f59e0b;">Zafe Elite Max ✨</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Compañía</h4>
+                <ul>
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Distribuidores</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Soporte</h4>
+                <ul>
+                    <li><a href="#">Centro de Ayuda</a></li>
+                    <li><a href="#">Instalación</a></li>
+                    <li><a href="#">Garantía</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 ZAFESYS Colombia. Todos los derechos reservados.</p>
+            <div style="display:flex;gap:20px;">
+                <a href="#" style="color:#6b7280;font-size:13px;">Privacidad</a>
+                <a href="#" style="color:#6b7280;font-size:13px;">Términos</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP -->
+    <div class="whatsapp-btn">
+        <a href="https://wa.me/573001234567" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+
+    <script>
+        // Parallax Effect - WEBP scales on scroll
+        const heroWebp = document.getElementById('hero-webp');
+        
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            // WEBP scales up slightly on scroll
+            heroWebp.style.transform = 'scale(' + (1 + scrollY / 1500) + ')';
+        });
+
+        // Navbar scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Reveal on scroll
+        const reveals = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            reveals.forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+                    el.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // Video slider - play on hover
+        const sliderItems = document.querySelectorAll('.slider-item');
+        sliderItems.forEach(item => {
+            const video = item.querySelector('video');
+            if (video) {
+                item.addEventListener('mouseenter', () => {
+                    video.play();
+                    item.classList.add('playing');
+                });
+                item.addEventListener('mouseleave', () => {
+                    video.pause();
+                    item.classList.remove('playing');
+                });
+                // Click to toggle play/pause
+                item.addEventListener('click', () => {
+                    if (video.paused) {
+                        video.play();
+                        item.classList.add('playing');
+                    } else {
+                        video.pause();
+                        item.classList.remove('playing');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

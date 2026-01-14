@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "ZAFESYS",
+  "alternateName": "ZAFESYS Colombia",
+  "url": "https://zafesys.com",
+  "logo": "https://zafesys.com/logo.png",
+  "description": "Cerraduras inteligentes con reconocimiento facial 3D, huella dactilar, WiFi y app. Envío gratis a toda Colombia.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "CO",
+    "addressRegion": "Colombia"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+57-300-123-4567",
+    "contactType": "sales",
+    "availableLanguage": "Spanish"
+  },
+  "sameAs": [
+    "https://www.instagram.com/zafesys",
+    "https://www.facebook.com/zafesys",
+    "https://wa.me/573001234567"
+  ]
+}
