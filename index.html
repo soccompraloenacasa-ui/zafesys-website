@@ -1,30 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZAFESYS - Cerraduras Inteligentes | Seguridad que te Reconoce</title>
-    <meta name="description" content="ZAFESYS - Cerraduras Inteligentes con reconocimiento facial y dactilar. Seguridad avanzada para tu hogar o negocio en Colombia.">
-    <meta name="keywords" content="cerradura inteligente, seguridad, reconocimiento facial, huella dactilar, locksmith, security system, zafesys, colombia">
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="description"
+        content="ZAFESYS - Cerraduras Inteligentes con reconocimiento facial y dactilar. Seguridad avanzada para tu hogar o negocio en Colombia.">
+    <meta name="keywords"
+        content="cerradura inteligente, seguridad, reconocimiento facial, huella dactilar, locksmith, security system, zafesys, colombia">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Sora', sans-serif; scroll-behavior: smooth; }
-        body { background: #050508; color: #fff; overflow-x: hidden; }
-        a { text-decoration: none; color: inherit; }
-        img { max-width: 100%; }
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Sora', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #050508;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
         .text-gradient {
             background: linear-gradient(135deg, #00d4ff 0%, #22d3ee 50%, #06b6d4 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
+
         .glass {
-            background: rgba(255,255,255,0.03);
+            background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.08);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         /* NAVBAR */
@@ -37,11 +59,13 @@
             padding: 1rem 2rem;
             transition: all 0.3s ease;
         }
+
         .navbar.scrolled {
-            background: rgba(10,10,15,0.95);
+            background: rgba(10, 10, 15, 0.95);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
+
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
@@ -49,11 +73,13 @@
             align-items: center;
             justify-content: space-between;
         }
+
         .logo {
             display: flex;
             align-items: center;
             gap: 12px;
         }
+
         .logo-icon {
             width: 44px;
             height: 44px;
@@ -63,11 +89,32 @@
             align-items: center;
             justify-content: center;
         }
-        .logo-icon i { color: #fff; font-size: 18px; }
-        .logo-text { font-size: 22px; font-weight: 700; }
-        .nav-links { display: flex; gap: 32px; }
-        .nav-links a { font-size: 14px; color: #9ca3af; transition: color 0.3s; }
-        .nav-links a:hover { color: #fff; }
+
+        .logo-icon i {
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: #9ca3af;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
         .nav-cta {
             padding: 12px 24px;
             background: #fff;
@@ -77,8 +124,18 @@
             border-radius: 12px;
             transition: all 0.3s;
         }
-        .nav-cta:hover { background: #22d3ee; }
-        @media (max-width: 968px) { .nav-links, .nav-cta { display: none; } }
+
+        .nav-cta:hover {
+            background: #22d3ee;
+        }
+
+        @media (max-width: 968px) {
+
+            .nav-links,
+            .nav-cta {
+                display: none;
+            }
+        }
 
         /* HERO */
         .hero {
@@ -89,23 +146,27 @@
             overflow: hidden;
             padding: 120px 40px 80px;
         }
+
         .hero-bg {
             position: absolute;
             inset: 0;
             z-index: 0;
         }
+
         .hero-bg img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.1s ease-out;
         }
+
         .hero-bg::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom, rgba(10,10,15,0.6), rgba(10,10,15,0.3), rgba(10,10,15,0.9));
+            background: linear-gradient(to bottom, rgba(10, 10, 15, 0.6), rgba(10, 10, 15, 0.3), rgba(10, 10, 15, 0.9));
         }
+
         .hero-png {
             position: absolute;
             inset: 0;
@@ -116,6 +177,7 @@
             transition: opacity 0.3s ease-out;
             pointer-events: none;
         }
+
         .hero-png img {
             max-width: 55%;
             max-height: 85%;
@@ -123,10 +185,19 @@
             filter: drop-shadow(0 0 80px rgba(0, 212, 255, 0.4));
             animation: float 6s ease-in-out infinite;
         }
+
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
         }
+
         .hero-container {
             max-width: 1400px;
             margin: 0 auto;
@@ -138,12 +209,26 @@
             position: relative;
             z-index: 15;
         }
+
         @media (max-width: 968px) {
-            .hero { padding: 100px 20px 60px; }
-            .hero-container { grid-template-columns: 1fr; text-align: center; }
-            .hero-buttons { justify-content: center; }
-            .hero-features { justify-content: center; }
+            .hero {
+                padding: 100px 20px 60px;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-features {
+                justify-content: center;
+            }
         }
+
         .hero-badge {
             display: inline-flex;
             align-items: center;
@@ -154,6 +239,7 @@
             border-radius: 9999px;
             margin-bottom: 24px;
         }
+
         .hero-badge-dot {
             width: 8px;
             height: 8px;
@@ -161,6 +247,7 @@
             border-radius: 50%;
             animation: pulse 2s ease-in-out infinite;
         }
+
         .hero-badge span {
             font-size: 12px;
             font-weight: 600;
@@ -168,12 +255,14 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
+
         .hero-title {
             font-size: clamp(40px, 6vw, 64px);
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 24px;
         }
+
         .hero-desc {
             font-size: 18px;
             color: #9ca3af;
@@ -181,12 +270,14 @@
             margin-bottom: 32px;
             max-width: 500px;
         }
+
         .hero-buttons {
             display: flex;
             gap: 16px;
             margin-bottom: 40px;
             flex-wrap: wrap;
         }
+
         .btn-primary {
             padding: 16px 32px;
             background: #22d3ee;
@@ -201,11 +292,16 @@
             gap: 8px;
             transition: all 0.3s;
         }
-        .btn-primary:hover { background: #06b6d4; transform: translateY(-2px); }
+
+        .btn-primary:hover {
+            background: #06b6d4;
+            transform: translateY(-2px);
+        }
+
         .btn-secondary {
             padding: 16px 32px;
             background: transparent;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             color: #fff;
             font-weight: 600;
             font-size: 15px;
@@ -216,8 +312,15 @@
             gap: 10px;
             transition: all 0.3s;
         }
-        .btn-secondary:hover { background: rgba(255,255,255,0.05); }
-        .btn-secondary i { color: #fff; }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .btn-secondary i {
+            color: #fff;
+        }
+
         .hero-feature-chip {
             position: absolute;
             top: 110px;
@@ -226,14 +329,18 @@
             align-items: center;
             gap: 10px;
             padding: 12px 20px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             z-index: 10;
         }
+
         @media (max-width: 1200px) {
-            .hero-feature-chip { display: none; }
+            .hero-feature-chip {
+                display: none;
+            }
         }
+
         .hero-feature-chip-icon {
             width: 36px;
             height: 36px;
@@ -244,21 +351,25 @@
             justify-content: center;
             color: #60a5fa;
         }
+
         .hero-feature-chip span {
             font-size: 13px;
             color: #d1d5db;
         }
+
         .hero-feature-chip strong {
             display: block;
             font-size: 14px;
             color: #fff;
         }
+
         .hero-features {
             display: flex;
             gap: 24px;
             flex-wrap: wrap;
             margin-top: 20px;
         }
+
         .hero-feature-item {
             display: flex;
             align-items: center;
@@ -266,7 +377,10 @@
             font-size: 13px;
             color: #9ca3af;
         }
-        .hero-feature-item i { color: #22d3ee; }
+
+        .hero-feature-item i {
+            color: #22d3ee;
+        }
 
         /* Hero Right - Keypad UI */
         .hero-right {
@@ -276,9 +390,14 @@
             gap: 20px;
             position: relative;
         }
+
         @media (max-width: 968px) {
-            .hero-right { align-items: center; margin-top: 40px; }
+            .hero-right {
+                align-items: center;
+                margin-top: 40px;
+            }
         }
+
         .status-badge {
             position: absolute;
             top: 30px;
@@ -292,21 +411,39 @@
             border-radius: 12px;
             z-index: 10;
         }
+
         @media (max-width: 1200px) {
-            .status-badge { display: none; }
+            .status-badge {
+                display: none;
+            }
         }
-        .status-badge i { color: #22c55e; font-size: 18px; }
-        .status-badge span { font-size: 12px; color: #9ca3af; }
-        .status-badge strong { font-size: 14px; color: #22c55e; display: block; }
+
+        .status-badge i {
+            color: #22c55e;
+            font-size: 18px;
+        }
+
+        .status-badge span {
+            font-size: 12px;
+            color: #9ca3af;
+        }
+
+        .status-badge strong {
+            font-size: 14px;
+            color: #22c55e;
+            display: block;
+        }
+
         .keypad-ui {
-            background: rgba(255,255,255,0.03);
+            background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(30px);
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 24px;
             padding: 32px;
             width: 280px;
             position: relative;
         }
+
         .keypad-camera {
             width: 56px;
             height: 56px;
@@ -319,17 +456,19 @@
             color: #22d3ee;
             font-size: 20px;
         }
+
         .keypad-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 12px;
             margin-bottom: 20px;
         }
+
         .keypad-btn {
             width: 60px;
             height: 60px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 16px;
             display: flex;
             align-items: center;
@@ -340,29 +479,33 @@
             cursor: pointer;
             transition: all 0.2s;
         }
+
         .keypad-btn:hover {
             background: rgba(34, 211, 238, 0.1);
             border-color: rgba(34, 211, 238, 0.3);
         }
+
         .keypad-status {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             padding: 14px;
-            background: rgba(255,255,255,0.03);
+            background: rgba(255, 255, 255, 0.03);
             border-radius: 12px;
             font-size: 13px;
             font-weight: 600;
             color: #9ca3af;
             letter-spacing: 0.1em;
         }
+
         .keypad-status-dot {
             width: 8px;
             height: 8px;
             background: #22c55e;
             border-radius: 50%;
         }
+
         .scroll-indicator {
             position: absolute;
             bottom: 40px;
@@ -372,6 +515,7 @@
             color: #6b7280;
             animation: bounce 2s ease-in-out infinite;
         }
+
         .scroll-indicator span {
             display: block;
             font-size: 11px;
@@ -386,24 +530,33 @@
             max-width: 1400px;
             margin: 0 auto;
         }
-        @media (max-width: 768px) { .features-section { padding: 60px 20px; } }
+
+        @media (max-width: 768px) {
+            .features-section {
+                padding: 60px 20px;
+            }
+        }
+
         .features-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-rows: auto auto;
             gap: 24px;
         }
+
         @media (max-width: 968px) {
-            .features-grid { 
-                grid-template-columns: 1fr; 
+            .features-grid {
+                grid-template-columns: 1fr;
             }
+
             .feature-card {
                 grid-column: auto !important;
             }
         }
+
         .feature-card {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.06);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 24px;
             padding: 32px;
             position: relative;
@@ -413,22 +566,27 @@
             display: flex;
             flex-direction: column;
         }
+
         .feature-card:hover {
             border-color: rgba(34, 211, 238, 0.2);
             transform: translateY(-4px);
         }
+
         /* Card 1 - GRANDE arriba izquierda (2 columnas) */
         .feature-card:nth-child(1) {
             grid-column: 1 / 3;
         }
+
         /* Card 2 - pequeña arriba derecha (1 columna) */
         .feature-card:nth-child(2) {
             grid-column: 3;
         }
+
         /* Card 3 - pequeña abajo izquierda (1 columna) */
         .feature-card:nth-child(3) {
             grid-column: 1;
         }
+
         /* Card 4 - GRANDE abajo derecha (2 columnas) */
         .feature-card:nth-child(4) {
             grid-column: 2 / 4;
@@ -436,28 +594,38 @@
 
         /* IMAGE AUTO SLIDER */
         @keyframes scrollSlider {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
         }
+
         .slider-section {
             padding: 60px 0;
             background: #050508;
             overflow: hidden;
         }
+
         .slider-container {
             width: 100%;
             mask: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
             -webkit-mask: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
         }
+
         .slider-track {
             display: flex;
             gap: 24px;
             width: max-content;
             animation: scrollSlider 40s linear infinite;
         }
+
         .slider-track:hover {
             animation-play-state: paused;
         }
+
         .slider-item {
             flex-shrink: 0;
             width: 200px;
@@ -467,15 +635,18 @@
             position: relative;
             transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
+
         .slider-item:hover {
             transform: scale(1.05);
             box-shadow: 0 20px 60px rgba(34, 211, 238, 0.2);
         }
+
         .slider-item video {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+
         .video-play-btn {
             position: absolute;
             top: 50%;
@@ -483,7 +654,7 @@
             transform: translate(-50%, -50%);
             width: 50px;
             height: 50px;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
             border-radius: 50%;
             display: flex;
@@ -494,35 +665,42 @@
             transition: all 0.3s ease;
             pointer-events: none;
         }
+
         .slider-item:hover .video-play-btn {
             opacity: 0;
         }
+
         .slider-item.playing .video-play-btn {
             opacity: 0;
         }
+
         @media (max-width: 768px) {
             .slider-item {
                 width: 160px;
                 height: 284px;
             }
         }
+
         .feature-card-bg {
             position: absolute;
             inset: 0;
             z-index: 0;
         }
+
         .feature-card-bg img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             opacity: 0.3;
         }
+
         .feature-card-bg::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(10,10,15,1) 20%, rgba(10,10,15,0.5) 100%);
+            background: linear-gradient(to top, rgba(10, 10, 15, 1) 20%, rgba(10, 10, 15, 0.5) 100%);
         }
+
         .feature-card-content {
             position: relative;
             z-index: 10;
@@ -531,6 +709,7 @@
             flex-direction: column;
             justify-content: flex-end;
         }
+
         .feature-icon {
             width: 56px;
             height: 56px;
@@ -541,20 +720,39 @@
             font-size: 22px;
             margin-bottom: 20px;
         }
-        .feature-icon.blue { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
-        .feature-icon.cyan { background: rgba(34, 211, 238, 0.2); color: #22d3ee; }
-        .feature-icon.purple { background: rgba(168, 85, 247, 0.2); color: #a855f7; }
-        .feature-icon.green { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
+
+        .feature-icon.blue {
+            background: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+        }
+
+        .feature-icon.cyan {
+            background: rgba(34, 211, 238, 0.2);
+            color: #22d3ee;
+        }
+
+        .feature-icon.purple {
+            background: rgba(168, 85, 247, 0.2);
+            color: #a855f7;
+        }
+
+        .feature-icon.green {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+        }
+
         .feature-title {
             font-size: 22px;
             font-weight: 700;
             margin-bottom: 12px;
         }
+
         .feature-desc {
             font-size: 15px;
             color: #9ca3af;
             line-height: 1.6;
         }
+
         /* Battery visual */
         .battery-visual {
             display: flex;
@@ -562,14 +760,16 @@
             gap: 16px;
             margin-top: 24px;
         }
+
         .battery-bar {
             flex: 1;
             height: 40px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 8px;
             overflow: hidden;
             position: relative;
         }
+
         .battery-fill {
             height: 100%;
             width: 92%;
@@ -582,6 +782,7 @@
             font-weight: 600;
             color: #000;
         }
+
         .battery-icon {
             width: 48px;
             height: 48px;
@@ -593,6 +794,7 @@
             color: #facc15;
             font-size: 20px;
         }
+
         /* Progress circle */
         .progress-circle {
             width: 100px;
@@ -601,15 +803,26 @@
             top: 32px;
             right: 32px;
         }
+
         .progress-circle svg {
             transform: rotate(-90deg);
         }
+
         .progress-circle circle {
             fill: none;
             stroke-width: 8;
         }
-        .progress-circle .bg { stroke: rgba(255,255,255,0.1); }
-        .progress-circle .progress { stroke: #22d3ee; stroke-linecap: round; stroke-dasharray: 251; stroke-dashoffset: 25; }
+
+        .progress-circle .bg {
+            stroke: rgba(255, 255, 255, 0.1);
+        }
+
+        .progress-circle .progress {
+            stroke: #22d3ee;
+            stroke-linecap: round;
+            stroke-dasharray: 251;
+            stroke-dashoffset: 25;
+        }
 
         /* APP SECTION */
         .app-section {
@@ -617,33 +830,45 @@
             max-width: 1400px;
             margin: 0 auto;
         }
-        @media (max-width: 768px) { .app-section { padding: 60px 20px; } }
+
+        @media (max-width: 768px) {
+            .app-section {
+                padding: 60px 20px;
+            }
+        }
+
         .app-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 80px;
             align-items: center;
         }
+
         @media (max-width: 968px) {
-            .app-grid { grid-template-columns: 1fr; gap: 40px; }
+            .app-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
         }
-        
+
         /* iPhone Premium Mockup */
         .phone-mockup {
             position: relative;
             max-width: 340px;
             margin: 0 auto;
         }
+
         .phone-frame {
             background: linear-gradient(145deg, #2a2a35, #1a1a22);
             border-radius: 55px;
             padding: 12px;
             position: relative;
-            box-shadow: 
-                0 50px 100px rgba(0,0,0,0.6),
-                0 0 0 1px rgba(255,255,255,0.1),
-                inset 0 1px 1px rgba(255,255,255,0.1);
+            box-shadow:
+                0 50px 100px rgba(0, 0, 0, 0.6),
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                inset 0 1px 1px rgba(255, 255, 255, 0.1);
         }
+
         /* Botones laterales iPhone */
         .phone-frame::before {
             content: '';
@@ -655,6 +880,7 @@
             background: linear-gradient(180deg, #3a3a45, #2a2a35);
             border-radius: 0 3px 3px 0;
         }
+
         .phone-frame::after {
             content: '';
             position: absolute;
@@ -666,12 +892,14 @@
             border-radius: 3px 0 0 3px;
             box-shadow: 0 50px 0 #2a2a35;
         }
+
         .phone-screen {
             background: linear-gradient(180deg, #0d1117 0%, #0a0e14 100%);
             border-radius: 45px;
             overflow: hidden;
             position: relative;
         }
+
         /* Dynamic Island */
         .phone-notch {
             position: absolute;
@@ -688,6 +916,7 @@
             justify-content: flex-end;
             padding-right: 12px;
         }
+
         .phone-notch-camera {
             width: 12px;
             height: 12px;
@@ -695,6 +924,7 @@
             border-radius: 50%;
             box-shadow: inset 0 0 2px rgba(59, 130, 246, 0.5);
         }
+
         /* Status bar */
         .phone-statusbar {
             display: flex;
@@ -704,45 +934,55 @@
             font-size: 14px;
             font-weight: 600;
         }
+
         .phone-statusbar-time {
             font-weight: 600;
         }
+
         .phone-statusbar-icons {
             display: flex;
             align-items: center;
             gap: 6px;
             font-size: 12px;
         }
+
         .phone-statusbar-icons i {
             font-size: 14px;
         }
+
         /* App Content */
         .phone-app-content {
             padding: 60px 20px 20px;
         }
+
         .phone-header {
             padding: 0 4px 16px;
         }
+
         .phone-title {
             font-size: 26px;
             font-weight: 700;
             font-style: italic;
             margin-bottom: 20px;
         }
+
         .phone-status {
             display: flex;
             align-items: center;
             gap: 12px;
         }
+
         .phone-status-label {
             font-size: 14px;
             color: #6b7280;
         }
+
         .phone-status-value {
             display: flex;
             align-items: center;
             gap: 10px;
         }
+
         .phone-status-dot {
             width: 12px;
             height: 12px;
@@ -750,24 +990,28 @@
             border-radius: 50%;
             box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
         }
+
         .phone-status-text {
             font-size: 32px;
             font-weight: 700;
             font-style: italic;
         }
+
         .phone-camera {
             position: relative;
             margin: 16px 4px;
             border-radius: 20px;
             overflow: hidden;
             height: 200px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
+
         .phone-camera img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
+
         .phone-camera-live {
             position: absolute;
             top: 14px;
@@ -779,6 +1023,7 @@
             font-weight: 700;
             color: #fff;
         }
+
         .phone-camera-play {
             position: absolute;
             top: 50%;
@@ -786,7 +1031,7 @@
             transform: translate(-50%, -50%);
             width: 56px;
             height: 56px;
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
             border-radius: 50%;
             display: flex;
@@ -794,37 +1039,43 @@
             justify-content: center;
             color: #fff;
             font-size: 18px;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
+
         .phone-actions {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 14px;
             padding: 16px 4px;
         }
+
         .phone-action-btn {
             padding: 24px 20px;
             background: rgba(30, 41, 59, 0.6);
-            border: 1px solid rgba(255,255,255,0.08);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 20px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s;
         }
+
         .phone-action-btn:hover {
             background: rgba(30, 41, 59, 0.9);
             border-color: rgba(59, 130, 246, 0.3);
         }
+
         .phone-action-btn i {
             font-size: 28px;
             margin-bottom: 12px;
             display: block;
             color: #64748b;
         }
+
         .phone-action-btn span {
             font-size: 15px;
             font-weight: 600;
         }
+
         .phone-notification {
             margin: 8px 4px 8px;
             padding: 16px 18px;
@@ -835,6 +1086,7 @@
             align-items: center;
             gap: 14px;
         }
+
         .phone-notification-icon {
             width: 44px;
             height: 44px;
@@ -846,21 +1098,24 @@
             color: #fff;
             font-size: 18px;
         }
+
         .phone-notification-text strong {
             font-size: 15px;
             font-weight: 700;
             display: block;
             margin-bottom: 3px;
         }
+
         .phone-notification-text span {
             font-size: 13px;
             color: #9ca3af;
         }
+
         /* Home indicator */
         .phone-home-indicator {
             width: 140px;
             height: 5px;
-            background: rgba(255,255,255,0.3);
+            background: rgba(255, 255, 255, 0.3);
             border-radius: 3px;
             margin: 16px auto 12px;
         }
@@ -871,6 +1126,7 @@
             background: #050508;
             text-align: center;
         }
+
         .trusted-title {
             font-size: 14px;
             color: #6b7280;
@@ -878,11 +1134,13 @@
             letter-spacing: 3px;
             margin-bottom: 40px;
         }
+
         .avatars-row {
             display: flex;
             align-items: center;
             justify-content: center;
         }
+
         .avatar-item {
             position: relative;
             margin-left: -16px;
@@ -890,13 +1148,16 @@
             z-index: 1;
             transition: all 0.3s ease;
         }
+
         .avatar-item:first-child {
             margin-left: 0;
         }
+
         .avatar-item:hover {
             z-index: 50;
             transform: scale(1.1);
         }
+
         .avatar-img {
             width: 64px;
             height: 64px;
@@ -905,26 +1166,29 @@
             border: 3px solid #050508;
             transition: all 0.3s ease;
         }
+
         .avatar-item:hover .avatar-img {
             border-color: #22d3ee;
             box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
         }
+
         .avatar-tooltip {
             position: absolute;
             bottom: calc(100% + 16px);
             left: 50%;
             transform: translateX(-50%) scale(0.8);
             background: #050508;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             padding: 12px 20px;
             white-space: nowrap;
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             z-index: 100;
         }
+
         .avatar-tooltip::after {
             content: '';
             position: absolute;
@@ -934,20 +1198,24 @@
             border: 8px solid transparent;
             border-top-color: #1a1a24;
         }
+
         .avatar-item:hover .avatar-tooltip {
             opacity: 1;
             visibility: visible;
             transform: translateX(-50%) scale(1);
         }
+
         .avatar-tooltip-name {
             font-size: 16px;
             font-weight: 700;
             margin-bottom: 4px;
         }
+
         .avatar-tooltip-role {
             font-size: 13px;
             color: #9ca3af;
         }
+
         .avatar-tooltip-glow {
             position: absolute;
             bottom: 0;
@@ -958,20 +1226,34 @@
             background: linear-gradient(90deg, transparent, #22d3ee, #3b82f6, transparent);
             border-radius: 2px;
         }
+
         .trusted-stats {
             display: flex;
             justify-content: center;
             gap: 60px;
             margin-top: 50px;
         }
+
         @media (max-width: 640px) {
-            .trusted-stats { flex-direction: column; gap: 24px; }
-            .avatar-img { width: 52px; height: 52px; }
-            .avatar-item { margin-left: -12px; }
+            .trusted-stats {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .avatar-img {
+                width: 52px;
+                height: 52px;
+            }
+
+            .avatar-item {
+                margin-left: -12px;
+            }
         }
+
         .trusted-stat {
             text-align: center;
         }
+
         .trusted-stat-number {
             font-size: 36px;
             font-weight: 800;
@@ -979,33 +1261,39 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .trusted-stat-label {
             font-size: 14px;
             color: #6b7280;
             margin-top: 4px;
         }
+
         .app-content h2 {
             font-size: clamp(32px, 5vw, 48px);
             font-weight: 700;
             margin-bottom: 24px;
             line-height: 1.2;
         }
-        .app-content > p {
+
+        .app-content>p {
             font-size: 17px;
             color: #9ca3af;
             line-height: 1.7;
             margin-bottom: 40px;
         }
+
         .app-features {
             display: flex;
             flex-direction: column;
             gap: 24px;
             margin-bottom: 40px;
         }
+
         .app-feature {
             display: flex;
             gap: 16px;
         }
+
         .app-feature-icon {
             width: 44px;
             height: 44px;
@@ -1017,20 +1305,24 @@
             color: #22d3ee;
             flex-shrink: 0;
         }
+
         .app-feature-text h4 {
             font-size: 16px;
             font-weight: 600;
             margin-bottom: 4px;
         }
+
         .app-feature-text p {
             font-size: 14px;
             color: #9ca3af;
         }
+
         .app-buttons {
             display: flex;
             gap: 16px;
             flex-wrap: wrap;
         }
+
         .store-btn {
             display: flex;
             align-items: center;
@@ -1042,11 +1334,18 @@
             font-weight: 600;
             transition: all 0.3s;
         }
-        .store-btn:hover { transform: translateY(-2px); }
-        .store-btn i { font-size: 22px; }
+
+        .store-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .store-btn i {
+            font-size: 22px;
+        }
+
         .store-btn.dark {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             color: #fff;
         }
 
@@ -1055,11 +1354,18 @@
             padding: 100px 40px 60px 40px;
             background: #050508;
         }
-        @media (max-width: 768px) { .products-section { padding: 60px 20px 40px 20px; } }
+
+        @media (max-width: 768px) {
+            .products-section {
+                padding: 60px 20px 40px 20px;
+            }
+        }
+
         .section-header {
             text-align: center;
             margin-bottom: 60px;
         }
+
         .section-badge {
             display: inline-flex;
             align-items: center;
@@ -1070,6 +1376,7 @@
             border-radius: 9999px;
             margin-bottom: 20px;
         }
+
         .section-badge span {
             font-size: 12px;
             font-weight: 600;
@@ -1077,17 +1384,20 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
+
         .section-title {
             font-size: clamp(32px, 5vw, 48px);
             font-weight: 700;
             margin-bottom: 16px;
         }
+
         .section-subtitle {
             font-size: 17px;
             color: #9ca3af;
             max-width: 600px;
             margin: 0 auto;
         }
+
         .products-grid {
             max-width: 1400px;
             margin: 0 auto;
@@ -1095,25 +1405,39 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 24px;
         }
-        @media (max-width: 1200px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 640px) { .products-grid { grid-template-columns: 1fr; } }
+
+        @media (max-width: 1200px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .product-card {
-            background: linear-gradient(145deg, rgba(20,20,30,1), rgba(15,15,22,1));
-            border: 1px solid rgba(255,255,255,0.06);
+            background: linear-gradient(145deg, rgba(20, 20, 30, 1), rgba(15, 15, 22, 1));
+            border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 20px;
             overflow: hidden;
             transition: all 0.4s ease;
         }
+
         .product-card:hover {
             transform: translateY(-8px);
             border-color: rgba(34, 211, 238, 0.3);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
         }
+
         .product-image {
             position: relative;
             aspect-ratio: 1 / 1;
             overflow: hidden;
         }
+
         .product-image img {
             width: 100%;
             height: 100%;
@@ -1121,23 +1445,28 @@
             background: #ffffff;
             transition: transform 0.6s ease;
         }
+
         .product-card:hover .product-image img {
             transform: scale(1.1);
         }
+
         /* Premium Product Style */
         .product-card.premium {
             border: 1px solid rgba(234, 179, 8, 0.3);
-            background: linear-gradient(145deg, rgba(30,25,15,1), rgba(15,15,22,1));
+            background: linear-gradient(145deg, rgba(30, 25, 15, 1), rgba(15, 15, 22, 1));
         }
+
         .product-card.premium:hover {
             border-color: rgba(234, 179, 8, 0.6);
             box-shadow: 0 20px 60px rgba(234, 179, 8, 0.15);
             transform: translateY(-8px);
         }
+
         .product-card.premium .product-badge {
             background: linear-gradient(135deg, #f59e0b, #d97706);
             color: #000;
         }
+
         .product-tag {
             color: #f59e0b;
             font-size: 11px;
@@ -1146,9 +1475,11 @@
             text-transform: uppercase;
             margin-bottom: 6px;
         }
+
         .product-features-list {
             margin: 16px 0 20px;
         }
+
         .product-feature-item {
             display: flex;
             align-items: center;
@@ -1157,18 +1488,22 @@
             font-size: 14px;
             color: #d1d5db;
         }
+
         .product-feature-item i {
             color: #f59e0b;
             font-size: 12px;
         }
+
         .product-card.premium .product-footer {
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding-top: 20px;
             margin-top: 8px;
         }
+
         .product-card.premium .product-price {
             font-size: 26px;
         }
+
         .btn-premium {
             padding: 12px 24px;
             background: linear-gradient(135deg, #f59e0b, #d97706);
@@ -1180,10 +1515,12 @@
             cursor: pointer;
             transition: all 0.3s;
         }
+
         .btn-premium:hover {
             background: linear-gradient(135deg, #fbbf24, #f59e0b);
             transform: translateY(-2px);
         }
+
         .product-badge {
             position: absolute;
             top: 16px;
@@ -1196,59 +1533,77 @@
             text-transform: uppercase;
             color: #000;
         }
+
         .product-content {
             padding: 24px;
             background: rgba(10, 10, 15, 0.95);
-            border-top: 1px solid rgba(255,255,255,0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
+
         .product-name {
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 6px;
         }
+
         .product-type {
             font-size: 13px;
             color: #9ca3af;
             margin-bottom: 16px;
         }
+
         .product-features {
             display: flex;
             gap: 8px;
             margin-bottom: 20px;
             flex-wrap: wrap;
         }
+
         .product-feature-icon {
             width: 32px;
             height: 32px;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 13px;
         }
-        .product-feature-icon.cyan { color: #22d3ee; }
-        .product-feature-icon.blue { color: #3b82f6; }
-        .product-feature-icon.purple { color: #a855f7; }
+
+        .product-feature-icon.cyan {
+            color: #22d3ee;
+        }
+
+        .product-feature-icon.blue {
+            color: #3b82f6;
+        }
+
+        .product-feature-icon.purple {
+            color: #a855f7;
+        }
+
         .product-footer {
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
+
         .product-price {
             font-size: 22px;
             font-weight: 700;
         }
+
         .product-price span {
             font-size: 13px;
             font-weight: 400;
             color: #9ca3af;
         }
+
         .product-cart-btn {
             width: 44px;
             height: 44px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -1257,17 +1612,20 @@
             cursor: pointer;
             transition: all 0.3s;
         }
+
         .product-cart-btn:hover {
             background: #22d3ee;
             border-color: #22d3ee;
             color: #000;
         }
+
         /* Product Link - Clickeable */
         .product-link {
             display: block;
             text-decoration: none;
             color: inherit;
         }
+
         .product-ref {
             font-size: 11px;
             color: #6b7280;
@@ -1275,6 +1633,7 @@
             letter-spacing: 1px;
             margin-bottom: 4px;
         }
+
         .product-btn {
             display: inline-flex;
             align-items: center;
@@ -1288,40 +1647,49 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
+
         .product-card:hover .product-btn {
             background: #22d3ee;
             color: #000;
         }
+
         .product-card.premium .product-btn {
             background: rgba(245, 158, 11, 0.1);
             border-color: rgba(245, 158, 11, 0.3);
             color: #f59e0b;
         }
+
         .product-card.premium:hover .product-btn {
             background: #f59e0b;
             color: #000;
         }
+
         /* Service Card Style */
         .product-card.service {
             border: 1px solid rgba(34, 197, 94, 0.3);
-            background: linear-gradient(145deg, rgba(15,30,20,1), rgba(15,15,22,1));
+            background: linear-gradient(145deg, rgba(15, 30, 20, 1), rgba(15, 15, 22, 1));
         }
+
         .product-card.service:hover {
             border-color: rgba(34, 197, 94, 0.6);
             box-shadow: 0 20px 60px rgba(34, 197, 94, 0.15);
         }
+
         .service-badge {
             background: linear-gradient(135deg, #ef4444, #dc2626) !important;
         }
+
         .product-card.service .product-btn {
             background: rgba(34, 197, 94, 0.1);
             border-color: rgba(34, 197, 94, 0.3);
             color: #22c55e;
         }
+
         .product-card.service:hover .product-btn {
             background: #22c55e;
             color: #000;
         }
+
         .price-old {
             text-decoration: line-through;
             color: #6b7280;
@@ -1329,21 +1697,27 @@
             font-weight: 400;
             margin-right: 8px;
         }
+
         .product-feature-icon {
             color: #9ca3af;
         }
+
         .product-card:hover .product-feature-icon {
             color: #22d3ee;
         }
+
         .product-card.premium .product-feature-icon {
             color: #9ca3af;
         }
+
         .product-card.premium:hover .product-feature-icon {
             color: #f59e0b;
         }
+
         .product-card.service .product-feature-icon {
             color: #9ca3af;
         }
+
         .product-card.service:hover .product-feature-icon {
             color: #22c55e;
         }
@@ -1356,6 +1730,7 @@
             position: relative;
             height: 110vh;
         }
+
         .gallery-sticky {
             position: sticky;
             top: 0;
@@ -1367,6 +1742,7 @@
             overflow: visible;
             padding-top: 80px;
         }
+
         .gallery-header {
             text-align: center;
             margin-bottom: 20px;
@@ -1374,19 +1750,23 @@
             transition: opacity 0.1s ease, transform 0.1s ease;
             pointer-events: none;
         }
+
         .gallery-header.hidden {
             opacity: 0;
             transform: translateY(-20px);
         }
+
         .gallery-header h2 {
             font-size: clamp(28px, 4vw, 40px);
             font-weight: 700;
             margin-bottom: 10px;
         }
+
         .gallery-header p {
             color: #9ca3af;
             font-size: 16px;
         }
+
         .expansion-container {
             position: relative;
             display: flex;
@@ -1395,49 +1775,57 @@
             gap: 20px;
             transition: all 0.1s ease-out;
         }
+
         .expansion-card {
             position: relative;
             width: 200px;
             height: 320px;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
             transition: all 0.2s ease-out;
             opacity: 0;
             transform: scale(0.8);
         }
+
         .expansion-card.center {
             opacity: 1;
             transform: scale(1);
             width: 220px;
             height: 350px;
         }
+
         .expansion-card.visible {
             opacity: 1;
             transform: scale(1);
         }
+
         .expansion-card.expanded {
             width: 260px;
             height: 380px;
             border-radius: 16px;
         }
+
         .expansion-card.expanded.center {
             width: 300px;
             height: 420px;
         }
+
         .expansion-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.2s ease, opacity 0.15s ease;
         }
+
         .expansion-card:hover img {
             transform: scale(1.05);
         }
+
         .expansion-card-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 40%, transparent 70%);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 40%, transparent 70%);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -1445,15 +1833,18 @@
             opacity: 0;
             transition: opacity 0.4s ease;
         }
+
         .expansion-card.expanded .expansion-card-overlay {
             opacity: 1;
         }
+
         .expansion-card-title {
             font-size: 18px;
             font-weight: 700;
             color: #fff;
             margin-bottom: 6px;
         }
+
         .expansion-card-location {
             font-size: 13px;
             color: #22d3ee;
@@ -1461,6 +1852,7 @@
             align-items: center;
             gap: 6px;
         }
+
         .expansion-nav-container {
             position: absolute;
             width: 100%;
@@ -1473,15 +1865,17 @@
             pointer-events: none;
             transition: opacity 0.15s ease;
         }
+
         .expansion-nav-container.visible {
             opacity: 1;
             pointer-events: auto;
         }
+
         .expansion-arrow {
             width: 50px;
             height: 50px;
-            background: rgba(0,0,0,0.6);
-            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 50%;
             color: #fff;
             font-size: 18px;
@@ -1491,11 +1885,13 @@
             justify-content: center;
             transition: all 0.3s ease;
         }
+
         .expansion-arrow:hover {
             background: #22d3ee;
             border-color: #22d3ee;
             transform: scale(1.1);
         }
+
         .expansion-dots {
             position: absolute;
             bottom: -25px;
@@ -1507,24 +1903,29 @@
             opacity: 0;
             transition: opacity 0.15s ease;
         }
+
         .expansion-dots.visible {
             opacity: 1;
         }
+
         .expansion-dot {
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.3);
+            background: rgba(255, 255, 255, 0.3);
             cursor: pointer;
             transition: all 0.3s ease;
         }
+
         .expansion-dot.active {
             background: #22d3ee;
             transform: scale(1.3);
         }
+
         .expansion-dot:hover {
-            background: rgba(255,255,255,0.6);
+            background: rgba(255, 255, 255, 0.6);
         }
+
         .scroll-hint {
             position: absolute;
             bottom: 60px;
@@ -1540,23 +1941,34 @@
             z-index: 10;
             transition: opacity 0.1s ease;
         }
+
         .scroll-hint.hidden {
             opacity: 0;
             pointer-events: none;
         }
+
         @keyframes bounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(10px); }
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(10px);
+            }
         }
+
         .scroll-hint i {
             color: #22d3ee;
             font-size: 20px;
         }
+
         .expansion-counter {
             position: absolute;
             bottom: -25px;
             right: 0;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
             padding: 8px 16px;
             border-radius: 20px;
             color: #fff;
@@ -1565,31 +1977,38 @@
             transition: opacity 0.15s ease;
             z-index: 25;
         }
+
         .expansion-counter.visible {
             opacity: 1;
         }
+
         .expansion-counter span {
             color: #22d3ee;
             font-weight: 700;
         }
+
         @media (max-width: 900px) {
             .expansion-card.expanded {
                 width: 180px;
                 height: 300px;
             }
+
             .expansion-card.expanded.center {
                 width: 200px;
                 height: 340px;
             }
         }
+
         @media (max-width: 640px) {
             .expansion-card:not(.center) {
                 display: none;
             }
+
             .expansion-card.expanded.center {
                 width: 280px;
                 height: 400px;
             }
+
             .gallery-sticky {
                 padding-top: 60px;
             }
@@ -1602,19 +2021,28 @@
             overflow: hidden;
             background: linear-gradient(135deg, #0a1628 0%, #0d2847 30%, #0f3060 60%, #0a1628 100%);
         }
+
         .testimonials-content {
             position: relative;
             z-index: 10;
         }
-        @media (max-width: 768px) { .testimonials-section { padding: 60px 20px; } }
+
+        @media (max-width: 768px) {
+            .testimonials-section {
+                padding: 60px 20px;
+            }
+        }
+
         .testimonials-header {
             text-align: center;
             margin-bottom: 20px;
         }
+
         .testimonials-header h2 {
             font-size: clamp(28px, 4vw, 40px);
             font-weight: 700;
         }
+
         .trustpilot-badge {
             display: flex;
             align-items: center;
@@ -1622,6 +2050,7 @@
             gap: 16px;
             margin-bottom: 50px;
         }
+
         .trustpilot-logo {
             display: flex;
             align-items: center;
@@ -1629,11 +2058,17 @@
             font-size: 18px;
             font-weight: 700;
         }
-        .trustpilot-logo i { color: #00b67a; font-size: 24px; }
+
+        .trustpilot-logo i {
+            color: #00b67a;
+            font-size: 24px;
+        }
+
         .trustpilot-stars {
             display: flex;
             gap: 4px;
         }
+
         .trustpilot-star {
             width: 28px;
             height: 28px;
@@ -1644,13 +2079,16 @@
             color: #fff;
             font-size: 14px;
         }
+
         .trustpilot-rating {
             font-size: 14px;
             color: #9ca3af;
         }
+
         .trustpilot-rating strong {
             color: #fff;
         }
+
         .testimonials-grid {
             max-width: 1200px;
             margin: 0 auto;
@@ -1658,10 +2096,16 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
         }
-        @media (max-width: 968px) { .testimonials-grid { grid-template-columns: 1fr; } }
+
+        @media (max-width: 968px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .testimonial-card {
             background: rgba(10, 10, 15, 0.95);
-            border: 1px solid rgba(255,255,255,0.06);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 24px;
             padding: 32px;
             transition: all 0.4s ease;
@@ -1669,10 +2113,12 @@
             overflow: hidden;
             z-index: 1;
         }
+
         .testimonial-card:hover {
             transform: translateY(-4px);
             border-color: transparent;
         }
+
         .testimonial-header {
             display: flex;
             align-items: center;
@@ -1681,30 +2127,35 @@
             position: relative;
             z-index: 2;
         }
+
         .testimonial-avatar {
             width: 56px;
             height: 56px;
             border-radius: 50%;
             object-fit: cover;
         }
+
         .testimonial-info h4 {
             font-size: 16px;
             font-weight: 600;
             margin-bottom: 4px;
         }
+
         .testimonial-info span {
             font-size: 13px;
             color: #22d3ee;
         }
+
         .testimonial-quote {
             position: absolute;
             top: 24px;
             right: 24px;
             font-size: 48px;
-            color: rgba(255,255,255,0.05);
+            color: rgba(255, 255, 255, 0.05);
             font-family: Georgia, serif;
             z-index: 2;
         }
+
         .testimonial-text {
             font-size: 15px;
             color: #d1d5db;
@@ -1713,12 +2164,14 @@
             position: relative;
             z-index: 2;
         }
+
         .testimonial-stars {
             display: flex;
             gap: 4px;
             position: relative;
             z-index: 2;
         }
+
         .testimonial-stars i {
             color: #facc15;
             font-size: 14px;
@@ -1726,9 +2179,15 @@
 
         /* Animated Glow Border Effect for Testimonials */
         @keyframes rotateBorder {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
         }
+
         .testimonial-card::before {
             content: '';
             position: absolute;
@@ -1736,20 +2195,19 @@
             left: 50%;
             width: 500px;
             height: 500px;
-            background: conic-gradient(
-                from 0deg,
-                transparent 0%,
-                #22d3ee 8%,
-                transparent 18%,
-                transparent 42%,
-                #22c55e 52%,
-                transparent 62%,
-                transparent 100%
-            );
+            background: conic-gradient(from 0deg,
+                    transparent 0%,
+                    #22d3ee 8%,
+                    transparent 18%,
+                    transparent 42%,
+                    #22c55e 52%,
+                    transparent 62%,
+                    transparent 100%);
             animation: rotateBorder 5s linear infinite;
             z-index: -2;
             opacity: 0.7;
         }
+
         .testimonial-card::after {
             content: '';
             position: absolute;
@@ -1758,11 +2216,13 @@
             border-radius: 22px;
             z-index: -1;
         }
+
         .testimonial-card:hover::before {
             opacity: 1;
         }
+
         .testimonial-card:hover {
-            box-shadow: 
+            box-shadow:
                 0 0 40px rgba(34, 211, 238, 0.15),
                 0 0 80px rgba(34, 197, 94, 0.1);
         }
@@ -1775,6 +2235,7 @@
             overflow: hidden;
             background: #050508;
         }
+
         .cta-glow {
             position: absolute;
             top: 50%;
@@ -1785,22 +2246,26 @@
             background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(13, 40, 71, 0.5) 0%, rgba(10, 25, 50, 0.3) 40%, transparent 70%);
             pointer-events: none;
         }
+
         .cta-content {
             position: relative;
             z-index: 10;
             max-width: 700px;
             margin: 0 auto;
         }
+
         .cta-content h2 {
             font-size: clamp(32px, 5vw, 52px);
             font-weight: 700;
             margin-bottom: 20px;
         }
+
         .cta-content p {
             font-size: 18px;
             color: #9ca3af;
             margin-bottom: 40px;
         }
+
         .cta-buttons {
             display: flex;
             gap: 16px;
@@ -1814,15 +2279,23 @@
             padding: 100px 40px;
             background: #050508;
         }
-        @media (max-width: 768px) { .services-section { padding: 60px 20px; } }
+
+        @media (max-width: 768px) {
+            .services-section {
+                padding: 60px 20px;
+            }
+        }
+
         .services-header {
             text-align: center;
             margin-bottom: 60px;
         }
+
         .services-header h2 {
             font-size: clamp(32px, 5vw, 48px);
             font-weight: 700;
         }
+
         .services-grid {
             max-width: 1200px;
             margin: 0 auto;
@@ -1830,24 +2303,33 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
         }
-        @media (max-width: 968px) { .services-grid { grid-template-columns: 1fr; } }
+
+        @media (max-width: 968px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .service-card {
-            background: linear-gradient(145deg, rgba(20,20,25,1), rgba(12,12,16,1));
-            border: 1px solid rgba(255,255,255,0.06);
+            background: linear-gradient(145deg, rgba(20, 20, 25, 1), rgba(12, 12, 16, 1));
+            border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 24px;
             overflow: hidden;
             transition: all 0.4s ease;
         }
+
         .service-card:hover {
             border-color: rgba(34, 211, 238, 0.2);
             transform: translateY(-4px);
         }
+
         .service-image {
             aspect-ratio: 1 / 1;
             position: relative;
             border-radius: 20px 20px 0 0;
             overflow: hidden;
         }
+
         .service-image img {
             width: 100%;
             height: 100%;
@@ -1855,10 +2337,12 @@
             filter: grayscale(100%) brightness(0.5);
             transition: all 0.6s ease;
         }
+
         .service-card:hover .service-image img {
             filter: grayscale(50%) brightness(0.6);
             transform: scale(1.05);
         }
+
         .service-icon {
             width: 56px;
             height: 56px;
@@ -1869,42 +2353,51 @@
             font-size: 22px;
             color: #fff;
             z-index: 5;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
         }
+
         .service-icon.cyan {
             background: linear-gradient(135deg, #22d3ee, #0891b2);
         }
+
         .service-icon.blue {
             background: linear-gradient(135deg, #3b82f6, #1d4ed8);
         }
+
         .service-icon.purple {
             background: linear-gradient(135deg, #8b5cf6, #6d28d9);
         }
+
         .service-content {
             padding: 40px 24px 24px;
             position: relative;
         }
+
         .service-content .service-icon {
             position: absolute;
             top: -28px;
             left: 24px;
         }
+
         .service-title {
             font-size: 20px;
             font-weight: 700;
             margin-bottom: 12px;
         }
+
         .service-desc {
             font-size: 14px;
             color: #9ca3af;
             line-height: 1.6;
             margin-bottom: 20px;
         }
+
         .service-list {
             display: flex;
             flex-direction: column;
             gap: 10px;
         }
+
         .service-list-item {
             display: flex;
             align-items: center;
@@ -1912,6 +2405,7 @@
             font-size: 14px;
             color: #d1d5db;
         }
+
         .service-list-item i {
             color: #22d3ee;
             font-size: 12px;
@@ -1921,20 +2415,29 @@
             padding: 100px 40px;
             background: #050508;
         }
-        @media (max-width: 768px) { .location-section { padding: 60px 20px; } }
+
+        @media (max-width: 768px) {
+            .location-section {
+                padding: 60px 20px;
+            }
+        }
+
         .location-header {
             text-align: center;
             margin-bottom: 60px;
         }
+
         .location-header h2 {
             font-size: clamp(32px, 5vw, 48px);
             font-weight: 700;
             margin-bottom: 16px;
         }
+
         .location-header p {
             font-size: 17px;
             color: #9ca3af;
         }
+
         .location-grid {
             max-width: 1200px;
             margin: 0 auto;
@@ -1943,38 +2446,50 @@
             gap: 40px;
             align-items: stretch;
         }
+
         @media (max-width: 968px) {
-            .location-grid { grid-template-columns: 1fr; }
+            .location-grid {
+                grid-template-columns: 1fr;
+            }
         }
+
         .location-map {
             border-radius: 20px;
             overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             min-height: 400px;
         }
+
         .location-map iframe {
             width: 100%;
             height: 100%;
             min-height: 400px;
             filter: invert(1) hue-rotate(180deg) grayscale(0.2);
         }
+
         .location-info {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 20px;
             padding: 40px;
         }
+
         .location-info h3 {
             font-size: 24px;
             font-weight: 700;
             margin-bottom: 32px;
         }
+
         .location-item {
             display: flex;
             gap: 16px;
             margin-bottom: 28px;
         }
-        .location-item:last-child { margin-bottom: 0; }
+
+        .location-item:last-child {
+            margin-bottom: 0;
+        }
+
         .location-icon {
             width: 50px;
             height: 50px;
@@ -1987,11 +2502,13 @@
             font-size: 18px;
             flex-shrink: 0;
         }
+
         .location-text h4 {
             font-size: 16px;
             font-weight: 600;
             margin-bottom: 6px;
         }
+
         .location-text p {
             font-size: 14px;
             color: #9ca3af;
@@ -2003,15 +2520,23 @@
             padding: 100px 40px;
             background: #050508;
         }
-        @media (max-width: 768px) { .blog-section { padding: 60px 20px; } }
+
+        @media (max-width: 768px) {
+            .blog-section {
+                padding: 60px 20px;
+            }
+        }
+
         .blog-header {
             text-align: center;
             margin-bottom: 60px;
         }
+
         .blog-header h2 {
             font-size: clamp(32px, 5vw, 48px);
             font-weight: 700;
         }
+
         .blog-grid {
             max-width: 1200px;
             margin: 0 auto;
@@ -2019,58 +2544,73 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
         }
-        @media (max-width: 968px) { .blog-grid { grid-template-columns: 1fr; } }
+
+        @media (max-width: 968px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .blog-card {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.06);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 20px;
             overflow: hidden;
             transition: all 0.4s ease;
         }
+
         .blog-card:hover {
             border-color: rgba(34, 211, 238, 0.3);
             transform: translateY(-8px);
         }
+
         .blog-image {
             position: relative;
             height: 200px;
             overflow: hidden;
         }
+
         .blog-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.6s ease;
         }
+
         .blog-card:hover .blog-image img {
             transform: scale(1.1);
         }
+
         .blog-date {
             position: absolute;
             bottom: 16px;
             left: 16px;
             padding: 6px 14px;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(10px);
             border-radius: 8px;
             font-size: 12px;
             color: #d1d5db;
         }
+
         .blog-content {
             padding: 24px;
         }
+
         .blog-title {
             font-size: 18px;
             font-weight: 700;
             margin-bottom: 12px;
             line-height: 1.4;
         }
+
         .blog-excerpt {
             font-size: 14px;
             color: #9ca3af;
             line-height: 1.6;
             margin-bottom: 20px;
         }
+
         .blog-link {
             display: inline-flex;
             align-items: center;
@@ -2080,14 +2620,18 @@
             color: #22d3ee;
             transition: gap 0.3s;
         }
-        .blog-card:hover .blog-link { gap: 12px; }
+
+        .blog-card:hover .blog-link {
+            gap: 12px;
+        }
 
         /* FOOTER */
         .footer {
             background: #050508;
-            border-top: 1px solid rgba(255,255,255,0.06);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
             padding: 80px 40px 40px;
         }
+
         .footer-grid {
             max-width: 1200px;
             margin: 0 auto;
@@ -2096,22 +2640,35 @@
             gap: 48px;
             margin-bottom: 60px;
         }
-        @media (max-width: 968px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 640px) { .footer-grid { grid-template-columns: 1fr; } }
+
+        @media (max-width: 968px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .footer-brand p {
             font-size: 14px;
             color: #9ca3af;
             line-height: 1.8;
             margin: 20px 0;
         }
+
         .footer-social {
             display: flex;
             gap: 12px;
         }
+
         .footer-social a {
             width: 40px;
             height: 40px;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
             display: flex;
             align-items: center;
@@ -2119,32 +2676,52 @@
             color: #9ca3af;
             transition: all 0.3s;
         }
-        .footer-social a:hover { background: #22d3ee; color: #000; }
+
+        .footer-social a:hover {
+            background: #22d3ee;
+            color: #000;
+        }
+
         .footer-column h4 {
             font-size: 15px;
             font-weight: 600;
             margin-bottom: 20px;
         }
-        .footer-column ul { list-style: none; }
-        .footer-column li { margin-bottom: 14px; }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 14px;
+        }
+
         .footer-column a {
             font-size: 14px;
             color: #9ca3af;
             transition: color 0.3s;
         }
-        .footer-column a:hover { color: #22d3ee; }
+
+        .footer-column a:hover {
+            color: #22d3ee;
+        }
+
         .footer-bottom {
             max-width: 1200px;
             margin: 0 auto;
             padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.06);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 16px;
         }
-        .footer-bottom p { font-size: 13px; color: #6b7280; }
+
+        .footer-bottom p {
+            font-size: 13px;
+            color: #6b7280;
+        }
 
         /* WHATSAPP */
         .whatsapp-btn {
@@ -2153,6 +2730,7 @@
             right: 24px;
             z-index: 100;
         }
+
         .whatsapp-btn a {
             display: flex;
             align-items: center;
@@ -2164,26 +2742,59 @@
             box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
             transition: all 0.3s;
         }
-        .whatsapp-btn a:hover { transform: scale(1.1); }
-        .whatsapp-btn i { font-size: 28px; color: #fff; }
+
+        .whatsapp-btn a:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-btn i {
+            font-size: 28px;
+            color: #fff;
+        }
 
         /* ANIMATIONS */
-        @keyframes pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
-        @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.6;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(8px);
+            }
+        }
+
         .reveal {
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WZS1KB7ZDF"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-WZS1KB7ZDF');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-WZS1KB7ZDF');
     </script>
 
     <!-- JSON-LD Schema -->
@@ -2216,6 +2827,7 @@
     }
     </script>
 </head>
+
 <body>
 
     <!-- NAVBAR -->
@@ -2223,7 +2835,8 @@
         <div class="nav-container">
             <a href="#" class="logo">
                 <div class="logo-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                <span class="logo-text"><span style="color:#fff">ZAFE</span><span class="text-gradient">SYS</span></span>
+                <span class="logo-text"><span style="color:#fff">ZAFE</span><span
+                        class="text-gradient">SYS</span></span>
             </a>
             <div class="nav-links">
                 <a href="#features">Características</a>
@@ -2241,7 +2854,9 @@
     <!-- HERO -->
     <section class="hero" id="hero">
         <div class="hero-bg">
-            <img id="hero-webp" src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/A_highend_futuristic_1080p_202601091031-ezgif.com-video-to-webp-converter.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvQV9oaWdoZW5kX2Z1dHVyaXN0aWNfMTA4MHBfMjAyNjAxMDkxMDMxLWV6Z2lmLmNvbS12aWRlby10by13ZWJwLWNvbnZlcnRlci53ZWJwIiwiaWF0IjoxNzY3OTczMTM1LCJleHAiOjIwODMzMzMxMzV9.pzy3hSfMy0AV3vwgSv67VNdYbFxxmsDUy9yCQTe-C00" alt="Background">
+            <img id="hero-webp"
+                src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/A_highend_futuristic_1080p_202601091031-ezgif.com-video-to-webp-converter.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvQV9oaWdoZW5kX2Z1dHVyaXN0aWNfMTA4MHBfMjAyNjAxMDkxMDMxLWV6Z2lmLmNvbS12aWRlby10by13ZWJwLWNvbnZlcnRlci53ZWJwIiwiaWF0IjoxNzY3OTczMTM1LCJleHAiOjIwODMzMzMxMzV9.pzy3hSfMy0AV3vwgSv67VNdYbFxxmsDUy9yCQTe-C00"
+                alt="Background">
         </div>
         <div class="hero-container">
             <div class="hero-left">
@@ -2250,7 +2865,8 @@
                     <span>Nueva Generación 2026</span>
                 </div>
                 <h1 class="hero-title">Seguridad que<br><span class="text-gradient">te reconoce.</span></h1>
-                <p class="hero-desc">ZAFESYS transforma tu puerta en una fortaleza inteligente. Acceso biométrico, reconocimiento facial y control total desde tu smartphone.</p>
+                <p class="hero-desc">ZAFESYS transforma tu puerta en una fortaleza inteligente. Acceso biométrico,
+                    reconocimiento facial y control total desde tu smartphone.</p>
                 <div class="hero-buttons">
                     <a href="#productos" class="btn-primary">Ver Modelos <i class="fa-solid fa-arrow-right"></i></a>
                     <button class="btn-secondary"><i class="fa-solid fa-play"></i> Ver Demo</button>
@@ -2311,12 +2927,14 @@
             <!-- Card 1 - Reconocimiento Dactilar -->
             <div class="feature-card reveal">
                 <div class="feature-card-bg">
-                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Otras%20pagina%20principal/tecnologia-seguridad-cerraduras-digitales.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT3RyYXMgcGFnaW5hIHByaW5jaXBhbC90ZWNub2xvZ2lhLXNlZ3VyaWRhZC1jZXJyYWR1cmFzLWRpZ2l0YWxlcy53ZWJwIiwiaWF0IjoxNzY4MTQxMDQzLCJleHAiOjIwODM1MDEwNDN9.GZXpRy5hnJi6mg7xX9SOp6ZBjKzCqELkhhyFBQM8RGQ" alt="Tecnología seguridad cerraduras digitales">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Otras%20pagina%20principal/tecnologia-seguridad-cerraduras-digitales.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT3RyYXMgcGFnaW5hIHByaW5jaXBhbC90ZWNub2xvZ2lhLXNlZ3VyaWRhZC1jZXJyYWR1cmFzLWRpZ2l0YWxlcy53ZWJwIiwiaWF0IjoxNzY4MTQxMDQzLCJleHAiOjIwODM1MDEwNDN9.GZXpRy5hnJi6mg7xX9SOp6ZBjKzCqELkhhyFBQM8RGQ"
+                        alt="Tecnología seguridad cerraduras digitales">
                 </div>
                 <div class="feature-card-content">
                     <div class="feature-icon blue"><i class="fa-solid fa-fingerprint"></i></div>
                     <h3 class="feature-title">Reconocimiento Dactilar 3D</h3>
-                    <p class="feature-desc">Sensor capacitivo de última generación que desbloquea tu puerta en 0.3 segundos. Almacena hasta 100 huellas únicas.</p>
+                    <p class="feature-desc">Sensor capacitivo de última generación que desbloquea tu puerta en 0.3
+                        segundos. Almacena hasta 100 huellas únicas.</p>
                 </div>
             </div>
             <!-- Card 2 - Visión HD -->
@@ -2330,7 +2948,8 @@
                 <div class="feature-card-content">
                     <div class="feature-icon cyan"><i class="fa-solid fa-video"></i></div>
                     <h3 class="feature-title">Visión HD Nocturna</h3>
-                    <p class="feature-desc">Cámara 1080p integrada con visión nocturna por infrarrojos para ver quién llama, día y noche.</p>
+                    <p class="feature-desc">Cámara 1080p integrada con visión nocturna por infrarrojos para ver quién
+                        llama, día y noche.</p>
                 </div>
             </div>
             <!-- Card 3 - Batería -->
@@ -2338,7 +2957,8 @@
                 <div class="feature-card-content">
                     <div class="feature-icon green"><i class="fa-solid fa-battery-full"></i></div>
                     <h3 class="feature-title">Energía para 12 Meses</h3>
-                    <p class="feature-desc">Olvídate de las recargas constantes. Nuestra tecnología de bajo consumo garantiza un año completo de uso con una sola carga.</p>
+                    <p class="feature-desc">Olvídate de las recargas constantes. Nuestra tecnología de bajo consumo
+                        garantiza un año completo de uso con una sola carga.</p>
                     <div class="battery-visual">
                         <div class="battery-bar">
                             <div class="battery-fill">92%</div>
@@ -2352,7 +2972,8 @@
                 <div class="feature-card-content">
                     <div class="feature-icon purple"><i class="fa-solid fa-mobile-screen"></i></div>
                     <h3 class="feature-title">Control Remoto Total</h3>
-                    <p class="feature-desc">Abre la puerta desde la oficina o crea llaves temporales para invitados desde la app Zafesys.</p>
+                    <p class="feature-desc">Abre la puerta desde la oficina o crea llaves temporales para invitados
+                        desde la app Zafesys.</p>
                 </div>
             </div>
         </div>
@@ -2365,74 +2986,98 @@
                 <!-- First set of videos -->
                 <div class="slider-item">
                     <video loop muted playsinline>
-                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-inteligente-instalacion-1.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1pbnRlbGlnZW50ZS1pbnN0YWxhY2lvbi0xLndlYm0iLCJpYXQiOjE3NjgxMzkzNDAsImV4cCI6MjA4MzQ5OTM0MH0.3owfGe_09K5x0mmTl5qh4vFS_lhhk4DugPZQginLeZA" type="video/webm">
+                        <source
+                            src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-inteligente-instalacion-1.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1pbnRlbGlnZW50ZS1pbnN0YWxhY2lvbi0xLndlYm0iLCJpYXQiOjE3NjgxMzkzNDAsImV4cCI6MjA4MzQ5OTM0MH0.3owfGe_09K5x0mmTl5qh4vFS_lhhk4DugPZQginLeZA"
+                            type="video/webm">
                     </video>
                     <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
                 </div>
                 <div class="slider-item">
                     <video loop muted playsinline>
-                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-digital-puerta-2.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1kaWdpdGFsLXB1ZXJ0YS0yLm1wNCIsImlhdCI6MTc2ODEzOTM3MSwiZXhwIjoyMDgzNDk5MzcxfQ.YoOscvPjW4tCJwpmBjMdzlRxzhW7PMUyBJzUbYuF7Hc" type="video/mp4">
+                        <source
+                            src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-digital-puerta-2.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1kaWdpdGFsLXB1ZXJ0YS0yLm1wNCIsImlhdCI6MTc2ODEzOTM3MSwiZXhwIjoyMDgzNDk5MzcxfQ.YoOscvPjW4tCJwpmBjMdzlRxzhW7PMUyBJzUbYuF7Hc"
+                            type="video/mp4">
                     </video>
                     <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
                 </div>
                 <div class="slider-item">
                     <video loop muted playsinline>
-                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-biometrica-huella-3.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1iaW9tZXRyaWNhLWh1ZWxsYS0zLndlYm0iLCJpYXQiOjE3NjgxMzkzOTQsImV4cCI6MjA4MzQ5OTM5NH0.JaN0hts4M4QiJIWHqYRO1XSfpd5lCmP79ePMS4dtXqc" type="video/webm">
+                        <source
+                            src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-biometrica-huella-3.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1iaW9tZXRyaWNhLWh1ZWxsYS0zLndlYm0iLCJpYXQiOjE3NjgxMzkzOTQsImV4cCI6MjA4MzQ5OTM5NH0.JaN0hts4M4QiJIWHqYRO1XSfpd5lCmP79ePMS4dtXqc"
+                            type="video/webm">
                     </video>
                     <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
                 </div>
                 <div class="slider-item">
                     <video loop muted playsinline>
-                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-facial-3d-demo-4.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1mYWNpYWwtM2QtZGVtby00LndlYm0iLCJpYXQiOjE3NjgxMzk0MTcsImV4cCI6MjA4MzQ5OTQxN30.cFLb6SuwQIU9vx4gIvs6zO2pyXIjwGXEWfrJK9ur5Lg" type="video/webm">
+                        <source
+                            src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-facial-3d-demo-4.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1mYWNpYWwtM2QtZGVtby00LndlYm0iLCJpYXQiOjE3NjgxMzk0MTcsImV4cCI6MjA4MzQ5OTQxN30.cFLb6SuwQIU9vx4gIvs6zO2pyXIjwGXEWfrJK9ur5Lg"
+                            type="video/webm">
                     </video>
                     <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
                 </div>
                 <div class="slider-item">
                     <video loop muted playsinline>
-                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-smart-app-5.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1zbWFydC1hcHAtNS53ZWJtIiwiaWF0IjoxNzY4MTM5NDkxLCJleHAiOjIwODM0OTk0OTF9.9b8lQi9cRId1W4Fh5SAZYuNgu5EZvOoXQzbh0-Ymf4I" type="video/webm">
+                        <source
+                            src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-smart-app-5.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1zbWFydC1hcHAtNS53ZWJtIiwiaWF0IjoxNzY4MTM5NDkxLCJleHAiOjIwODM0OTk0OTF9.9b8lQi9cRId1W4Fh5SAZYuNgu5EZvOoXQzbh0-Ymf4I"
+                            type="video/webm">
                     </video>
                     <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
                 </div>
                 <div class="slider-item">
                     <video loop muted playsinline>
-                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-profesional-cliente-6.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1wcm9mZXNpb25hbC1jbGllbnRlLTYud2VibSIsImlhdCI6MTc2ODEzOTQzOSwiZXhwIjoyMDgzNDk5NDM5fQ.ikWNPpNk7qZa2A2MmESU17W7UeUF45fRpURKmpJCcj4" type="video/webm">
+                        <source
+                            src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-profesional-cliente-6.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1wcm9mZXNpb25hbC1jbGllbnRlLTYud2VibSIsImlhdCI6MTc2ODEzOTQzOSwiZXhwIjoyMDgzNDk5NDM5fQ.ikWNPpNk7qZa2A2MmESU17W7UeUF45fRpURKmpJCcj4"
+                            type="video/webm">
                     </video>
                     <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
                 </div>
                 <!-- Duplicate for infinite loop -->
                 <div class="slider-item">
                     <video loop muted playsinline>
-                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-inteligente-instalacion-1.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1pbnRlbGlnZW50ZS1pbnN0YWxhY2lvbi0xLndlYm0iLCJpYXQiOjE3NjgxMzkzNDAsImV4cCI6MjA4MzQ5OTM0MH0.3owfGe_09K5x0mmTl5qh4vFS_lhhk4DugPZQginLeZA" type="video/webm">
+                        <source
+                            src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-inteligente-instalacion-1.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1pbnRlbGlnZW50ZS1pbnN0YWxhY2lvbi0xLndlYm0iLCJpYXQiOjE3NjgxMzkzNDAsImV4cCI6MjA4MzQ5OTM0MH0.3owfGe_09K5x0mmTl5qh4vFS_lhhk4DugPZQginLeZA"
+                            type="video/webm">
                     </video>
                     <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
                 </div>
                 <div class="slider-item">
                     <video loop muted playsinline>
-                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-digital-puerta-2.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1kaWdpdGFsLXB1ZXJ0YS0yLm1wNCIsImlhdCI6MTc2ODEzOTM3MSwiZXhwIjoyMDgzNDk5MzcxfQ.YoOscvPjW4tCJwpmBjMdzlRxzhW7PMUyBJzUbYuF7Hc" type="video/mp4">
+                        <source
+                            src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-digital-puerta-2.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1kaWdpdGFsLXB1ZXJ0YS0yLm1wNCIsImlhdCI6MTc2ODEzOTM3MSwiZXhwIjoyMDgzNDk5MzcxfQ.YoOscvPjW4tCJwpmBjMdzlRxzhW7PMUyBJzUbYuF7Hc"
+                            type="video/mp4">
                     </video>
                     <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
                 </div>
                 <div class="slider-item">
                     <video loop muted playsinline>
-                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-biometrica-huella-3.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1iaW9tZXRyaWNhLWh1ZWxsYS0zLndlYm0iLCJpYXQiOjE3NjgxMzkzOTQsImV4cCI6MjA4MzQ5OTM5NH0.JaN0hts4M4QiJIWHqYRO1XSfpd5lCmP79ePMS4dtXqc" type="video/webm">
+                        <source
+                            src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-biometrica-huella-3.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1iaW9tZXRyaWNhLWh1ZWxsYS0zLndlYm0iLCJpYXQiOjE3NjgxMzkzOTQsImV4cCI6MjA4MzQ5OTM5NH0.JaN0hts4M4QiJIWHqYRO1XSfpd5lCmP79ePMS4dtXqc"
+                            type="video/webm">
                     </video>
                     <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
                 </div>
                 <div class="slider-item">
                     <video loop muted playsinline>
-                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-facial-3d-demo-4.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1mYWNpYWwtM2QtZGVtby00LndlYm0iLCJpYXQiOjE3NjgxMzk0MTcsImV4cCI6MjA4MzQ5OTQxN30.cFLb6SuwQIU9vx4gIvs6zO2pyXIjwGXEWfrJK9ur5Lg" type="video/webm">
+                        <source
+                            src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-facial-3d-demo-4.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1mYWNpYWwtM2QtZGVtby00LndlYm0iLCJpYXQiOjE3NjgxMzk0MTcsImV4cCI6MjA4MzQ5OTQxN30.cFLb6SuwQIU9vx4gIvs6zO2pyXIjwGXEWfrJK9ur5Lg"
+                            type="video/webm">
                     </video>
                     <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
                 </div>
                 <div class="slider-item">
                     <video loop muted playsinline>
-                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-smart-app-5.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1zbWFydC1hcHAtNS53ZWJtIiwiaWF0IjoxNzY4MTM5NDkxLCJleHAiOjIwODM0OTk0OTF9.9b8lQi9cRId1W4Fh5SAZYuNgu5EZvOoXQzbh0-Ymf4I" type="video/webm">
+                        <source
+                            src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-smart-app-5.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1zbWFydC1hcHAtNS53ZWJtIiwiaWF0IjoxNzY4MTM5NDkxLCJleHAiOjIwODM0OTk0OTF9.9b8lQi9cRId1W4Fh5SAZYuNgu5EZvOoXQzbh0-Ymf4I"
+                            type="video/webm">
                     </video>
                     <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
                 </div>
                 <div class="slider-item">
                     <video loop muted playsinline>
-                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-profesional-cliente-6.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1wcm9mZXNpb25hbC1jbGllbnRlLTYud2VibSIsImlhdCI6MTc2ODEzOTQzOSwiZXhwIjoyMDgzNDk5NDM5fQ.ikWNPpNk7qZa2A2MmESU17W7UeUF45fRpURKmpJCcj4" type="video/webm">
+                        <source
+                            src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-profesional-cliente-6.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1wcm9mZXNpb25hbC1jbGllbnRlLTYud2VibSIsImlhdCI6MTc2ODEzOTQzOSwiZXhwIjoyMDgzNDk5NDM5fQ.ikWNPpNk7qZa2A2MmESU17W7UeUF45fRpURKmpJCcj4"
+                            type="video/webm">
                     </video>
                     <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
                 </div>
@@ -2472,7 +3117,8 @@
                                 </div>
                             </div>
                             <div class="phone-camera">
-                                <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&w=400" alt="Camera Feed">
+                                <img src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&w=400"
+                                    alt="Camera Feed">
                                 <span class="phone-camera-live">LIVE</span>
                                 <div class="phone-camera-play"><i class="fa-solid fa-play"></i></div>
                             </div>
@@ -2500,7 +3146,9 @@
             </div>
             <div class="app-content reveal">
                 <h2>Tu hogar en la palma de tu mano</h2>
-                <p>La aplicación ZAFESYS es el centro de comando de tu seguridad. Recibe notificaciones instantáneas, visualiza quién está en tu puerta en tiempo real y gestiona accesos desde cualquier lugar del mundo.</p>
+                <p>La aplicación ZAFESYS es el centro de comando de tu seguridad. Recibe notificaciones instantáneas,
+                    visualiza quién está en tu puerta en tiempo real y gestiona accesos desde cualquier lugar del mundo.
+                </p>
                 <div class="app-features">
                     <div class="app-feature">
                         <div class="app-feature-icon"><i class="fa-solid fa-share-nodes"></i></div>
@@ -2544,7 +3192,8 @@
             <article class="product-card reveal">
                 <a href="productos/os566f.html" class="product-link">
                     <div class="product-image">
-                        <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/cerradura-digital-huella-tarjeta-os566f.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2VycmFkdXJhLWRpZ2l0YWwtaHVlbGxhLXRhcmpldGEtb3M1NjZmLndlYnAiLCJpYXQiOjE3NjgwNTgzMTksImV4cCI6MjA4MzQxODMxOX0.AoWhgIC8L-eJgxaC9sWM6lQy4Ij21axJOiqvRg2Sc70" alt="Cerradura Digital Huella y Tarjeta OS566F">
+                        <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/cerradura-digital-huella-tarjeta-os566f.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2VycmFkdXJhLWRpZ2l0YWwtaHVlbGxhLXRhcmpldGEtb3M1NjZmLndlYnAiLCJpYXQiOjE3NjgwNTgzMTksImV4cCI6MjA4MzQxODMxOX0.AoWhgIC8L-eJgxaC9sWM6lQy4Ij21axJOiqvRg2Sc70"
+                            alt="Cerradura Digital Huella y Tarjeta OS566F">
                     </div>
                     <div class="product-content">
                         <p class="product-ref">Ref. OS566F</p>
@@ -2552,8 +3201,10 @@
                         <p class="product-type">Huella + Tarjeta + Clave</p>
                         <div class="product-features">
                             <div class="product-feature-icon" title="Código"><i class="fa-solid fa-keyboard"></i></div>
-                            <div class="product-feature-icon" title="Huella"><i class="fa-solid fa-fingerprint"></i></div>
-                            <div class="product-feature-icon" title="Tarjeta"><i class="fa-solid fa-credit-card"></i></div>
+                            <div class="product-feature-icon" title="Huella"><i class="fa-solid fa-fingerprint"></i>
+                            </div>
+                            <div class="product-feature-icon" title="Tarjeta"><i class="fa-solid fa-credit-card"></i>
+                            </div>
                             <div class="product-feature-icon" title="Llave"><i class="fa-solid fa-key"></i></div>
                         </div>
                         <div class="product-footer">
@@ -2568,7 +3219,8 @@
             <article class="product-card reveal">
                 <a href="productos/os514f.html" class="product-link">
                     <div class="product-image">
-                        <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/cerradura-digital-huella-tarjeta-os514f.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2VycmFkdXJhLWRpZ2l0YWwtaHVlbGxhLXRhcmpldGEtb3M1MTRmLndlYnAiLCJpYXQiOjE3NjgwNTgyMjUsImV4cCI6MjA4MzQxODIyNX0.ri8qnlXA8B91-kpmm-m44u2kYRbXdw63nEzzCBklfz8" alt="Cerradura Digital Huella y Tarjeta OS514F">
+                        <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/cerradura-digital-huella-tarjeta-os514f.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2VycmFkdXJhLWRpZ2l0YWwtaHVlbGxhLXRhcmpldGEtb3M1MTRmLndlYnAiLCJpYXQiOjE3NjgwNTgyMjUsImV4cCI6MjA4MzQxODIyNX0.ri8qnlXA8B91-kpmm-m44u2kYRbXdw63nEzzCBklfz8"
+                            alt="Cerradura Digital Huella y Tarjeta OS514F">
                     </div>
                     <div class="product-content">
                         <p class="product-ref">Ref. OS514F</p>
@@ -2576,8 +3228,10 @@
                         <p class="product-type">Huella + Tarjeta + Clave</p>
                         <div class="product-features">
                             <div class="product-feature-icon" title="Código"><i class="fa-solid fa-keyboard"></i></div>
-                            <div class="product-feature-icon" title="Huella"><i class="fa-solid fa-fingerprint"></i></div>
-                            <div class="product-feature-icon" title="Tarjeta"><i class="fa-solid fa-credit-card"></i></div>
+                            <div class="product-feature-icon" title="Huella"><i class="fa-solid fa-fingerprint"></i>
+                            </div>
+                            <div class="product-feature-icon" title="Tarjeta"><i class="fa-solid fa-credit-card"></i>
+                            </div>
                             <div class="product-feature-icon" title="Llave"><i class="fa-solid fa-key"></i></div>
                         </div>
                         <div class="product-footer">
@@ -2592,7 +3246,8 @@
             <article class="product-card reveal">
                 <a href="productos/os809tye.html" class="product-link">
                     <div class="product-image">
-                        <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/cerradura-digital-tuya-smart-huella-os809tye.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2VycmFkdXJhLWRpZ2l0YWwtdHV5YS1zbWFydC1odWVsbGEtb3M4MDl0eWUud2VicCIsImlhdCI6MTc2ODA1ODM1MCwiZXhwIjoyMDgzNDE4MzUwfQ.lbNPlasSkTtgq4EeYPjq9mpOyTUw06uE-FZf8alFfPw" alt="Cerradura Digital Tuya Smart OS809TYE">
+                        <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/cerradura-digital-tuya-smart-huella-os809tye.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2VycmFkdXJhLWRpZ2l0YWwtdHV5YS1zbWFydC1odWVsbGEtb3M4MDl0eWUud2VicCIsImlhdCI6MTc2ODA1ODM1MCwiZXhwIjoyMDgzNDE4MzUwfQ.lbNPlasSkTtgq4EeYPjq9mpOyTUw06uE-FZf8alFfPw"
+                            alt="Cerradura Digital Tuya Smart OS809TYE">
                     </div>
                     <div class="product-content">
                         <p class="product-ref">Ref. OS809TYE</p>
@@ -2600,10 +3255,13 @@
                         <p class="product-type">App + Huella + Tarjeta + Clave</p>
                         <div class="product-features">
                             <div class="product-feature-icon" title="Código"><i class="fa-solid fa-keyboard"></i></div>
-                            <div class="product-feature-icon" title="Huella"><i class="fa-solid fa-fingerprint"></i></div>
-                            <div class="product-feature-icon" title="Tarjeta"><i class="fa-solid fa-credit-card"></i></div>
+                            <div class="product-feature-icon" title="Huella"><i class="fa-solid fa-fingerprint"></i>
+                            </div>
+                            <div class="product-feature-icon" title="Tarjeta"><i class="fa-solid fa-credit-card"></i>
+                            </div>
                             <div class="product-feature-icon" title="Llave"><i class="fa-solid fa-key"></i></div>
-                            <div class="product-feature-icon" title="App"><i class="fa-solid fa-mobile-screen"></i></div>
+                            <div class="product-feature-icon" title="App"><i class="fa-solid fa-mobile-screen"></i>
+                            </div>
                         </div>
                         <div class="product-footer">
                             <div class="product-price">$370.000 <span>COP</span></div>
@@ -2617,19 +3275,25 @@
             <article class="product-card reveal">
                 <a href="productos/os833tyfa.html" class="product-link">
                     <div class="product-image">
-                        <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/cerradura-inteligente-facial-3d-videollamada-os833tyfa.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2VycmFkdXJhLWludGVsaWdlbnRlLWZhY2lhbC0zZC12aWRlb2xsYW1hZGEtb3M4MzN0eWZhLndlYnAiLCJpYXQiOjE3NjgwNTg0MjUsImV4cCI6MjA4MzQxODQyNX0.W-kcF3KUZkvMeN_jvrxh8NrdzrvncOonQY9di0AUhbw" alt="Cerradura Facial 3D con Videollamada OS833TYFA">
+                        <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/cerradura-inteligente-facial-3d-videollamada-os833tyfa.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2VycmFkdXJhLWludGVsaWdlbnRlLWZhY2lhbC0zZC12aWRlb2xsYW1hZGEtb3M4MzN0eWZhLndlYnAiLCJpYXQiOjE3NjgwNTg0MjUsImV4cCI6MjA4MzQxODQyNX0.W-kcF3KUZkvMeN_jvrxh8NrdzrvncOonQY9di0AUhbw"
+                            alt="Cerradura Facial 3D con Videollamada OS833TYFA">
                     </div>
                     <div class="product-content">
                         <p class="product-ref">Ref. OS833TYFA</p>
                         <h3 class="product-name">Cerradura Facial 3D</h3>
                         <p class="product-type">Face ID + Video + Huella + App</p>
                         <div class="product-features">
-                            <div class="product-feature-icon" title="Face ID"><i class="fa-solid fa-face-smile"></i></div>
-                            <div class="product-feature-icon" title="Videollamada"><i class="fa-solid fa-video"></i></div>
-                            <div class="product-feature-icon" title="Huella"><i class="fa-solid fa-fingerprint"></i></div>
-                            <div class="product-feature-icon" title="Tarjeta"><i class="fa-solid fa-credit-card"></i></div>
+                            <div class="product-feature-icon" title="Face ID"><i class="fa-solid fa-face-smile"></i>
+                            </div>
+                            <div class="product-feature-icon" title="Videollamada"><i class="fa-solid fa-video"></i>
+                            </div>
+                            <div class="product-feature-icon" title="Huella"><i class="fa-solid fa-fingerprint"></i>
+                            </div>
+                            <div class="product-feature-icon" title="Tarjeta"><i class="fa-solid fa-credit-card"></i>
+                            </div>
                             <div class="product-feature-icon" title="Llave"><i class="fa-solid fa-key"></i></div>
-                            <div class="product-feature-icon" title="App"><i class="fa-solid fa-mobile-screen"></i></div>
+                            <div class="product-feature-icon" title="App"><i class="fa-solid fa-mobile-screen"></i>
+                            </div>
                         </div>
                         <div class="product-footer">
                             <div class="product-price">$680.000 <span>COP</span></div>
@@ -2643,19 +3307,25 @@
             <article class="product-card reveal">
                 <a href="productos/os784tyfa.html" class="product-link">
                     <div class="product-image">
-                        <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/cerradura-inteligente-facial-3d-videollamada-os784tyfa.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2VycmFkdXJhLWludGVsaWdlbnRlLWZhY2lhbC0zZC12aWRlb2xsYW1hZGEtb3M3ODR0eWZhLndlYnAiLCJpYXQiOjE3NjgwNTg0MDEsImV4cCI6MjA4MzQxODQwMX0.6tagHkkchHiFsKXD3N5fVo6vLOpeoIqDwxEJLqN_DbM" alt="Cerradura Facial 3D con Videollamada OS784TYFA">
+                        <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/cerradura-inteligente-facial-3d-videollamada-os784tyfa.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2VycmFkdXJhLWludGVsaWdlbnRlLWZhY2lhbC0zZC12aWRlb2xsYW1hZGEtb3M3ODR0eWZhLndlYnAiLCJpYXQiOjE3NjgwNTg0MDEsImV4cCI6MjA4MzQxODQwMX0.6tagHkkchHiFsKXD3N5fVo6vLOpeoIqDwxEJLqN_DbM"
+                            alt="Cerradura Facial 3D con Videollamada OS784TYFA">
                     </div>
                     <div class="product-content">
                         <p class="product-ref">Ref. OS784TYFA</p>
                         <h3 class="product-name">Cerradura Facial 3D</h3>
                         <p class="product-type">Face ID + Video + Huella + App</p>
                         <div class="product-features">
-                            <div class="product-feature-icon" title="Face ID"><i class="fa-solid fa-face-smile"></i></div>
-                            <div class="product-feature-icon" title="Videollamada"><i class="fa-solid fa-video"></i></div>
-                            <div class="product-feature-icon" title="Huella"><i class="fa-solid fa-fingerprint"></i></div>
-                            <div class="product-feature-icon" title="Tarjeta"><i class="fa-solid fa-credit-card"></i></div>
+                            <div class="product-feature-icon" title="Face ID"><i class="fa-solid fa-face-smile"></i>
+                            </div>
+                            <div class="product-feature-icon" title="Videollamada"><i class="fa-solid fa-video"></i>
+                            </div>
+                            <div class="product-feature-icon" title="Huella"><i class="fa-solid fa-fingerprint"></i>
+                            </div>
+                            <div class="product-feature-icon" title="Tarjeta"><i class="fa-solid fa-credit-card"></i>
+                            </div>
                             <div class="product-feature-icon" title="Llave"><i class="fa-solid fa-key"></i></div>
-                            <div class="product-feature-icon" title="App"><i class="fa-solid fa-mobile-screen"></i></div>
+                            <div class="product-feature-icon" title="App"><i class="fa-solid fa-mobile-screen"></i>
+                            </div>
                         </div>
                         <div class="product-footer">
                             <div class="product-price">$700.000 <span>COP</span></div>
@@ -2670,19 +3340,25 @@
                 <a href="productos/os709tyfa.html" class="product-link">
                     <div class="product-badge">PREMIUM</div>
                     <div class="product-image">
-                        <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/cerradura-inteligente-facial-3d-videollamada-os709tyfa.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2VycmFkdXJhLWludGVsaWdlbnRlLWZhY2lhbC0zZC12aWRlb2xsYW1hZGEtb3M3MDl0eWZhLndlYnAiLCJpYXQiOjE3NjgwNTgzNzUsImV4cCI6MjA4MzQxODM3NX0.HdMhmL7JHFzg0bi0Jmv2_N1vtZgRUNyUnbjGlbDLQWw" alt="Cerradura Inteligente Facial 3D Premium OS709TYFA">
+                        <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/cerradura-inteligente-facial-3d-videollamada-os709tyfa.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2VycmFkdXJhLWludGVsaWdlbnRlLWZhY2lhbC0zZC12aWRlb2xsYW1hZGEtb3M3MDl0eWZhLndlYnAiLCJpYXQiOjE3NjgwNTgzNzUsImV4cCI6MjA4MzQxODM3NX0.HdMhmL7JHFzg0bi0Jmv2_N1vtZgRUNyUnbjGlbDLQWw"
+                            alt="Cerradura Inteligente Facial 3D Premium OS709TYFA">
                     </div>
                     <div class="product-content">
                         <p class="product-ref">Ref. OS709TYFA</p>
                         <h3 class="product-name">Cerradura Facial 3D</h3>
                         <p class="product-type">Face ID + Video + Huella + App</p>
                         <div class="product-features">
-                            <div class="product-feature-icon" title="Face ID"><i class="fa-solid fa-face-smile"></i></div>
-                            <div class="product-feature-icon" title="Videollamada"><i class="fa-solid fa-video"></i></div>
-                            <div class="product-feature-icon" title="Huella"><i class="fa-solid fa-fingerprint"></i></div>
-                            <div class="product-feature-icon" title="Tarjeta"><i class="fa-solid fa-credit-card"></i></div>
+                            <div class="product-feature-icon" title="Face ID"><i class="fa-solid fa-face-smile"></i>
+                            </div>
+                            <div class="product-feature-icon" title="Videollamada"><i class="fa-solid fa-video"></i>
+                            </div>
+                            <div class="product-feature-icon" title="Huella"><i class="fa-solid fa-fingerprint"></i>
+                            </div>
+                            <div class="product-feature-icon" title="Tarjeta"><i class="fa-solid fa-credit-card"></i>
+                            </div>
                             <div class="product-feature-icon" title="Llave"><i class="fa-solid fa-key"></i></div>
-                            <div class="product-feature-icon" title="App"><i class="fa-solid fa-mobile-screen"></i></div>
+                            <div class="product-feature-icon" title="App"><i class="fa-solid fa-mobile-screen"></i>
+                            </div>
                         </div>
                         <div class="product-footer">
                             <div class="product-price">$790.000 <span>COP</span></div>
@@ -2697,19 +3373,25 @@
                 <a href="productos/os840tyfa.html" class="product-link">
                     <div class="product-badge">PREMIUM</div>
                     <div class="product-image">
-                        <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/cerradura-inteligente-facial-3d-videollamada-os840tyfa.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2VycmFkdXJhLWludGVsaWdlbnRlLWZhY2lhbC0zZC12aWRlb2xsYW1hZGEtb3M4NDB0eWZhLndlYnAiLCJpYXQiOjE3NjgwNTg5NjgsImV4cCI6MjA4MzQxODk2OH0.F7Aiold8CtWTXO3HQoquXd6_5OMkMO_zj536zt8eXQo" alt="Cerradura Inteligente Facial 3D Premium OS840TYFA">
+                        <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/cerradura-inteligente-facial-3d-videollamada-os840tyfa.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2VycmFkdXJhLWludGVsaWdlbnRlLWZhY2lhbC0zZC12aWRlb2xsYW1hZGEtb3M4NDB0eWZhLndlYnAiLCJpYXQiOjE3NjgwNTg5NjgsImV4cCI6MjA4MzQxODk2OH0.F7Aiold8CtWTXO3HQoquXd6_5OMkMO_zj536zt8eXQo"
+                            alt="Cerradura Inteligente Facial 3D Premium OS840TYFA">
                     </div>
                     <div class="product-content">
                         <p class="product-ref">Ref. OS840TYFA</p>
                         <h3 class="product-name">Cerradura Facial 3D</h3>
                         <p class="product-type">Face ID + Video + Huella + App</p>
                         <div class="product-features">
-                            <div class="product-feature-icon" title="Face ID"><i class="fa-solid fa-face-smile"></i></div>
-                            <div class="product-feature-icon" title="Videollamada"><i class="fa-solid fa-video"></i></div>
-                            <div class="product-feature-icon" title="Huella"><i class="fa-solid fa-fingerprint"></i></div>
-                            <div class="product-feature-icon" title="Tarjeta"><i class="fa-solid fa-credit-card"></i></div>
+                            <div class="product-feature-icon" title="Face ID"><i class="fa-solid fa-face-smile"></i>
+                            </div>
+                            <div class="product-feature-icon" title="Videollamada"><i class="fa-solid fa-video"></i>
+                            </div>
+                            <div class="product-feature-icon" title="Huella"><i class="fa-solid fa-fingerprint"></i>
+                            </div>
+                            <div class="product-feature-icon" title="Tarjeta"><i class="fa-solid fa-credit-card"></i>
+                            </div>
                             <div class="product-feature-icon" title="Llave"><i class="fa-solid fa-key"></i></div>
-                            <div class="product-feature-icon" title="App"><i class="fa-solid fa-mobile-screen"></i></div>
+                            <div class="product-feature-icon" title="App"><i class="fa-solid fa-mobile-screen"></i>
+                            </div>
                         </div>
                         <div class="product-footer">
                             <div class="product-price">$830.000 <span>COP</span></div>
@@ -2724,20 +3406,25 @@
                 <a href="servicios/instalacion.html" class="product-link">
                     <div class="product-badge service-badge">OFERTA</div>
                     <div class="product-image">
-                        <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/instalacincerraduradigitalinteligente-ezgif.com-png-to-webp-converter.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvaW5zdGFsYWNpbmNlcnJhZHVyYWRpZ2l0YWxpbnRlbGlnZW50ZS1lemdpZi5jb20tcG5nLXRvLXdlYnAtY29udmVydGVyLndlYnAiLCJpYXQiOjE3NjgwNTkwNjcsImV4cCI6MjA4MzQxOTA2N30.Gqgg_VBPtqjxZwDx-00pNwvNGuuGGUqPxjQsjbxiw2o" alt="Servicio de Instalación Profesional de Cerraduras">
+                        <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/instalacincerraduradigitalinteligente-ezgif.com-png-to-webp-converter.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvaW5zdGFsYWNpbmNlcnJhZHVyYWRpZ2l0YWxpbnRlbGlnZW50ZS1lemdpZi5jb20tcG5nLXRvLXdlYnAtY29udmVydGVyLndlYnAiLCJpYXQiOjE3NjgwNTkwNjcsImV4cCI6MjA4MzQxOTA2N30.Gqgg_VBPtqjxZwDx-00pNwvNGuuGGUqPxjQsjbxiw2o"
+                            alt="Servicio de Instalación Profesional de Cerraduras">
                     </div>
                     <div class="product-content">
                         <p class="product-ref">Servicio Profesional</p>
                         <h3 class="product-name">Instalación Certificada</h3>
                         <p class="product-type">Configuración + Garantía</p>
                         <div class="product-features">
-                            <div class="product-feature-icon" title="Instalación"><i class="fa-solid fa-screwdriver-wrench"></i></div>
-                            <div class="product-feature-icon" title="Configuración"><i class="fa-solid fa-gear"></i></div>
-                            <div class="product-feature-icon" title="Garantía"><i class="fa-solid fa-shield-check"></i></div>
+                            <div class="product-feature-icon" title="Instalación"><i
+                                    class="fa-solid fa-screwdriver-wrench"></i></div>
+                            <div class="product-feature-icon" title="Configuración"><i class="fa-solid fa-gear"></i>
+                            </div>
+                            <div class="product-feature-icon" title="Garantía"><i class="fa-solid fa-shield-check"></i>
+                            </div>
                             <div class="product-feature-icon" title="Soporte"><i class="fa-solid fa-headset"></i></div>
                         </div>
                         <div class="product-footer">
-                            <div class="product-price"><span class="price-old">$380.000</span> $189.000 <span>COP</span></div>
+                            <div class="product-price"><span class="price-old">$380.000</span> $189.000 <span>COP</span>
+                            </div>
                             <span class="product-btn">Ver más <i class="fa-solid fa-arrow-right"></i></span>
                         </div>
                     </div>
@@ -2759,34 +3446,40 @@
                     <button class="expansion-arrow" id="prevArrow"><i class="fa-solid fa-chevron-left"></i></button>
                     <button class="expansion-arrow" id="nextArrow"><i class="fa-solid fa-chevron-right"></i></button>
                 </div>
-                
+
                 <!-- Card Izquierda -->
                 <div class="expansion-card" id="card-left">
-                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/fotos%20productos%20reales/instalacion-cerradura-profesional-colombia-7.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvZm90b3MgcHJvZHVjdG9zIHJlYWxlcy9pbnN0YWxhY2lvbi1jZXJyYWR1cmEtcHJvZmVzaW9uYWwtY29sb21iaWEtNy53ZWJwIiwiaWF0IjoxNzY4MTM3NjYyLCJleHAiOjIwODM0OTc2NjJ9.iJS04QWq9Kc-9urp3a7K3LlmV7gxhUD12iZ8z41uZVw" alt="Instalación Profesional Colombia">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/fotos%20productos%20reales/instalacion-cerradura-profesional-colombia-7.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvZm90b3MgcHJvZHVjdG9zIHJlYWxlcy9pbnN0YWxhY2lvbi1jZXJyYWR1cmEtcHJvZmVzaW9uYWwtY29sb21iaWEtNy53ZWJwIiwiaWF0IjoxNzY4MTM3NjYyLCJleHAiOjIwODM0OTc2NjJ9.iJS04QWq9Kc-9urp3a7K3LlmV7gxhUD12iZ8z41uZVw"
+                        alt="Instalación Profesional Colombia">
                     <div class="expansion-card-overlay">
                         <div class="expansion-card-title" id="title-left">Casa Familiar</div>
-                        <div class="expansion-card-location"><i class="fa-solid fa-location-dot"></i> <span id="loc-left">Medellín</span></div>
+                        <div class="expansion-card-location"><i class="fa-solid fa-location-dot"></i> <span
+                                id="loc-left">Medellín</span></div>
                     </div>
                 </div>
-                
+
                 <!-- Card Centro (principal) -->
                 <div class="expansion-card center" id="card-center">
-                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/fotos%20productos%20reales/instalacion-cerradura-inteligente-residencial-1.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvZm90b3MgcHJvZHVjdG9zIHJlYWxlcy9pbnN0YWxhY2lvbi1jZXJyYWR1cmEtaW50ZWxpZ2VudGUtcmVzaWRlbmNpYWwtMS53ZWJwIiwiaWF0IjoxNzY4MTM3NDY4LCJleHAiOjIwODM0OTc0Njh9.Fm_ndbMrCPi95cmvuwE28smgJUFSP80odd-rkCrkcJQ" alt="Cerradura Inteligente Residencial">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/fotos%20productos%20reales/instalacion-cerradura-inteligente-residencial-1.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvZm90b3MgcHJvZHVjdG9zIHJlYWxlcy9pbnN0YWxhY2lvbi1jZXJyYWR1cmEtaW50ZWxpZ2VudGUtcmVzaWRlbmNpYWwtMS53ZWJwIiwiaWF0IjoxNzY4MTM3NDY4LCJleHAiOjIwODM0OTc0Njh9.Fm_ndbMrCPi95cmvuwE28smgJUFSP80odd-rkCrkcJQ"
+                        alt="Cerradura Inteligente Residencial">
                     <div class="expansion-card-overlay">
                         <div class="expansion-card-title" id="title-center">Apartamento Moderno</div>
-                        <div class="expansion-card-location"><i class="fa-solid fa-location-dot"></i> <span id="loc-center">Bogotá</span></div>
+                        <div class="expansion-card-location"><i class="fa-solid fa-location-dot"></i> <span
+                                id="loc-center">Bogotá</span></div>
                     </div>
                 </div>
-                
+
                 <!-- Card Derecha -->
                 <div class="expansion-card" id="card-right">
-                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/fotos%20productos%20reales/instalacion-cerradura-inteligente-residencial-2.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvZm90b3MgcHJvZHVjdG9zIHJlYWxlcy9pbnN0YWxhY2lvbi1jZXJyYWR1cmEtaW50ZWxpZ2VudGUtcmVzaWRlbmNpYWwtMi53ZWJwIiwiaWF0IjoxNzY4MTM3NDk2LCJleHAiOjIwODM0OTc0OTZ9.CaM6vZpEbhT7CT7gXfFsaedhG-_y3PVceaAiWWkqSMs" alt="Cerradura Inteligente Residencial">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/fotos%20productos%20reales/instalacion-cerradura-inteligente-residencial-2.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvZm90b3MgcHJvZHVjdG9zIHJlYWxlcy9pbnN0YWxhY2lvbi1jZXJyYWR1cmEtaW50ZWxpZ2VudGUtcmVzaWRlbmNpYWwtMi53ZWJwIiwiaWF0IjoxNzY4MTM3NDk2LCJleHAiOjIwODM0OTc0OTZ9.CaM6vZpEbhT7CT7gXfFsaedhG-_y3PVceaAiWWkqSMs"
+                        alt="Cerradura Inteligente Residencial">
                     <div class="expansion-card-overlay">
                         <div class="expansion-card-title" id="title-right">Penthouse</div>
-                        <div class="expansion-card-location"><i class="fa-solid fa-location-dot"></i> <span id="loc-right">Cali</span></div>
+                        <div class="expansion-card-location"><i class="fa-solid fa-location-dot"></i> <span
+                                id="loc-right">Cali</span></div>
                     </div>
                 </div>
-                
+
                 <!-- Dots -->
                 <div class="expansion-dots" id="expansionDots">
                     <div class="expansion-dot active" data-index="0"></div>
@@ -2797,7 +3490,7 @@
                     <div class="expansion-dot" data-index="5"></div>
                     <div class="expansion-dot" data-index="6"></div>
                 </div>
-                
+
                 <!-- Contador -->
                 <div class="expansion-counter" id="expansionCounter">
                     <span id="currentNum">1</span> / 7
@@ -2833,13 +3526,16 @@
                 <article class="testimonial-card reveal">
                     <div class="testimonial-quote">"</div>
                     <div class="testimonial-header">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Carlos" class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Carlos"
+                            class="testimonial-avatar">
                         <div class="testimonial-info">
                             <h4>Carlos Rodríguez</h4>
                             <span>Arquitecto</span>
                         </div>
                     </div>
-                    <p class="testimonial-text">"Instalé la Zafe Os800 en mi oficina y la experiencia ha sido increíble. El reconocimiento facial es instantáneo y el diseño encaja perfecto con nuestra estética moderna."</p>
+                    <p class="testimonial-text">"Instalé la Zafe Os800 en mi oficina y la experiencia ha sido increíble.
+                        El reconocimiento facial es instantáneo y el diseño encaja perfecto con nuestra estética
+                        moderna."</p>
                     <div class="testimonial-stars">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -2851,13 +3547,15 @@
                 <article class="testimonial-card reveal">
                     <div class="testimonial-quote">"</div>
                     <div class="testimonial-header">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Ana" class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Ana"
+                            class="testimonial-avatar">
                         <div class="testimonial-info">
                             <h4>Ana María Vélez</h4>
                             <span>Propietaria Airbnb</span>
                         </div>
                     </div>
-                    <p class="testimonial-text">"Gestionar mis propiedades de Airbnb nunca fue tan fácil. Genero códigos temporales desde mi casa y me olvido de entregar llaves físicas. Servicio 10/10."</p>
+                    <p class="testimonial-text">"Gestionar mis propiedades de Airbnb nunca fue tan fácil. Genero códigos
+                        temporales desde mi casa y me olvido de entregar llaves físicas. Servicio 10/10."</p>
                     <div class="testimonial-stars">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -2869,13 +3567,15 @@
                 <article class="testimonial-card reveal">
                     <div class="testimonial-quote">"</div>
                     <div class="testimonial-header">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Felipe" class="testimonial-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Felipe"
+                            class="testimonial-avatar">
                         <div class="testimonial-info">
                             <h4>Felipe Torres</h4>
                             <span>Ingeniero de Sistemas</span>
                         </div>
                     </div>
-                    <p class="testimonial-text">"La integración con Alexa y Google Home funciona de maravilla. La calidad de construcción de la Zafe Deadbolt se siente muy robusta y segura."</p>
+                    <p class="testimonial-text">"La integración con Alexa y Google Home funciona de maravilla. La
+                        calidad de construcción de la Zafe Deadbolt se siente muy robusta y segura."</p>
                     <div class="testimonial-stars">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -2898,7 +3598,8 @@
                     <div class="avatar-tooltip-role">Arquitecto</div>
                     <div class="avatar-tooltip-glow"></div>
                 </div>
-                <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=150&h=150&fit=crop" alt="Carlos" class="avatar-img">
+                <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=150&h=150&fit=crop"
+                    alt="Carlos" class="avatar-img">
             </div>
             <div class="avatar-item">
                 <div class="avatar-tooltip">
@@ -2906,7 +3607,8 @@
                     <div class="avatar-tooltip-role">Empresaria</div>
                     <div class="avatar-tooltip-glow"></div>
                 </div>
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop" alt="María" class="avatar-img">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop" alt="María"
+                    class="avatar-img">
             </div>
             <div class="avatar-item">
                 <div class="avatar-tooltip">
@@ -2914,7 +3616,8 @@
                     <div class="avatar-tooltip-role">Ingeniero</div>
                     <div class="avatar-tooltip-glow"></div>
                 </div>
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop" alt="Andrés" class="avatar-img">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop"
+                    alt="Andrés" class="avatar-img">
             </div>
             <div class="avatar-item">
                 <div class="avatar-tooltip">
@@ -2922,7 +3625,8 @@
                     <div class="avatar-tooltip-role">Diseñadora UX</div>
                     <div class="avatar-tooltip-glow"></div>
                 </div>
-                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop" alt="Laura" class="avatar-img">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop" alt="Laura"
+                    class="avatar-img">
             </div>
             <div class="avatar-item">
                 <div class="avatar-tooltip">
@@ -2930,7 +3634,8 @@
                     <div class="avatar-tooltip-role">CEO TechCorp</div>
                     <div class="avatar-tooltip-glow"></div>
                 </div>
-                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop" alt="Felipe" class="avatar-img">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop"
+                    alt="Felipe" class="avatar-img">
             </div>
             <div class="avatar-item">
                 <div class="avatar-tooltip">
@@ -2938,7 +3643,8 @@
                     <div class="avatar-tooltip-role">Propietaria Airbnb</div>
                     <div class="avatar-tooltip-glow"></div>
                 </div>
-                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop" alt="Sofía" class="avatar-img">
+                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop" alt="Sofía"
+                    class="avatar-img">
             </div>
         </div>
         <div class="trusted-stats">
@@ -2966,12 +3672,14 @@
         <div class="services-grid">
             <article class="service-card reveal">
                 <div class="service-image">
-                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Otras%20pagina%20principal/servicio-instalacion-cerradura-profesional.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT3RyYXMgcGFnaW5hIHByaW5jaXBhbC9zZXJ2aWNpby1pbnN0YWxhY2lvbi1jZXJyYWR1cmEtcHJvZmVzaW9uYWwud2VicCIsImlhdCI6MTc2ODE0MDk3NywiZXhwIjoyMDgzNTAwOTc3fQ.38qlKjh40LfC8o2yILrlGhZQu3Jb5LmN_YAZgWpAjPw" alt="Servicio de Instalación Profesional de Cerraduras">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Otras%20pagina%20principal/servicio-instalacion-cerradura-profesional.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT3RyYXMgcGFnaW5hIHByaW5jaXBhbC9zZXJ2aWNpby1pbnN0YWxhY2lvbi1jZXJyYWR1cmEtcHJvZmVzaW9uYWwud2VicCIsImlhdCI6MTc2ODE0MDk3NywiZXhwIjoyMDgzNTAwOTc3fQ.38qlKjh40LfC8o2yILrlGhZQu3Jb5LmN_YAZgWpAjPw"
+                        alt="Servicio de Instalación Profesional de Cerraduras">
                 </div>
                 <div class="service-content">
                     <div class="service-icon cyan"><i class="fa-solid fa-screwdriver-wrench"></i></div>
                     <h3 class="service-title">Instalación Profesional</h3>
-                    <p class="service-desc">Nuestros técnicos certificados realizan la instalación completa y capacitación.</p>
+                    <p class="service-desc">Nuestros técnicos certificados realizan la instalación completa y
+                        capacitación.</p>
                     <div class="service-list">
                         <div class="service-list-item"><i class="fa-solid fa-check"></i> Visita técnica previa</div>
                         <div class="service-list-item"><i class="fa-solid fa-check"></i> Instalación en 2 horas</div>
@@ -2980,12 +3688,14 @@
             </article>
             <article class="service-card reveal">
                 <div class="service-image">
-                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Otras%20pagina%20principal/servicio-mantenimiento-cerraduras-inteligentes.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT3RyYXMgcGFnaW5hIHByaW5jaXBhbC9zZXJ2aWNpby1tYW50ZW5pbWllbnRvLWNlcnJhZHVyYXMtaW50ZWxpZ2VudGVzLndlYnAiLCJpYXQiOjE3NjgxNDEwMDAsImV4cCI6MjA4MzUwMTAwMH0.CLyz6HCqjIK4e8GbqtlZgToRbS4hgVuwBhTP6eA1Lu0" alt="Servicio de Mantenimiento de Cerraduras Inteligentes">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Otras%20pagina%20principal/servicio-mantenimiento-cerraduras-inteligentes.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT3RyYXMgcGFnaW5hIHByaW5jaXBhbC9zZXJ2aWNpby1tYW50ZW5pbWllbnRvLWNlcnJhZHVyYXMtaW50ZWxpZ2VudGVzLndlYnAiLCJpYXQiOjE3NjgxNDEwMDAsImV4cCI6MjA4MzUwMTAwMH0.CLyz6HCqjIK4e8GbqtlZgToRbS4hgVuwBhTP6eA1Lu0"
+                        alt="Servicio de Mantenimiento de Cerraduras Inteligentes">
                 </div>
                 <div class="service-content">
                     <div class="service-icon blue"><i class="fa-solid fa-gear"></i></div>
                     <h3 class="service-title">Mantenimiento Preventivo</h3>
-                    <p class="service-desc">Programa anual para garantizar el funcionamiento óptimo de tus dispositivos.</p>
+                    <p class="service-desc">Programa anual para garantizar el funcionamiento óptimo de tus dispositivos.
+                    </p>
                     <div class="service-list">
                         <div class="service-list-item"><i class="fa-solid fa-check"></i> Revisión semestral</div>
                         <div class="service-list-item"><i class="fa-solid fa-check"></i> Actualización firmware</div>
@@ -2994,12 +3704,14 @@
             </article>
             <article class="service-card reveal">
                 <div class="service-image">
-                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Otras%20pagina%20principal/soporte-tecnico-cerraduras-zafesys.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT3RyYXMgcGFnaW5hIHByaW5jaXBhbC9zb3BvcnRlLXRlY25pY28tY2VycmFkdXJhcy16YWZlc3lzLndlYnAiLCJpYXQiOjE3NjgxNDEwMjIsImV4cCI6MjA4MzUwMTAyMn0.dw5fLtqCVRANwpwTWnI0n3yakBaPGTK7CYplwWeEcME" alt="Soporte Técnico Cerraduras ZAFESYS">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Otras%20pagina%20principal/soporte-tecnico-cerraduras-zafesys.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT3RyYXMgcGFnaW5hIHByaW5jaXBhbC9zb3BvcnRlLXRlY25pY28tY2VycmFkdXJhcy16YWZlc3lzLndlYnAiLCJpYXQiOjE3NjgxNDEwMjIsImV4cCI6MjA4MzUwMTAyMn0.dw5fLtqCVRANwpwTWnI0n3yakBaPGTK7CYplwWeEcME"
+                        alt="Soporte Técnico Cerraduras ZAFESYS">
                 </div>
                 <div class="service-content">
                     <div class="service-icon purple"><i class="fa-solid fa-headset"></i></div>
                     <h3 class="service-title">Soporte Técnico 24/7</h3>
-                    <p class="service-desc">Nuestro equipo está disponible en todo momento para resolver incidencias.</p>
+                    <p class="service-desc">Nuestro equipo está disponible en todo momento para resolver incidencias.
+                    </p>
                     <div class="service-list">
                         <div class="service-list-item"><i class="fa-solid fa-check"></i> Asistencia remota</div>
                         <div class="service-list-item"><i class="fa-solid fa-check"></i> Garantía extendida</div>
@@ -3016,7 +3728,9 @@
         </div>
         <div class="location-grid">
             <div class="location-map reveal">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.0!2d-75.5636!3d6.2518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4428f6c7c8c8c7%3A0x1234567890abcdef!2sCalle%2050%20%23%2055-50%2C%20Medell%C3%ADn!5e0!3m2!1ses!2sco!4v1704800000000!5m2!1ses!2sco" allowfullscreen loading="lazy"></iframe>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.0!2d-75.5636!3d6.2518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4428f6c7c8c8c7%3A0x1234567890abcdef!2sCalle%2050%20%23%2055-50%2C%20Medell%C3%ADn!5e0!3m2!1ses!2sco!4v1704800000000!5m2!1ses!2sco"
+                    allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="location-info reveal">
                 <h3>Showroom ZAFESYS</h3>
@@ -3053,34 +3767,40 @@
         <div class="blog-grid">
             <article class="blog-card reveal">
                 <div class="blog-image">
-                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Otras%20pagina%20principal/articulo-llaves-tradicionales-vs-cerraduras-digitales.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT3RyYXMgcGFnaW5hIHByaW5jaXBhbC9hcnRpY3Vsby1sbGF2ZXMtdHJhZGljaW9uYWxlcy12cy1jZXJyYWR1cmFzLWRpZ2l0YWxlcy53ZWJwIiwiaWF0IjoxNzY4MTQwOTUwLCJleHAiOjIwODM1MDA5NTB9.qXfUaTDL1QPc8gWRURPS2pVAWTzU4NfE8wv4hpLrjro" alt="Llaves tradicionales vs cerraduras digitales">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Otras%20pagina%20principal/articulo-llaves-tradicionales-vs-cerraduras-digitales.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT3RyYXMgcGFnaW5hIHByaW5jaXBhbC9hcnRpY3Vsby1sbGF2ZXMtdHJhZGljaW9uYWxlcy12cy1jZXJyYWR1cmFzLWRpZ2l0YWxlcy53ZWJwIiwiaWF0IjoxNzY4MTQwOTUwLCJleHAiOjIwODM1MDA5NTB9.qXfUaTDL1QPc8gWRURPS2pVAWTzU4NfE8wv4hpLrjro"
+                        alt="Llaves tradicionales vs cerraduras digitales">
                     <span class="blog-date">8 Ene 2026</span>
                 </div>
                 <div class="blog-content">
                     <h3 class="blog-title">Beneficios de la Biometría en tu Hogar 2026</h3>
-                    <p class="blog-excerpt">Descubre cómo la tecnología biométrica está revolucionando la seguridad residencial...</p>
+                    <p class="blog-excerpt">Descubre cómo la tecnología biométrica está revolucionando la seguridad
+                        residencial...</p>
                     <a href="#" class="blog-link">Leer más <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </article>
             <article class="blog-card reveal">
                 <div class="blog-image">
-                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Otras%20pagina%20principal/articulo-biometria-seguridad-huella-dactilar.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT3RyYXMgcGFnaW5hIHByaW5jaXBhbC9hcnRpY3Vsby1iaW9tZXRyaWEtc2VndXJpZGFkLWh1ZWxsYS1kYWN0aWxhci53ZWJwIiwiaWF0IjoxNzY4MTQwOTIzLCJleHAiOjIwODM1MDA5MjN9.ltDzaXldSLx9DLOwBr-2HLj-PS19cka231h1bG1UuJY" alt="Biometría y seguridad con huella dactilar">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Otras%20pagina%20principal/articulo-biometria-seguridad-huella-dactilar.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT3RyYXMgcGFnaW5hIHByaW5jaXBhbC9hcnRpY3Vsby1iaW9tZXRyaWEtc2VndXJpZGFkLWh1ZWxsYS1kYWN0aWxhci53ZWJwIiwiaWF0IjoxNzY4MTQwOTIzLCJleHAiOjIwODM1MDA5MjN9.ltDzaXldSLx9DLOwBr-2HLj-PS19cka231h1bG1UuJY"
+                        alt="Biometría y seguridad con huella dactilar">
                     <span class="blog-date">5 Ene 2026</span>
                 </div>
                 <div class="blog-content">
                     <h3 class="blog-title">Hogar Inteligente: Guía Completa</h3>
-                    <p class="blog-excerpt">Todo lo que necesitas saber para convertir tu casa en un ecosistema conectado...</p>
+                    <p class="blog-excerpt">Todo lo que necesitas saber para convertir tu casa en un ecosistema
+                        conectado...</p>
                     <a href="#" class="blog-link">Leer más <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </article>
             <article class="blog-card reveal">
                 <div class="blog-image">
-                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Otras%20pagina%20principal/articulo-app-cerradura-inteligente-control-remoto.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT3RyYXMgcGFnaW5hIHByaW5jaXBhbC9hcnRpY3Vsby1hcHAtY2VycmFkdXJhLWludGVsaWdlbnRlLWNvbnRyb2wtcmVtb3RvLndlYnAiLCJpYXQiOjE3NjgxNDA4OTIsImV4cCI6MjA4MzUwMDg5Mn0.yUF6M1WX_wECFeG1yXYBgWD3ZiaH7UUwv_yqkm4hnEU" alt="App cerradura inteligente control remoto">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Otras%20pagina%20principal/articulo-app-cerradura-inteligente-control-remoto.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT3RyYXMgcGFnaW5hIHByaW5jaXBhbC9hcnRpY3Vsby1hcHAtY2VycmFkdXJhLWludGVsaWdlbnRlLWNvbnRyb2wtcmVtb3RvLndlYnAiLCJpYXQiOjE3NjgxNDA4OTIsImV4cCI6MjA4MzUwMDg5Mn0.yUF6M1WX_wECFeG1yXYBgWD3ZiaH7UUwv_yqkm4hnEU"
+                        alt="App cerradura inteligente control remoto">
                     <span class="blog-date">2 Ene 2026</span>
                 </div>
                 <div class="blog-content">
                     <h3 class="blog-title">¿Cómo elegir la Cerradura Ideal?</h3>
-                    <p class="blog-excerpt">Factores clave para seleccionar el sistema de seguridad perfecto para tu puerta...</p>
+                    <p class="blog-excerpt">Factores clave para seleccionar el sistema de seguridad perfecto para tu
+                        puerta...</p>
                     <a href="#" class="blog-link">Leer más <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </article>
@@ -3095,7 +3815,8 @@
             <p>Únete a miles de hogares colombianos que ya confían en ZAFESYS. Envío gratis y garantía de 2 años.</p>
             <div class="cta-buttons">
                 <a href="#productos" class="btn-primary">Ver Catálogo <i class="fa-solid fa-arrow-right"></i></a>
-                <a href="https://wa.me/573001234567" target="_blank" class="btn-secondary"><i class="fa-brands fa-whatsapp" style="color:#25D366"></i> Hablar con Ventas</a>
+                <a href="https://wa.me/573001234567" target="_blank" class="btn-secondary"><i
+                        class="fa-brands fa-whatsapp" style="color:#25D366"></i> Hablar con Ventas</a>
             </div>
         </div>
     </section>
@@ -3108,7 +3829,8 @@
                     <div class="logo-icon"><i class="fa-solid fa-shield-halved"></i></div>
                     <span class="logo-text">ZAFESYS</span>
                 </div>
-                <p>Transformamos la seguridad de tu hogar con tecnología de punta. Cerraduras inteligentes diseñadas para Colombia.</p>
+                <p>Transformamos la seguridad de tu hogar con tecnología de punta. Cerraduras inteligentes diseñadas
+                    para Colombia.</p>
                 <div class="footer-social">
                     <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="#"><i class="fa-brands fa-instagram"></i></a>
@@ -3147,8 +3869,8 @@
         <div class="footer-bottom">
             <p>© 2026 ZAFESYS Colombia. Todos los derechos reservados.</p>
             <div style="display:flex;gap:20px;">
-                <a href="#" style="color:#6b7280;font-size:13px;">Privacidad</a>
-                <a href="#" style="color:#6b7280;font-size:13px;">Términos</a>
+                <a href="politicas.html" style="color:#6b7280;font-size:13px;">Privacidad</a>
+                <a href="politicas.html" style="color:#6b7280;font-size:13px;">Términos</a>
             </div>
         </div>
     </footer>
@@ -3161,7 +3883,7 @@
     <script>
         // Parallax Effect - WEBP scales on scroll
         const heroWebp = document.getElementById('hero-webp');
-        
+
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
             // WEBP scales up slightly on scroll
@@ -3310,10 +4032,10 @@
                 const rect = gallerySection.getBoundingClientRect();
                 const sectionTop = rect.top;
                 const sectionHeight = gallerySection.offsetHeight - window.innerHeight;
-                
+
                 if (sectionTop <= 0 && sectionTop >= -sectionHeight) {
                     const scrollProgress = Math.min(Math.abs(sectionTop) / (sectionHeight * 0.6), 1);
-                    
+
                     // Ocultar/mostrar header y hint - rápido
                     if (scrollProgress > 0.1) {
                         galleryHeader.classList.add('hidden');
@@ -3322,7 +4044,7 @@
                         galleryHeader.classList.remove('hidden');
                         scrollHint.classList.remove('hidden');
                     }
-                    
+
                     // Mostrar cards laterales
                     if (scrollProgress > 0.25) {
                         cardLeft.classList.add('visible');
@@ -3331,7 +4053,7 @@
                         cardLeft.classList.remove('visible');
                         cardRight.classList.remove('visible');
                     }
-                    
+
                     // Expandir cards y mostrar controles
                     if (scrollProgress > 0.5) {
                         cardLeft.classList.add('expanded');
@@ -3369,4 +4091,5 @@
         updateCards();
     </script>
 </body>
+
 </html>

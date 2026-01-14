@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Políticas - ZAFESYS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Sora', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #050508;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #00d4ff 0%, #22d3ee 50%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 40px;
+            transition: all 0.3s;
+            background: rgba(5, 5, 8, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #00d4ff, #06b6d4);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-size: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            color: #9ca3af;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        /* Content styles */
+        .policies-section {
+            padding: 120px 40px 80px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .policies-title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .policy-block {
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        .policy-block h2 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: #22d3ee;
+        }
+
+        .policy-block p {
+            font-size: 16px;
+            color: #d1d5db;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        /* Footer styles */
+        .footer {
+            background: #050508;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 80px 40px 40px;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-bottom p {
+            font-size: 13px;
+            color: #6b7280;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <span class="logo-text"><span style="color:#fff">ZAFE</span><span
+                        class="text-gradient">SYS</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Volver al Inicio</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="policies-section">
+        <h1 class="policies-title">Políticas Legales</h1>
+
+        <div class="policy-block">
+            <h2>Derecho de Retracto</h2>
+            <p>De acuerdo con la ley colombiana, tienes derecho a retractarte de tu compra dentro de los <strong>5 días
+                    hábiles</strong> siguientes a la entrega del producto. El producto debe ser devuelto en las mismas
+                condiciones en que lo recibiste, sin haber sido usado y con su empaque original.</p>
+        </div>
+
+        <div class="policy-block">
+            <h2>Garantía</h2>
+            <p>Todos nuestros productos cuentan con <strong>1 año de garantía</strong> por defectos de fábrica. Esta
+                garantía cubre fallas en el funcionamiento del dispositivo bajo condiciones normales de uso. No cubre
+                daños por mal uso, golpes, humedad excesiva o instalaciones incorrectas realizadas por terceros no
+                autorizados.</p>
+        </div>
+
+        <div class="policy-block">
+            <h2>Soporte y Contacto</h2>
+            <p>Para gestionar devoluciones, garantías o soporte técnico, por favor contáctanos:</p>
+            <p><strong>Teléfono:</strong> +57 (604) 555-0123</p>
+            <p><strong>Email:</strong> soporte@zafesys.com</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>© 2026 ZAFESYS Colombia. Todos los derechos reservados.</p>
+            <div style="display:flex;gap:20px;">
+                <a href="politicas.html" style="color:#6b7280;font-size:13px;">Privacidad</a>
+                <a href="politicas.html" style="color:#6b7280;font-size:13px;">Términos</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
