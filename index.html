@@ -1050,10 +1050,10 @@
 
         /* PRODUCTS SECTION */
         .products-section {
-            padding: 100px 40px;
+            padding: 100px 40px 60px 40px;
             background: #050508;
         }
-        @media (max-width: 768px) { .products-section { padding: 60px 20px; } }
+        @media (max-width: 768px) { .products-section { padding: 60px 20px 40px 20px; } }
         .section-header {
             text-align: center;
             margin-bottom: 60px;
@@ -1116,7 +1116,7 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-            background: #0a0a0f;
+            background: #ffffff;
             transition: transform 0.6s ease;
         }
         .product-card:hover .product-image img {
@@ -1196,6 +1196,8 @@
         }
         .product-content {
             padding: 24px;
+            background: rgba(10, 10, 15, 0.95);
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
         .product-name {
             font-size: 20px;
@@ -1209,18 +1211,19 @@
         }
         .product-features {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             margin-bottom: 20px;
+            flex-wrap: wrap;
         }
         .product-feature-icon {
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             background: rgba(255,255,255,0.05);
-            border-radius: 10px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
+            font-size: 13px;
         }
         .product-feature-icon.cyan { color: #22d3ee; }
         .product-feature-icon.blue { color: #3b82f6; }
@@ -1256,6 +1259,338 @@
             background: #22d3ee;
             border-color: #22d3ee;
             color: #000;
+        }
+        /* Product Link - Clickeable */
+        .product-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+        .product-ref {
+            font-size: 11px;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        .product-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: rgba(34, 211, 238, 0.1);
+            border: 1px solid rgba(34, 211, 238, 0.3);
+            border-radius: 10px;
+            color: #22d3ee;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .product-card:hover .product-btn {
+            background: #22d3ee;
+            color: #000;
+        }
+        .product-card.premium .product-btn {
+            background: rgba(245, 158, 11, 0.1);
+            border-color: rgba(245, 158, 11, 0.3);
+            color: #f59e0b;
+        }
+        .product-card.premium:hover .product-btn {
+            background: #f59e0b;
+            color: #000;
+        }
+        /* Service Card Style */
+        .product-card.service {
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            background: linear-gradient(145deg, rgba(15,30,20,1), rgba(15,15,22,1));
+        }
+        .product-card.service:hover {
+            border-color: rgba(34, 197, 94, 0.6);
+            box-shadow: 0 20px 60px rgba(34, 197, 94, 0.15);
+        }
+        .service-badge {
+            background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+        }
+        .product-card.service .product-btn {
+            background: rgba(34, 197, 94, 0.1);
+            border-color: rgba(34, 197, 94, 0.3);
+            color: #22c55e;
+        }
+        .product-card.service:hover .product-btn {
+            background: #22c55e;
+            color: #000;
+        }
+        .price-old {
+            text-decoration: line-through;
+            color: #6b7280;
+            font-size: 14px;
+            font-weight: 400;
+            margin-right: 8px;
+        }
+        .product-feature-icon {
+            color: #9ca3af;
+        }
+        .product-card:hover .product-feature-icon {
+            color: #22d3ee;
+        }
+        .product-card.premium .product-feature-icon {
+            color: #9ca3af;
+        }
+        .product-card.premium:hover .product-feature-icon {
+            color: #f59e0b;
+        }
+        .product-card.service .product-feature-icon {
+            color: #9ca3af;
+        }
+        .product-card.service:hover .product-feature-icon {
+            color: #22c55e;
+        }
+
+        /* SCROLL EXPANSION GALLERY - 3 VERTICAL PHOTOS */
+        .gallery-section {
+            padding: 0;
+            background: #050508;
+            overflow: hidden;
+            position: relative;
+            height: 110vh;
+        }
+        .gallery-sticky {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            overflow: visible;
+            padding-top: 80px;
+        }
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 20px;
+            z-index: 10;
+            transition: opacity 0.1s ease, transform 0.1s ease;
+            pointer-events: none;
+        }
+        .gallery-header.hidden {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        .gallery-header h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .gallery-header p {
+            color: #9ca3af;
+            font-size: 16px;
+        }
+        .expansion-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            transition: all 0.1s ease-out;
+        }
+        .expansion-card {
+            position: relative;
+            width: 200px;
+            height: 320px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            transition: all 0.2s ease-out;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        .expansion-card.center {
+            opacity: 1;
+            transform: scale(1);
+            width: 220px;
+            height: 350px;
+        }
+        .expansion-card.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .expansion-card.expanded {
+            width: 260px;
+            height: 380px;
+            border-radius: 16px;
+        }
+        .expansion-card.expanded.center {
+            width: 300px;
+            height: 420px;
+        }
+        .expansion-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.2s ease, opacity 0.15s ease;
+        }
+        .expansion-card:hover img {
+            transform: scale(1.05);
+        }
+        .expansion-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 40%, transparent 70%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .expansion-card.expanded .expansion-card-overlay {
+            opacity: 1;
+        }
+        .expansion-card-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+        .expansion-card-location {
+            font-size: 13px;
+            color: #22d3ee;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .expansion-nav-container {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-sizing: border-box;
+            z-index: 25;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.15s ease;
+        }
+        .expansion-nav-container.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .expansion-arrow {
+            width: 50px;
+            height: 50px;
+            background: rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .expansion-arrow:hover {
+            background: #22d3ee;
+            border-color: #22d3ee;
+            transform: scale(1.1);
+        }
+        .expansion-dots {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 20;
+            opacity: 0;
+            transition: opacity 0.15s ease;
+        }
+        .expansion-dots.visible {
+            opacity: 1;
+        }
+        .expansion-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .expansion-dot.active {
+            background: #22d3ee;
+            transform: scale(1.3);
+        }
+        .expansion-dot:hover {
+            background: rgba(255,255,255,0.6);
+        }
+        .scroll-hint {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #6b7280;
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            animation: bounce 2s infinite;
+            z-index: 10;
+            transition: opacity 0.1s ease;
+        }
+        .scroll-hint.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+        .scroll-hint i {
+            color: #22d3ee;
+            font-size: 20px;
+        }
+        .expansion-counter {
+            position: absolute;
+            bottom: -25px;
+            right: 0;
+            background: rgba(0,0,0,0.5);
+            padding: 8px 16px;
+            border-radius: 20px;
+            color: #fff;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.15s ease;
+            z-index: 25;
+        }
+        .expansion-counter.visible {
+            opacity: 1;
+        }
+        .expansion-counter span {
+            color: #22d3ee;
+            font-weight: 700;
+        }
+        @media (max-width: 900px) {
+            .expansion-card.expanded {
+                width: 180px;
+                height: 300px;
+            }
+            .expansion-card.expanded.center {
+                width: 200px;
+                height: 340px;
+            }
+        }
+        @media (max-width: 640px) {
+            .expansion-card:not(.center) {
+                display: none;
+            }
+            .expansion-card.expanded.center {
+                width: 280px;
+                height: 400px;
+            }
+            .gallery-sticky {
+                padding-top: 60px;
+            }
         }
 
         /* TESTIMONIALS */
@@ -1853,6 +2188,7 @@
             <div class="nav-links">
                 <a href="#features">Características</a>
                 <a href="#productos">Productos</a>
+                <a href="#galeria">Galería</a>
                 <a href="#app">App</a>
                 <a href="#testimonios">Reseñas</a>
                 <a href="#ubicacion">Ubicación</a>
@@ -1935,7 +2271,7 @@
             <!-- Card 1 - Reconocimiento Dactilar -->
             <div class="feature-card reveal">
                 <div class="feature-card-bg">
-                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/fondo%20dactilar.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvZm9uZG8gZGFjdGlsYXIucG5nIiwiaWF0IjoxNzY3OTk0ODU4LCJleHAiOjE3OTk1MzA4NTh9.gX0hjAvDvFhDL6e6o03l-N5LVheMp-Zqlgz4iKpWC04" alt="Fingerprint">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Otras%20pagina%20principal/tecnologia-seguridad-cerraduras-digitales.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT3RyYXMgcGFnaW5hIHByaW5jaXBhbC90ZWNub2xvZ2lhLXNlZ3VyaWRhZC1jZXJyYWR1cmFzLWRpZ2l0YWxlcy53ZWJwIiwiaWF0IjoxNzY4MTQxMDQzLCJleHAiOjIwODM1MDEwNDN9.GZXpRy5hnJi6mg7xX9SOp6ZBjKzCqELkhhyFBQM8RGQ" alt="Tecnología seguridad cerraduras digitales">
                 </div>
                 <div class="feature-card-content">
                     <div class="feature-icon blue"><i class="fa-solid fa-fingerprint"></i></div>
@@ -1989,74 +2325,74 @@
                 <!-- First set of videos -->
                 <div class="slider-item">
                     <video loop muted playsinline>
-                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/primero.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvcHJpbWVyby5tcDQiLCJpYXQiOjE3Njc5OTE4NjMsImV4cCI6MTc5OTUyNzg2M30.yHi6MB5mnZ3cKYv9GPbEm-m9OJnffR36vfroyfBbc-s" type="video/mp4">
+                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-inteligente-instalacion-1.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1pbnRlbGlnZW50ZS1pbnN0YWxhY2lvbi0xLndlYm0iLCJpYXQiOjE3NjgxMzkzNDAsImV4cCI6MjA4MzQ5OTM0MH0.3owfGe_09K5x0mmTl5qh4vFS_lhhk4DugPZQginLeZA" type="video/webm">
                     </video>
                     <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
                 </div>
                 <div class="slider-item">
                     <video loop muted playsinline>
-                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/segundo.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvc2VndW5kby5tcDQiLCJpYXQiOjE3Njc5OTE4OTgsImV4cCI6MTc5OTUyNzg5OH0.Qa1iUSfD4Cglq6Be6VKzichfhxQO43jtkzGCekzhMeQ" type="video/mp4">
+                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-digital-puerta-2.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1kaWdpdGFsLXB1ZXJ0YS0yLm1wNCIsImlhdCI6MTc2ODEzOTM3MSwiZXhwIjoyMDgzNDk5MzcxfQ.YoOscvPjW4tCJwpmBjMdzlRxzhW7PMUyBJzUbYuF7Hc" type="video/mp4">
                     </video>
                     <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
                 </div>
                 <div class="slider-item">
                     <video loop muted playsinline>
-                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/tercero.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvdGVyY2Vyby5tcDQiLCJpYXQiOjE3Njc5OTE5MTQsImV4cCI6MTc5OTUyNzkxNH0.k1I3ddqAuzVwe2iiLTQ4zHDKLQyMnfSZSYWAMJ6B5Y0" type="video/mp4">
+                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-biometrica-huella-3.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1iaW9tZXRyaWNhLWh1ZWxsYS0zLndlYm0iLCJpYXQiOjE3NjgxMzkzOTQsImV4cCI6MjA4MzQ5OTM5NH0.JaN0hts4M4QiJIWHqYRO1XSfpd5lCmP79ePMS4dtXqc" type="video/webm">
                     </video>
                     <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
                 </div>
                 <div class="slider-item">
                     <video loop muted playsinline>
-                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/video%204.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvdmlkZW8gNC5tcDQiLCJpYXQiOjE3Njc5OTE5MzAsImV4cCI6MTc5OTUyNzkzMH0.Q8atgS-4Dd4macDUtFe0R46afQWbrd2kkp-zJnsgxqo" type="video/mp4">
+                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-facial-3d-demo-4.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1mYWNpYWwtM2QtZGVtby00LndlYm0iLCJpYXQiOjE3NjgxMzk0MTcsImV4cCI6MjA4MzQ5OTQxN30.cFLb6SuwQIU9vx4gIvs6zO2pyXIjwGXEWfrJK9ur5Lg" type="video/webm">
                     </video>
                     <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
                 </div>
                 <div class="slider-item">
                     <video loop muted playsinline>
-                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/quinto.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvcXVpbnRvLm1wNCIsImlhdCI6MTc2Nzk5MTk0NywiZXhwIjoxNzk5NTI3OTQ3fQ.eGMKldUDSEc_YQJbnAh0WruyK5dnP7jxi0ZVuMwPZ40" type="video/mp4">
+                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-smart-app-5.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1zbWFydC1hcHAtNS53ZWJtIiwiaWF0IjoxNzY4MTM5NDkxLCJleHAiOjIwODM0OTk0OTF9.9b8lQi9cRId1W4Fh5SAZYuNgu5EZvOoXQzbh0-Ymf4I" type="video/webm">
                     </video>
                     <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
                 </div>
                 <div class="slider-item">
                     <video loop muted playsinline>
-                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/sexto.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvc2V4dG8ubXA0IiwiaWF0IjoxNzY3OTkxOTY3LCJleHAiOjE3OTk1Mjc5Njd9.2qlownHUvKLhQtQ7Wzyrk2DzDyV7ykl0nDGFezHL_Us" type="video/mp4">
+                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-profesional-cliente-6.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1wcm9mZXNpb25hbC1jbGllbnRlLTYud2VibSIsImlhdCI6MTc2ODEzOTQzOSwiZXhwIjoyMDgzNDk5NDM5fQ.ikWNPpNk7qZa2A2MmESU17W7UeUF45fRpURKmpJCcj4" type="video/webm">
                     </video>
                     <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
                 </div>
                 <!-- Duplicate for infinite loop -->
                 <div class="slider-item">
                     <video loop muted playsinline>
-                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/primero.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvcHJpbWVyby5tcDQiLCJpYXQiOjE3Njc5OTE4NjMsImV4cCI6MTc5OTUyNzg2M30.yHi6MB5mnZ3cKYv9GPbEm-m9OJnffR36vfroyfBbc-s" type="video/mp4">
+                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-inteligente-instalacion-1.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1pbnRlbGlnZW50ZS1pbnN0YWxhY2lvbi0xLndlYm0iLCJpYXQiOjE3NjgxMzkzNDAsImV4cCI6MjA4MzQ5OTM0MH0.3owfGe_09K5x0mmTl5qh4vFS_lhhk4DugPZQginLeZA" type="video/webm">
                     </video>
                     <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
                 </div>
                 <div class="slider-item">
                     <video loop muted playsinline>
-                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/segundo.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvc2VndW5kby5tcDQiLCJpYXQiOjE3Njc5OTE4OTgsImV4cCI6MTc5OTUyNzg5OH0.Qa1iUSfD4Cglq6Be6VKzichfhxQO43jtkzGCekzhMeQ" type="video/mp4">
+                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-digital-puerta-2.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1kaWdpdGFsLXB1ZXJ0YS0yLm1wNCIsImlhdCI6MTc2ODEzOTM3MSwiZXhwIjoyMDgzNDk5MzcxfQ.YoOscvPjW4tCJwpmBjMdzlRxzhW7PMUyBJzUbYuF7Hc" type="video/mp4">
                     </video>
                     <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
                 </div>
                 <div class="slider-item">
                     <video loop muted playsinline>
-                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/tercero.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvdGVyY2Vyby5tcDQiLCJpYXQiOjE3Njc5OTE5MTQsImV4cCI6MTc5OTUyNzkxNH0.k1I3ddqAuzVwe2iiLTQ4zHDKLQyMnfSZSYWAMJ6B5Y0" type="video/mp4">
+                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-biometrica-huella-3.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1iaW9tZXRyaWNhLWh1ZWxsYS0zLndlYm0iLCJpYXQiOjE3NjgxMzkzOTQsImV4cCI6MjA4MzQ5OTM5NH0.JaN0hts4M4QiJIWHqYRO1XSfpd5lCmP79ePMS4dtXqc" type="video/webm">
                     </video>
                     <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
                 </div>
                 <div class="slider-item">
                     <video loop muted playsinline>
-                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/video%204.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvdmlkZW8gNC5tcDQiLCJpYXQiOjE3Njc5OTE5MzAsImV4cCI6MTc5OTUyNzkzMH0.Q8atgS-4Dd4macDUtFe0R46afQWbrd2kkp-zJnsgxqo" type="video/mp4">
+                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-facial-3d-demo-4.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1mYWNpYWwtM2QtZGVtby00LndlYm0iLCJpYXQiOjE3NjgxMzk0MTcsImV4cCI6MjA4MzQ5OTQxN30.cFLb6SuwQIU9vx4gIvs6zO2pyXIjwGXEWfrJK9ur5Lg" type="video/webm">
                     </video>
                     <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
                 </div>
                 <div class="slider-item">
                     <video loop muted playsinline>
-                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/quinto.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvcXVpbnRvLm1wNCIsImlhdCI6MTc2Nzk5MTk0NywiZXhwIjoxNzk5NTI3OTQ3fQ.eGMKldUDSEc_YQJbnAh0WruyK5dnP7jxi0ZVuMwPZ40" type="video/mp4">
+                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-smart-app-5.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1zbWFydC1hcHAtNS53ZWJtIiwiaWF0IjoxNzY4MTM5NDkxLCJleHAiOjIwODM0OTk0OTF9.9b8lQi9cRId1W4Fh5SAZYuNgu5EZvOoXQzbh0-Ymf4I" type="video/webm">
                     </video>
                     <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
                 </div>
                 <div class="slider-item">
                     <video loop muted playsinline>
-                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/sexto.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvc2V4dG8ubXA0IiwiaWF0IjoxNzY3OTkxOTY3LCJleHAiOjE3OTk1Mjc5Njd9.2qlownHUvKLhQtQ7Wzyrk2DzDyV7ykl0nDGFezHL_Us" type="video/mp4">
+                        <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Videos/video-cerradura-profesional-cliente-6.webm?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvVmlkZW9zL3ZpZGVvLWNlcnJhZHVyYS1wcm9mZXNpb25hbC1jbGllbnRlLTYud2VibSIsImlhdCI6MTc2ODEzOTQzOSwiZXhwIjoyMDgzNDk5NDM5fQ.ikWNPpNk7qZa2A2MmESU17W7UeUF45fRpURKmpJCcj4" type="video/webm">
                     </video>
                     <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
                 </div>
@@ -2160,81 +2496,277 @@
     <section class="products-section" id="productos">
         <div class="section-header">
             <div class="section-badge"><span>Catálogo 2026</span></div>
-            <h2 class="section-title">Nuestros Modelos</h2>
+            <h2 class="section-title">Nuestras Cerraduras</h2>
             <p class="section-subtitle">Encuentra la cerradura perfecta para tu hogar o negocio</p>
         </div>
         <div class="products-grid">
+            <!-- Producto 1: OS566F - $345,000 -->
             <article class="product-card reveal">
-                <div class="product-image">
-                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/New%20magic%20design%20(2)%20(1).png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvTmV3IG1hZ2ljIGRlc2lnbiAoMikgKDEpLnBuZyIsImlhdCI6MTc2Nzk5Mjc4NSwiZXhwIjoxNzk5NTI4Nzg1fQ.rKvAa611uIw5ZnrwxV8MfAHnkQ4Om4YRT3bsB2bhuXU" alt="Zafe Rim Pro">
-                </div>
-                <div class="product-content">
-                    <h3 class="product-name">Zafe Rim Pro</h3>
-                    <p class="product-type">Cerradura de Sobreponer</p>
-                    <div class="product-features">
-                        <div class="product-feature-icon cyan"><i class="fa-solid fa-fingerprint"></i></div>
-                        <div class="product-feature-icon blue"><i class="fa-brands fa-bluetooth-b"></i></div>
+                <a href="productos/os566f.html" class="product-link">
+                    <div class="product-image">
+                        <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/cerradura-digital-huella-tarjeta-os566f.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2VycmFkdXJhLWRpZ2l0YWwtaHVlbGxhLXRhcmpldGEtb3M1NjZmLndlYnAiLCJpYXQiOjE3NjgwNTgzMTksImV4cCI6MjA4MzQxODMxOX0.AoWhgIC8L-eJgxaC9sWM6lQy4Ij21axJOiqvRg2Sc70" alt="Cerradura Digital Huella y Tarjeta OS566F">
                     </div>
-                    <div class="product-footer">
-                        <div class="product-price">$ 420.000 <span>COP</span></div>
-                        <button class="product-cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                    <div class="product-content">
+                        <p class="product-ref">Ref. OS566F</p>
+                        <h3 class="product-name">Cerradura Digital</h3>
+                        <p class="product-type">Huella + Tarjeta + Clave</p>
+                        <div class="product-features">
+                            <div class="product-feature-icon" title="Código"><i class="fa-solid fa-keyboard"></i></div>
+                            <div class="product-feature-icon" title="Huella"><i class="fa-solid fa-fingerprint"></i></div>
+                            <div class="product-feature-icon" title="Tarjeta"><i class="fa-solid fa-credit-card"></i></div>
+                            <div class="product-feature-icon" title="Llave"><i class="fa-solid fa-key"></i></div>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$345.000 <span>COP</span></div>
+                            <span class="product-btn">Ver más <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
                     </div>
-                </div>
+                </a>
             </article>
+
+            <!-- Producto 2: OS514F - $360,000 -->
             <article class="product-card reveal">
-                <div class="product-image">
-                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/chapita%202.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2hhcGl0YSAyLnBuZyIsImlhdCI6MTc2Nzk5MzUyNCwiZXhwIjoxNzk5NTI5NTI0fQ.gLHaMtzaUWaXpdMEks_Idg_muECPcPIpw_aIA6-q3ws" alt="Zafe Handle">
-                </div>
-                <div class="product-content">
-                    <h3 class="product-name">Zafe Handle</h3>
-                    <p class="product-type">Manija Inteligente Minimalista</p>
-                    <div class="product-features">
-                        <div class="product-feature-icon cyan"><i class="fa-solid fa-fingerprint"></i></div>
-                        <div class="product-feature-icon blue"><i class="fa-brands fa-bluetooth-b"></i></div>
+                <a href="productos/os514f.html" class="product-link">
+                    <div class="product-image">
+                        <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/cerradura-digital-huella-tarjeta-os514f.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2VycmFkdXJhLWRpZ2l0YWwtaHVlbGxhLXRhcmpldGEtb3M1MTRmLndlYnAiLCJpYXQiOjE3NjgwNTgyMjUsImV4cCI6MjA4MzQxODIyNX0.ri8qnlXA8B91-kpmm-m44u2kYRbXdw63nEzzCBklfz8" alt="Cerradura Digital Huella y Tarjeta OS514F">
                     </div>
-                    <div class="product-footer">
-                        <div class="product-price">$ 680.000 <span>COP</span></div>
-                        <button class="product-cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                    <div class="product-content">
+                        <p class="product-ref">Ref. OS514F</p>
+                        <h3 class="product-name">Cerradura Digital</h3>
+                        <p class="product-type">Huella + Tarjeta + Clave</p>
+                        <div class="product-features">
+                            <div class="product-feature-icon" title="Código"><i class="fa-solid fa-keyboard"></i></div>
+                            <div class="product-feature-icon" title="Huella"><i class="fa-solid fa-fingerprint"></i></div>
+                            <div class="product-feature-icon" title="Tarjeta"><i class="fa-solid fa-credit-card"></i></div>
+                            <div class="product-feature-icon" title="Llave"><i class="fa-solid fa-key"></i></div>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$360.000 <span>COP</span></div>
+                            <span class="product-btn">Ver más <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
                     </div>
-                </div>
+                </a>
             </article>
+
+            <!-- Producto 3: OS809TYE - $370,000 -->
             <article class="product-card reveal">
-                <div class="product-image">
-                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/chapita%203.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2hhcGl0YSAzLnBuZyIsImlhdCI6MTc2Nzk5MzU1NiwiZXhwIjoxNzk5NTI5NTU2fQ.8OTbTfL9XNbL26F9madSgNa5MClP-Edt16C8J7C79x0" alt="Zafe Deadbolt">
-                </div>
-                <div class="product-content">
-                    <h3 class="product-name">Zafe Deadbolt</h3>
-                    <p class="product-type">Cerrojo de Alta Seguridad</p>
-                    <div class="product-features">
-                        <div class="product-feature-icon cyan"><i class="fa-solid fa-lock"></i></div>
-                        <div class="product-feature-icon blue"><i class="fa-solid fa-wifi"></i></div>
+                <a href="productos/os809tye.html" class="product-link">
+                    <div class="product-image">
+                        <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/cerradura-digital-tuya-smart-huella-os809tye.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2VycmFkdXJhLWRpZ2l0YWwtdHV5YS1zbWFydC1odWVsbGEtb3M4MDl0eWUud2VicCIsImlhdCI6MTc2ODA1ODM1MCwiZXhwIjoyMDgzNDE4MzUwfQ.lbNPlasSkTtgq4EeYPjq9mpOyTUw06uE-FZf8alFfPw" alt="Cerradura Digital Tuya Smart OS809TYE">
                     </div>
-                    <div class="product-footer">
-                        <div class="product-price">$ 490.000 <span>COP</span></div>
-                        <button class="product-cart-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                    <div class="product-content">
+                        <p class="product-ref">Ref. OS809TYE</p>
+                        <h3 class="product-name">Cerradura Tuya Smart</h3>
+                        <p class="product-type">App + Huella + Tarjeta + Clave</p>
+                        <div class="product-features">
+                            <div class="product-feature-icon" title="Código"><i class="fa-solid fa-keyboard"></i></div>
+                            <div class="product-feature-icon" title="Huella"><i class="fa-solid fa-fingerprint"></i></div>
+                            <div class="product-feature-icon" title="Tarjeta"><i class="fa-solid fa-credit-card"></i></div>
+                            <div class="product-feature-icon" title="Llave"><i class="fa-solid fa-key"></i></div>
+                            <div class="product-feature-icon" title="App"><i class="fa-solid fa-mobile-screen"></i></div>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$370.000 <span>COP</span></div>
+                            <span class="product-btn">Ver más <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
                     </div>
-                </div>
+                </a>
             </article>
-            <!-- Premium Product -->
+
+            <!-- Producto 4: OS833TYFA - $680,000 -->
+            <article class="product-card reveal">
+                <a href="productos/os833tyfa.html" class="product-link">
+                    <div class="product-image">
+                        <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/cerradura-inteligente-facial-3d-videollamada-os833tyfa.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2VycmFkdXJhLWludGVsaWdlbnRlLWZhY2lhbC0zZC12aWRlb2xsYW1hZGEtb3M4MzN0eWZhLndlYnAiLCJpYXQiOjE3NjgwNTg0MjUsImV4cCI6MjA4MzQxODQyNX0.W-kcF3KUZkvMeN_jvrxh8NrdzrvncOonQY9di0AUhbw" alt="Cerradura Facial 3D con Videollamada OS833TYFA">
+                    </div>
+                    <div class="product-content">
+                        <p class="product-ref">Ref. OS833TYFA</p>
+                        <h3 class="product-name">Cerradura Facial 3D</h3>
+                        <p class="product-type">Face ID + Video + Huella + App</p>
+                        <div class="product-features">
+                            <div class="product-feature-icon" title="Face ID"><i class="fa-solid fa-face-smile"></i></div>
+                            <div class="product-feature-icon" title="Videollamada"><i class="fa-solid fa-video"></i></div>
+                            <div class="product-feature-icon" title="Huella"><i class="fa-solid fa-fingerprint"></i></div>
+                            <div class="product-feature-icon" title="Tarjeta"><i class="fa-solid fa-credit-card"></i></div>
+                            <div class="product-feature-icon" title="Llave"><i class="fa-solid fa-key"></i></div>
+                            <div class="product-feature-icon" title="App"><i class="fa-solid fa-mobile-screen"></i></div>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$680.000 <span>COP</span></div>
+                            <span class="product-btn">Ver más <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Producto 5: OS784TYFA - $700,000 -->
+            <article class="product-card reveal">
+                <a href="productos/os784tyfa.html" class="product-link">
+                    <div class="product-image">
+                        <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/cerradura-inteligente-facial-3d-videollamada-os784tyfa.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2VycmFkdXJhLWludGVsaWdlbnRlLWZhY2lhbC0zZC12aWRlb2xsYW1hZGEtb3M3ODR0eWZhLndlYnAiLCJpYXQiOjE3NjgwNTg0MDEsImV4cCI6MjA4MzQxODQwMX0.6tagHkkchHiFsKXD3N5fVo6vLOpeoIqDwxEJLqN_DbM" alt="Cerradura Facial 3D con Videollamada OS784TYFA">
+                    </div>
+                    <div class="product-content">
+                        <p class="product-ref">Ref. OS784TYFA</p>
+                        <h3 class="product-name">Cerradura Facial 3D</h3>
+                        <p class="product-type">Face ID + Video + Huella + App</p>
+                        <div class="product-features">
+                            <div class="product-feature-icon" title="Face ID"><i class="fa-solid fa-face-smile"></i></div>
+                            <div class="product-feature-icon" title="Videollamada"><i class="fa-solid fa-video"></i></div>
+                            <div class="product-feature-icon" title="Huella"><i class="fa-solid fa-fingerprint"></i></div>
+                            <div class="product-feature-icon" title="Tarjeta"><i class="fa-solid fa-credit-card"></i></div>
+                            <div class="product-feature-icon" title="Llave"><i class="fa-solid fa-key"></i></div>
+                            <div class="product-feature-icon" title="App"><i class="fa-solid fa-mobile-screen"></i></div>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$700.000 <span>COP</span></div>
+                            <span class="product-btn">Ver más <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Producto 6: OS709TYFA - $790,000 - PREMIUM -->
             <article class="product-card premium reveal">
-                <div class="product-badge">PREMIUM</div>
-                <div class="product-image">
-                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/chapita%204.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2hhcGl0YSA0LnBuZyIsImlhdCI6MTc2Nzk5MzU3MSwiZXhwIjoxNzk5NTI5NTcxfQ.MMFhvXCSP_YA6xJZ5ErXDktIQtg-rh4rcqarWYkZSh8" alt="Zafe Elite Max">
-                </div>
-                <div class="product-content">
-                    <div class="product-tag">PREMIUM</div>
-                    <h3 class="product-name">Zafe Elite Max</h3>
-                    <div class="product-features-list">
-                        <div class="product-feature-item"><i class="fa-solid fa-check"></i> Facial + Huella</div>
-                        <div class="product-feature-item"><i class="fa-solid fa-check"></i> Pantalla AMOLED</div>
-                        <div class="product-feature-item"><i class="fa-solid fa-check"></i> Todo integrado</div>
+                <a href="productos/os709tyfa.html" class="product-link">
+                    <div class="product-badge">PREMIUM</div>
+                    <div class="product-image">
+                        <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/cerradura-inteligente-facial-3d-videollamada-os709tyfa.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2VycmFkdXJhLWludGVsaWdlbnRlLWZhY2lhbC0zZC12aWRlb2xsYW1hZGEtb3M3MDl0eWZhLndlYnAiLCJpYXQiOjE3NjgwNTgzNzUsImV4cCI6MjA4MzQxODM3NX0.HdMhmL7JHFzg0bi0Jmv2_N1vtZgRUNyUnbjGlbDLQWw" alt="Cerradura Inteligente Facial 3D Premium OS709TYFA">
                     </div>
-                    <div class="product-footer">
-                        <div class="product-price">$3.499.000</div>
-                        <button class="btn-premium">Ver más</button>
+                    <div class="product-content">
+                        <p class="product-ref">Ref. OS709TYFA</p>
+                        <h3 class="product-name">Cerradura Facial 3D</h3>
+                        <p class="product-type">Face ID + Video + Huella + App</p>
+                        <div class="product-features">
+                            <div class="product-feature-icon" title="Face ID"><i class="fa-solid fa-face-smile"></i></div>
+                            <div class="product-feature-icon" title="Videollamada"><i class="fa-solid fa-video"></i></div>
+                            <div class="product-feature-icon" title="Huella"><i class="fa-solid fa-fingerprint"></i></div>
+                            <div class="product-feature-icon" title="Tarjeta"><i class="fa-solid fa-credit-card"></i></div>
+                            <div class="product-feature-icon" title="Llave"><i class="fa-solid fa-key"></i></div>
+                            <div class="product-feature-icon" title="App"><i class="fa-solid fa-mobile-screen"></i></div>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$790.000 <span>COP</span></div>
+                            <span class="product-btn">Ver más <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
                     </div>
-                </div>
+                </a>
             </article>
+
+            <!-- Producto 7: OS840TYFA - $830,000 - PREMIUM -->
+            <article class="product-card premium reveal">
+                <a href="productos/os840tyfa.html" class="product-link">
+                    <div class="product-badge">PREMIUM</div>
+                    <div class="product-image">
+                        <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/cerradura-inteligente-facial-3d-videollamada-os840tyfa.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvY2VycmFkdXJhLWludGVsaWdlbnRlLWZhY2lhbC0zZC12aWRlb2xsYW1hZGEtb3M4NDB0eWZhLndlYnAiLCJpYXQiOjE3NjgwNTg5NjgsImV4cCI6MjA4MzQxODk2OH0.F7Aiold8CtWTXO3HQoquXd6_5OMkMO_zj536zt8eXQo" alt="Cerradura Inteligente Facial 3D Premium OS840TYFA">
+                    </div>
+                    <div class="product-content">
+                        <p class="product-ref">Ref. OS840TYFA</p>
+                        <h3 class="product-name">Cerradura Facial 3D</h3>
+                        <p class="product-type">Face ID + Video + Huella + App</p>
+                        <div class="product-features">
+                            <div class="product-feature-icon" title="Face ID"><i class="fa-solid fa-face-smile"></i></div>
+                            <div class="product-feature-icon" title="Videollamada"><i class="fa-solid fa-video"></i></div>
+                            <div class="product-feature-icon" title="Huella"><i class="fa-solid fa-fingerprint"></i></div>
+                            <div class="product-feature-icon" title="Tarjeta"><i class="fa-solid fa-credit-card"></i></div>
+                            <div class="product-feature-icon" title="Llave"><i class="fa-solid fa-key"></i></div>
+                            <div class="product-feature-icon" title="App"><i class="fa-solid fa-mobile-screen"></i></div>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">$830.000 <span>COP</span></div>
+                            <span class="product-btn">Ver más <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+            </article>
+
+            <!-- Servicio: Instalación - $189,000 -->
+            <article class="product-card service reveal">
+                <a href="servicios/instalacion.html" class="product-link">
+                    <div class="product-badge service-badge">OFERTA</div>
+                    <div class="product-image">
+                        <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/instalacincerraduradigitalinteligente-ezgif.com-png-to-webp-converter.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvaW5zdGFsYWNpbmNlcnJhZHVyYWRpZ2l0YWxpbnRlbGlnZW50ZS1lemdpZi5jb20tcG5nLXRvLXdlYnAtY29udmVydGVyLndlYnAiLCJpYXQiOjE3NjgwNTkwNjcsImV4cCI6MjA4MzQxOTA2N30.Gqgg_VBPtqjxZwDx-00pNwvNGuuGGUqPxjQsjbxiw2o" alt="Servicio de Instalación Profesional de Cerraduras">
+                    </div>
+                    <div class="product-content">
+                        <p class="product-ref">Servicio Profesional</p>
+                        <h3 class="product-name">Instalación Certificada</h3>
+                        <p class="product-type">Configuración + Garantía</p>
+                        <div class="product-features">
+                            <div class="product-feature-icon" title="Instalación"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                            <div class="product-feature-icon" title="Configuración"><i class="fa-solid fa-gear"></i></div>
+                            <div class="product-feature-icon" title="Garantía"><i class="fa-solid fa-shield-check"></i></div>
+                            <div class="product-feature-icon" title="Soporte"><i class="fa-solid fa-headset"></i></div>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price"><span class="price-old">$380.000</span> $189.000 <span>COP</span></div>
+                            <span class="product-btn">Ver más <i class="fa-solid fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <!-- GALLERY - SCROLL EXPANSION 3 VERTICAL -->
+    <section class="gallery-section" id="galeria">
+        <div class="gallery-sticky">
+            <div class="gallery-header" id="galleryHeader">
+                <h2>Instalaciones <span class="text-gradient">Reales</span></h2>
+                <p>+500 hogares protegidos en Colombia</p>
+            </div>
+            <div class="expansion-container" id="expansionContainer">
+                <!-- Flecha izquierda -->
+                <div class="expansion-nav-container" id="expansionNav">
+                    <button class="expansion-arrow" id="prevArrow"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="expansion-arrow" id="nextArrow"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                
+                <!-- Card Izquierda -->
+                <div class="expansion-card" id="card-left">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/fotos%20productos%20reales/instalacion-cerradura-profesional-colombia-7.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvZm90b3MgcHJvZHVjdG9zIHJlYWxlcy9pbnN0YWxhY2lvbi1jZXJyYWR1cmEtcHJvZmVzaW9uYWwtY29sb21iaWEtNy53ZWJwIiwiaWF0IjoxNzY4MTM3NjYyLCJleHAiOjIwODM0OTc2NjJ9.iJS04QWq9Kc-9urp3a7K3LlmV7gxhUD12iZ8z41uZVw" alt="Instalación Profesional Colombia">
+                    <div class="expansion-card-overlay">
+                        <div class="expansion-card-title" id="title-left">Casa Familiar</div>
+                        <div class="expansion-card-location"><i class="fa-solid fa-location-dot"></i> <span id="loc-left">Medellín</span></div>
+                    </div>
+                </div>
+                
+                <!-- Card Centro (principal) -->
+                <div class="expansion-card center" id="card-center">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/fotos%20productos%20reales/instalacion-cerradura-inteligente-residencial-1.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvZm90b3MgcHJvZHVjdG9zIHJlYWxlcy9pbnN0YWxhY2lvbi1jZXJyYWR1cmEtaW50ZWxpZ2VudGUtcmVzaWRlbmNpYWwtMS53ZWJwIiwiaWF0IjoxNzY4MTM3NDY4LCJleHAiOjIwODM0OTc0Njh9.Fm_ndbMrCPi95cmvuwE28smgJUFSP80odd-rkCrkcJQ" alt="Cerradura Inteligente Residencial">
+                    <div class="expansion-card-overlay">
+                        <div class="expansion-card-title" id="title-center">Apartamento Moderno</div>
+                        <div class="expansion-card-location"><i class="fa-solid fa-location-dot"></i> <span id="loc-center">Bogotá</span></div>
+                    </div>
+                </div>
+                
+                <!-- Card Derecha -->
+                <div class="expansion-card" id="card-right">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/fotos%20productos%20reales/instalacion-cerradura-inteligente-residencial-2.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvZm90b3MgcHJvZHVjdG9zIHJlYWxlcy9pbnN0YWxhY2lvbi1jZXJyYWR1cmEtaW50ZWxpZ2VudGUtcmVzaWRlbmNpYWwtMi53ZWJwIiwiaWF0IjoxNzY4MTM3NDk2LCJleHAiOjIwODM0OTc0OTZ9.CaM6vZpEbhT7CT7gXfFsaedhG-_y3PVceaAiWWkqSMs" alt="Cerradura Inteligente Residencial">
+                    <div class="expansion-card-overlay">
+                        <div class="expansion-card-title" id="title-right">Penthouse</div>
+                        <div class="expansion-card-location"><i class="fa-solid fa-location-dot"></i> <span id="loc-right">Cali</span></div>
+                    </div>
+                </div>
+                
+                <!-- Dots -->
+                <div class="expansion-dots" id="expansionDots">
+                    <div class="expansion-dot active" data-index="0"></div>
+                    <div class="expansion-dot" data-index="1"></div>
+                    <div class="expansion-dot" data-index="2"></div>
+                    <div class="expansion-dot" data-index="3"></div>
+                    <div class="expansion-dot" data-index="4"></div>
+                    <div class="expansion-dot" data-index="5"></div>
+                    <div class="expansion-dot" data-index="6"></div>
+                </div>
+                
+                <!-- Contador -->
+                <div class="expansion-counter" id="expansionCounter">
+                    <span id="currentNum">1</span> / 7
+                </div>
+            </div>
+            <div class="scroll-hint" id="scrollHint">
+                <span>Scroll para expandir</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
         </div>
     </section>
 
@@ -2394,7 +2926,7 @@
         <div class="services-grid">
             <article class="service-card reveal">
                 <div class="service-image">
-                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/instalacion.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvaW5zdGFsYWNpb24ucG5nIiwiaWF0IjoxNzY3OTk1MTYwLCJleHAiOjE3OTk1MzExNjB9.ncx32q4H1p2MGMKJx6RGsJG57iq1WRyAiyq3UMuAIgM" alt="Instalación">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Otras%20pagina%20principal/servicio-instalacion-cerradura-profesional.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT3RyYXMgcGFnaW5hIHByaW5jaXBhbC9zZXJ2aWNpby1pbnN0YWxhY2lvbi1jZXJyYWR1cmEtcHJvZmVzaW9uYWwud2VicCIsImlhdCI6MTc2ODE0MDk3NywiZXhwIjoyMDgzNTAwOTc3fQ.38qlKjh40LfC8o2yILrlGhZQu3Jb5LmN_YAZgWpAjPw" alt="Servicio de Instalación Profesional de Cerraduras">
                 </div>
                 <div class="service-content">
                     <div class="service-icon cyan"><i class="fa-solid fa-screwdriver-wrench"></i></div>
@@ -2408,7 +2940,7 @@
             </article>
             <article class="service-card reveal">
                 <div class="service-image">
-                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/mantenimiento.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvbWFudGVuaW1pZW50by5wbmciLCJpYXQiOjE3Njc5OTUzMDYsImV4cCI6MTc5OTUzMTMwNn0.e-HhXwkKh-N-To3l_old9iacWqcHS9NKsf2eqRjeWS4" alt="Mantenimiento">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Otras%20pagina%20principal/servicio-mantenimiento-cerraduras-inteligentes.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT3RyYXMgcGFnaW5hIHByaW5jaXBhbC9zZXJ2aWNpby1tYW50ZW5pbWllbnRvLWNlcnJhZHVyYXMtaW50ZWxpZ2VudGVzLndlYnAiLCJpYXQiOjE3NjgxNDEwMDAsImV4cCI6MjA4MzUwMTAwMH0.CLyz6HCqjIK4e8GbqtlZgToRbS4hgVuwBhTP6eA1Lu0" alt="Servicio de Mantenimiento de Cerraduras Inteligentes">
                 </div>
                 <div class="service-content">
                     <div class="service-icon blue"><i class="fa-solid fa-gear"></i></div>
@@ -2422,7 +2954,7 @@
             </article>
             <article class="service-card reveal">
                 <div class="service-image">
-                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Gemini_Generated_Image_apdgj7apdgj7apdg.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvR2VtaW5pX0dlbmVyYXRlZF9JbWFnZV9hcGRnajdhcGRnajdhcGRnLnBuZyIsImlhdCI6MTc2Nzk5NTQzOCwiZXhwIjoxNzk5NTMxNDM4fQ.q2jwagGDicpek2TuVJzAEiRWC700Sq7eKG_uATcFASE" alt="Soporte">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Otras%20pagina%20principal/soporte-tecnico-cerraduras-zafesys.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT3RyYXMgcGFnaW5hIHByaW5jaXBhbC9zb3BvcnRlLXRlY25pY28tY2VycmFkdXJhcy16YWZlc3lzLndlYnAiLCJpYXQiOjE3NjgxNDEwMjIsImV4cCI6MjA4MzUwMTAyMn0.dw5fLtqCVRANwpwTWnI0n3yakBaPGTK7CYplwWeEcME" alt="Soporte Técnico Cerraduras ZAFESYS">
                 </div>
                 <div class="service-content">
                     <div class="service-icon purple"><i class="fa-solid fa-headset"></i></div>
@@ -2440,11 +2972,11 @@
     <section class="location-section" id="ubicacion">
         <div class="location-header">
             <h2>Nuestra <span class="text-gradient">Ubicación</span></h2>
-            <p>Visítanos en Medellín, cerca del Estadio Atanasio Girardot.</p>
+            <p>Visítanos en Medellín, zona centro.</p>
         </div>
         <div class="location-grid">
             <div class="location-map reveal">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.1234567890123!2d-75.5902!3d6.2476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4428dfb80fad05%3A0x42137cfcc7b53b56!2sEstadio%20Atanasio%20Girardot!5e0!3m2!1ses!2sco!4v1704800000000!5m2!1ses!2sco" allowfullscreen loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.0!2d-75.5636!3d6.2518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4428f6c7c8c8c7%3A0x1234567890abcdef!2sCalle%2050%20%23%2055-50%2C%20Medell%C3%ADn!5e0!3m2!1ses!2sco!4v1704800000000!5m2!1ses!2sco" allowfullscreen loading="lazy"></iframe>
             </div>
             <div class="location-info reveal">
                 <h3>Showroom ZAFESYS</h3>
@@ -2452,7 +2984,7 @@
                     <div class="location-icon"><i class="fa-solid fa-location-dot"></i></div>
                     <div class="location-text">
                         <h4>Dirección</h4>
-                        <p>Cra 70 # 48-50, Sector Estadio<br>Medellín, Antioquia</p>
+                        <p>Calle 50 # 55-50, Bodega 401<br>Medellín, Antioquia</p>
                     </div>
                 </div>
                 <div class="location-item">
@@ -2481,7 +3013,7 @@
         <div class="blog-grid">
             <article class="blog-card reveal">
                 <div class="blog-image">
-                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/articulo%201.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvYXJ0aWN1bG8gMS5qcGciLCJpYXQiOjE3Njc5OTQxNTMsImV4cCI6MTc5OTUzMDE1M30.gecpwdiiDVxde7bc8BQByw3zFduvMy0cSHVXFid-MEE" alt="Biometría">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Otras%20pagina%20principal/articulo-llaves-tradicionales-vs-cerraduras-digitales.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT3RyYXMgcGFnaW5hIHByaW5jaXBhbC9hcnRpY3Vsby1sbGF2ZXMtdHJhZGljaW9uYWxlcy12cy1jZXJyYWR1cmFzLWRpZ2l0YWxlcy53ZWJwIiwiaWF0IjoxNzY4MTQwOTUwLCJleHAiOjIwODM1MDA5NTB9.qXfUaTDL1QPc8gWRURPS2pVAWTzU4NfE8wv4hpLrjro" alt="Llaves tradicionales vs cerraduras digitales">
                     <span class="blog-date">8 Ene 2026</span>
                 </div>
                 <div class="blog-content">
@@ -2492,7 +3024,7 @@
             </article>
             <article class="blog-card reveal">
                 <div class="blog-image">
-                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Articulo%202.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvQXJ0aWN1bG8gMi5qcGciLCJpYXQiOjE3Njc5OTQxOTAsImV4cCI6MTc5OTUzMDE5MH0.C9ZRXXUUpwXi2U4TGJI2yQ3IhuSAdaVlHrw8mn90qHw" alt="Smart Home">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Otras%20pagina%20principal/articulo-biometria-seguridad-huella-dactilar.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT3RyYXMgcGFnaW5hIHByaW5jaXBhbC9hcnRpY3Vsby1iaW9tZXRyaWEtc2VndXJpZGFkLWh1ZWxsYS1kYWN0aWxhci53ZWJwIiwiaWF0IjoxNzY4MTQwOTIzLCJleHAiOjIwODM1MDA5MjN9.ltDzaXldSLx9DLOwBr-2HLj-PS19cka231h1bG1UuJY" alt="Biometría y seguridad con huella dactilar">
                     <span class="blog-date">5 Ene 2026</span>
                 </div>
                 <div class="blog-content">
@@ -2503,7 +3035,7 @@
             </article>
             <article class="blog-card reveal">
                 <div class="blog-image">
-                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Articulo%203.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvQXJ0aWN1bG8gMy5wbmciLCJpYXQiOjE3Njc5OTQyMDAsImV4cCI6MTc5OTUzMDIwMH0.LhOOBz4X-sZ_EVTI6ictgVPXlYneXawHcgRfcpL_JsA" alt="Cerradura">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/Otras%20pagina%20principal/articulo-app-cerradura-inteligente-control-remoto.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT3RyYXMgcGFnaW5hIHByaW5jaXBhbC9hcnRpY3Vsby1hcHAtY2VycmFkdXJhLWludGVsaWdlbnRlLWNvbnRyb2wtcmVtb3RvLndlYnAiLCJpYXQiOjE3NjgxNDA4OTIsImV4cCI6MjA4MzUwMDg5Mn0.yUF6M1WX_wECFeG1yXYBgWD3ZiaH7UUwv_yqkm4hnEU" alt="App cerradura inteligente control remoto">
                     <span class="blog-date">2 Ene 2026</span>
                 </div>
                 <div class="blog-content">
@@ -2547,10 +3079,19 @@
             <div class="footer-column">
                 <h4>Productos</h4>
                 <ul>
-                    <li><a href="#">Zafe Rim Pro</a></li>
-                    <li><a href="#">Zafe Handle</a></li>
-                    <li><a href="#">Zafe Deadbolt</a></li>
-                    <li><a href="#" style="color:#f59e0b;">Zafe Elite Max ✨</a></li>
+                    <li><a href="productos/os566f.html">Cerradura Digital OS566F</a></li>
+                    <li><a href="productos/os514f.html">Cerradura Digital OS514F</a></li>
+                    <li><a href="productos/os809tye.html">Cerradura Tuya OS809TYE</a></li>
+                    <li><a href="productos/os709tyfa.html" style="color:#f59e0b;">Facial 3D OS709TYFA ✨</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Servicios</h4>
+                <ul>
+                    <li><a href="servicios/instalacion.html">Instalación Profesional</a></li>
+                    <li><a href="#">Configuración</a></li>
+                    <li><a href="#">Mantenimiento</a></li>
+                    <li><a href="#">Garantía Extendida</a></li>
                 </ul>
             </div>
             <div class="footer-column">
@@ -2560,15 +3101,6 @@
                     <li><a href="#">Blog</a></li>
                     <li><a href="#">Distribuidores</a></li>
                     <li><a href="#">Contacto</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>Soporte</h4>
-                <ul>
-                    <li><a href="#">Centro de Ayuda</a></li>
-                    <li><a href="#">Instalación</a></li>
-                    <li><a href="#">Garantía</a></li>
-                    <li><a href="#">FAQ</a></li>
                 </ul>
             </div>
         </div>
@@ -2639,6 +3171,162 @@
                 });
             }
         });
+
+        // Scroll Expansion Gallery - 3 Vertical Photos
+        const gallerySection = document.querySelector('.gallery-section');
+        const expansionContainer = document.getElementById('expansionContainer');
+        const cardLeft = document.getElementById('card-left');
+        const cardCenter = document.getElementById('card-center');
+        const cardRight = document.getElementById('card-right');
+        const expansionNav = document.getElementById('expansionNav');
+        const expansionDots = document.getElementById('expansionDots');
+        const expansionCounter = document.getElementById('expansionCounter');
+        const galleryHeader = document.getElementById('galleryHeader');
+        const scrollHint = document.getElementById('scrollHint');
+        const dots = document.querySelectorAll('.expansion-dot');
+        const prevArrow = document.getElementById('prevArrow');
+        const nextArrow = document.getElementById('nextArrow');
+        const currentNum = document.getElementById('currentNum');
+
+        // Imágenes verticales simuladas (fotos de puertas/entradas)
+        const galleryImages = [
+            { src: 'https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/fotos%20productos%20reales/instalacion-cerradura-inteligente-residencial-1.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvZm90b3MgcHJvZHVjdG9zIHJlYWxlcy9pbnN0YWxhY2lvbi1jZXJyYWR1cmEtaW50ZWxpZ2VudGUtcmVzaWRlbmNpYWwtMS53ZWJwIiwiaWF0IjoxNzY4MTM3NDY4LCJleHAiOjIwODM0OTc0Njh9.Fm_ndbMrCPi95cmvuwE28smgJUFSP80odd-rkCrkcJQ', title: 'Cerradura Inteligente', location: 'Residencial' },
+            { src: 'https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/fotos%20productos%20reales/instalacion-cerradura-inteligente-residencial-2.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvZm90b3MgcHJvZHVjdG9zIHJlYWxlcy9pbnN0YWxhY2lvbi1jZXJyYWR1cmEtaW50ZWxpZ2VudGUtcmVzaWRlbmNpYWwtMi53ZWJwIiwiaWF0IjoxNzY4MTM3NDk2LCJleHAiOjIwODM0OTc0OTZ9.CaM6vZpEbhT7CT7gXfFsaedhG-_y3PVceaAiWWkqSMs', title: 'Cerradura Inteligente', location: 'Residencial' },
+            { src: 'https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/fotos%20productos%20reales/instalacion-cerradura-digital-apartamento-3.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvZm90b3MgcHJvZHVjdG9zIHJlYWxlcy9pbnN0YWxhY2lvbi1jZXJyYWR1cmEtZGlnaXRhbC1hcGFydGFtZW50by0zLndlYnAiLCJpYXQiOjE3NjgxMzc1MjMsImV4cCI6MjA4MzQ5NzUyM30.uxYeYseV-DzH7T7ieOacazkPIFbJsopaCPexPFEOo6k', title: 'Cerradura Digital', location: 'Apartamento' },
+            { src: 'https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/fotos%20productos%20reales/instalacion-cerradura-biometrica-casa-4.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvZm90b3MgcHJvZHVjdG9zIHJlYWxlcy9pbnN0YWxhY2lvbi1jZXJyYWR1cmEtYmlvbWV0cmljYS1jYXNhLTQud2VicCIsImlhdCI6MTc2ODEzNzU0NSwiZXhwIjoyMDgzNDk3NTQ1fQ.iLRApm-En2IShG5MGKhii9AFLTqMtu98yyco1zCjqeg', title: 'Cerradura Biométrica', location: 'Casa' },
+            { src: 'https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/fotos%20productos%20reales/instalacion-cerradura-facial-oficina-5.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvZm90b3MgcHJvZHVjdG9zIHJlYWxlcy9pbnN0YWxhY2lvbi1jZXJyYWR1cmEtZmFjaWFsLW9maWNpbmEtNS53ZWJwIiwiaWF0IjoxNzY4MTM3NTY3LCJleHAiOjIwODM0OTc1Njd9.bVSFJUe0DtR2pNt1dut4XbiVpnhDfrpdqQ2bimP12JE', title: 'Cerradura Facial', location: 'Oficina' },
+            { src: 'https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/fotos%20productos%20reales/instalacion-cerradura-smart-hogar-6.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvZm90b3MgcHJvZHVjdG9zIHJlYWxlcy9pbnN0YWxhY2lvbi1jZXJyYWR1cmEtc21hcnQtaG9nYXItNi53ZWJwIiwiaWF0IjoxNzY4MTM3NjAxLCJleHAiOjIwODM0OTc2MDF9.k4DXCVG9lEax8EWcfHOCQ9c6wr41hlCmzkGfi7rlTTI', title: 'Cerradura Smart', location: 'Hogar' },
+            { src: 'https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/fotos%20productos%20reales/instalacion-cerradura-profesional-colombia-7.webp?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvZm90b3MgcHJvZHVjdG9zIHJlYWxlcy9pbnN0YWxhY2lvbi1jZXJyYWR1cmEtcHJvZmVzaW9uYWwtY29sb21iaWEtNy53ZWJwIiwiaWF0IjoxNzY4MTM3NjYyLCJleHAiOjIwODM0OTc2NjJ9.iJS04QWq9Kc-9urp3a7K3LlmV7gxhUD12iZ8z41uZVw', title: 'Instalación Profesional', location: 'Colombia' }
+        ];
+
+        let currentIndex = 0;
+        let isExpanded = false;
+
+        function getIndex(offset) {
+            return (currentIndex + offset + galleryImages.length) % galleryImages.length;
+        }
+
+        function updateCards() {
+            const leftIdx = getIndex(-1);
+            const centerIdx = currentIndex;
+            const rightIdx = getIndex(1);
+
+            // Actualizar imágenes
+            cardLeft.querySelector('img').src = galleryImages[leftIdx].src;
+            cardCenter.querySelector('img').src = galleryImages[centerIdx].src;
+            cardRight.querySelector('img').src = galleryImages[rightIdx].src;
+
+            // Actualizar títulos y ubicaciones
+            document.getElementById('title-left').textContent = galleryImages[leftIdx].title;
+            document.getElementById('loc-left').textContent = galleryImages[leftIdx].location;
+            document.getElementById('title-center').textContent = galleryImages[centerIdx].title;
+            document.getElementById('loc-center').textContent = galleryImages[centerIdx].location;
+            document.getElementById('title-right').textContent = galleryImages[rightIdx].title;
+            document.getElementById('loc-right').textContent = galleryImages[rightIdx].location;
+
+            // Actualizar dots
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === centerIdx);
+            });
+
+            // Actualizar contador
+            currentNum.textContent = centerIdx + 1;
+        }
+
+        function nextImage() {
+            currentIndex = getIndex(1);
+            updateCards();
+        }
+
+        function prevImage() {
+            currentIndex = getIndex(-1);
+            updateCards();
+        }
+
+        // Click en dots
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                currentIndex = parseInt(dot.dataset.index);
+                updateCards();
+            });
+        });
+
+        // Click en flechas
+        if (prevArrow && nextArrow) {
+            prevArrow.addEventListener('click', prevImage);
+            nextArrow.addEventListener('click', nextImage);
+        }
+
+        // Teclado
+        document.addEventListener('keydown', (e) => {
+            if (!isExpanded) return;
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+        });
+
+        // Scroll expansion
+        if (gallerySection && expansionContainer) {
+            window.addEventListener('scroll', () => {
+                const rect = gallerySection.getBoundingClientRect();
+                const sectionTop = rect.top;
+                const sectionHeight = gallerySection.offsetHeight - window.innerHeight;
+                
+                if (sectionTop <= 0 && sectionTop >= -sectionHeight) {
+                    const scrollProgress = Math.min(Math.abs(sectionTop) / (sectionHeight * 0.6), 1);
+                    
+                    // Ocultar/mostrar header y hint - rápido
+                    if (scrollProgress > 0.1) {
+                        galleryHeader.classList.add('hidden');
+                        scrollHint.classList.add('hidden');
+                    } else {
+                        galleryHeader.classList.remove('hidden');
+                        scrollHint.classList.remove('hidden');
+                    }
+                    
+                    // Mostrar cards laterales
+                    if (scrollProgress > 0.25) {
+                        cardLeft.classList.add('visible');
+                        cardRight.classList.add('visible');
+                    } else {
+                        cardLeft.classList.remove('visible');
+                        cardRight.classList.remove('visible');
+                    }
+                    
+                    // Expandir cards y mostrar controles
+                    if (scrollProgress > 0.5) {
+                        cardLeft.classList.add('expanded');
+                        cardCenter.classList.add('expanded');
+                        cardRight.classList.add('expanded');
+                        expansionNav.classList.add('visible');
+                        expansionDots.classList.add('visible');
+                        expansionCounter.classList.add('visible');
+                        isExpanded = true;
+                    } else {
+                        cardLeft.classList.remove('expanded');
+                        cardCenter.classList.remove('expanded');
+                        cardRight.classList.remove('expanded');
+                        expansionNav.classList.remove('visible');
+                        expansionDots.classList.remove('visible');
+                        expansionCounter.classList.remove('visible');
+                        isExpanded = false;
+                    }
+                } else if (sectionTop > 0) {
+                    // Reset cuando está arriba de la sección
+                    galleryHeader.classList.remove('hidden');
+                    scrollHint.classList.remove('hidden');
+                    cardLeft.classList.remove('visible', 'expanded');
+                    cardRight.classList.remove('visible', 'expanded');
+                    cardCenter.classList.remove('expanded');
+                    expansionNav.classList.remove('visible');
+                    expansionDots.classList.remove('visible');
+                    expansionCounter.classList.remove('visible');
+                    isExpanded = false;
+                }
+            });
+        }
+
+        // Inicializar
+        updateCards();
     </script>
 </body>
 </html>

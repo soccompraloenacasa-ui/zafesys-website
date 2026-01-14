@@ -1,0 +1,13 @@
+# ZAFESYS Colombia - Cerraduras Inteligentes
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://zafesys.com/sitemap.xml
+
+# Crawl-delay para no sobrecargar
+Crawl-delay: 1
+
+# Bloquear archivos innecesarios
+Disallow: /*.zip$
+Disallow: /assets/
