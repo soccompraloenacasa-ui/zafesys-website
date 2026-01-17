@@ -230,7 +230,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             display: block;
         }
         
-        /* Thumbnails Gallery - E-commerce Style */
+        /* Thumbnails Gallery - E-commerce Style - CLEAN */
         .product-thumbnails {
             display: flex;
             gap: 12px;
@@ -238,14 +238,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
         
         .thumbnail-item {
-            width: 100px;
-            height: 100px;
+            width: 90px;
+            height: 90px;
             border-radius: 12px;
             overflow: hidden;
             border: 2px solid var(--border-color);
             cursor: pointer;
             transition: all 0.3s;
             position: relative;
+            background: var(--bg-card);
         }
         
         .thumbnail-item:hover {
@@ -254,7 +255,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         
         .thumbnail-item.active {
             border-color: var(--accent-cyan);
-            box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+            box-shadow: 0 0 15px rgba(34, 211, 238, 0.3);
         }
         
         .thumbnail-item img {
@@ -263,27 +264,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             object-fit: cover;
         }
         
-        /* Video thumbnail play icon */
+        /* Video thumbnail - small play icon in corner */
         .thumbnail-item.video-thumb::after {
-            content: '';
+            content: '▶';
             position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.3);
+            bottom: 6px;
+            right: 6px;
+            width: 22px;
+            height: 22px;
+            background: rgba(0,0,0,0.7);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-        
-        .thumbnail-item.video-thumb::before {
-            content: '▶';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             color: #fff;
-            font-size: 20px;
-            z-index: 2;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            font-size: 10px;
+            padding-left: 2px;
         }
         
         /* Product Info */
@@ -1070,14 +1066,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <img id="mainImage" src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/OS566F/cerradura-digital-huella-tarjeta-os566f.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT1M1NjZGL2NlcnJhZHVyYS1kaWdpdGFsLWh1ZWxsYS10YXJqZXRhLW9zNTY2Zi5qcGciLCJpYXQiOjE3Njg2NjI2MzYsImV4cCI6MjA4NDAyMjYzNn0.lb-fZ-CkHwJHhHfdJrSgHTruOwpNvzJNyACiJ-5aQKM" alt="Cerradura Digital OS566F">
             </div>
             
-            <!-- Thumbnails - E-commerce Style -->
+            <!-- Thumbnails - E-commerce Style - CLEAN (no overlay icons) -->
             <div class="product-thumbnails">
-                <!-- Video Thumbnail -->
-                <div class="thumbnail-item video-thumb active" data-type="video" onclick="showVideo()">
+                <!-- Video Thumbnail - small play in corner -->
+                <div class="thumbnail-item video-thumb active" onclick="showVideo()">
                     <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/OS566F/cerradura-digital-huella-tarjeta-os566f.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT1M1NjZGL2NlcnJhZHVyYS1kaWdpdGFsLWh1ZWxsYS10YXJqZXRhLW9zNTY2Zi5qcGciLCJpYXQiOjE3Njg2NjI2MzYsImV4cCI6MjA4NDAyMjYzNn0.lb-fZ-CkHwJHhHfdJrSgHTruOwpNvzJNyACiJ-5aQKM" alt="Video">
                 </div>
-                <!-- Image Thumbnail -->
-                <div class="thumbnail-item" data-type="image" onclick="showImage('https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/OS566F/cerradura-digital-huella-tarjeta-os566f.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT1M1NjZGL2NlcnJhZHVyYS1kaWdpdGFsLWh1ZWxsYS10YXJqZXRhLW9zNTY2Zi5qcGciLCJpYXQiOjE3Njg2NjI2MzYsImV4cCI6MjA4NDAyMjYzNn0.lb-fZ-CkHwJHhHfdJrSgHTruOwpNvzJNyACiJ-5aQKM', this)">
+                <!-- Image Thumbnail - CLEAN, no icon -->
+                <div class="thumbnail-item" onclick="showImage('https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/OS566F/cerradura-digital-huella-tarjeta-os566f.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT1M1NjZGL2NlcnJhZHVyYS1kaWdpdGFsLWh1ZWxsYS10YXJqZXRhLW9zNTY2Zi5qcGciLCJpYXQiOjE3Njg2NjI2MzYsImV4cCI6MjA4NDAyMjYzNn0.lb-fZ-CkHwJHhHfdJrSgHTruOwpNvzJNyACiJ-5aQKM', this)">
                     <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/OS566F/cerradura-digital-huella-tarjeta-os566f.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT1M1NjZGL2NlcnJhZHVyYS1kaWdpdGFsLWh1ZWxsYS10YXJqZXRhLW9zNTY2Zi5qcGciLCJpYXQiOjE3Njg2NjI2MzYsImV4cCI6MjA4NDAyMjYzNn0.lb-fZ-CkHwJHhHfdJrSgHTruOwpNvzJNyACiJ-5aQKM" alt="Cerradura OS566F">
                 </div>
             </div>
