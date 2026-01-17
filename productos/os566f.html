@@ -6,7 +6,7 @@
   "@context": "https://schema.org/",
   "@type": "Product",
   "name": "Cerradura Digital Zafesys OS566F",
-  "image": "https://zafesys.com/Webp/Productos/OS566F/main.jpg",
+  "image": "https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/OS566F/cerradura-digital-huella-tarjeta-os566f.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT1M1NjZGL2NlcnJhZHVyYS1kaWdpdGFsLWh1ZWxsYS10YXJqZXRhLW9zNTY2Zi5qcGciLCJpYXQiOjE3Njg2NjI2MzYsImV4cCI6MjA4NDAyMjYzNn0.lb-fZ-CkHwJHhHfdJrSgHTruOwpNvzJNyACiJ-5aQKM",
   "description": "Cerradura digital con huella, tarjeta, código y llave. La más económica y confiable. Ideal para apartamentos y oficinas. Garantía de 1 año.",
   "sku": "OS566F",
   "brand": {
@@ -39,6 +39,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta property="og:title" content="Cerradura Digital OS566F | ZAFESYS Colombia">
     <meta property="og:description" content="La cerradura digital más económica. Huella + Tarjeta + Código + Llave. $345.000 envío gratis.">
     <meta property="og:type" content="product">
+    <meta property="og:image" content="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/OS566F/cerradura-digital-huella-tarjeta-os566f.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT1M1NjZGL2NlcnJhZHVyYS1kaWdpdGFsLWh1ZWxsYS10YXJqZXRhLW9zNTY2Zi5qcGciLCJpYXQiOjE3Njg2NjI2MzYsImV4cCI6MjA4NDAyMjYzNn0.lb-fZ-CkHwJHhHfdJrSgHTruOwpNvzJNyACiJ-5aQKM">
     
     <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -206,7 +207,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             gap: 6px;
         }
         
-        .product-main-image {
+        .product-main-media {
             width: 100%;
             aspect-ratio: 1;
             background: var(--bg-card);
@@ -216,15 +217,117 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             border: 1px solid var(--border-color);
         }
         
-        .product-main-image img {
+        .product-main-media video {
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            padding: 40px;
-            transition: transform 0.5s ease;
+            object-fit: cover;
         }
         
-        .product-main-image:hover img { transform: scale(1.05); }
+        /* Thumbnails Gallery */
+        .product-thumbnails {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        
+        .thumbnail-item {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .thumbnail-item:hover {
+            border-color: var(--accent-cyan);
+            transform: scale(1.05);
+        }
+        
+        .thumbnail-item.active {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+        }
+        
+        .thumbnail-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .thumbnail-item .thumb-icon {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.4);
+            color: #fff;
+            font-size: 20px;
+        }
+        
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .lightbox-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 16px;
+            overflow: hidden;
+            transform: scale(0.9);
+            transition: transform 0.3s;
+        }
+        
+        .lightbox.active .lightbox-content {
+            transform: scale(1);
+        }
+        
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .lightbox-close:hover {
+            background: var(--accent-cyan);
+            color: #000;
+        }
         
         /* Product Info */
         .product-info {
@@ -986,6 +1089,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WRFXRMXX"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="lightbox-content">
+            <img src="" alt="Imagen ampliada" id="lightbox-img">
+        </div>
+    </div>
+    
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="navbar-left">
@@ -1014,8 +1128,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <i class="fa-solid fa-bolt"></i>
                 Más Vendida
             </div>
-            <div class="product-main-image">
-                <img src="../Webp/Productos/OS566F/main.jpg" alt="Cerradura Digital OS566F">
+            <div class="product-main-media">
+                <video autoplay loop muted playsinline poster="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/OS566F/cerradura-digital-huella-tarjeta-os566f.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT1M1NjZGL2NlcnJhZHVyYS1kaWdpdGFsLWh1ZWxsYS10YXJqZXRhLW9zNTY2Zi5qcGciLCJpYXQiOjE3Njg2NjI2MzYsImV4cCI6MjA4NDAyMjYzNn0.lb-fZ-CkHwJHhHfdJrSgHTruOwpNvzJNyACiJ-5aQKM">
+                    <source src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/OS566F/video-cerradura-digital-huella-os566f.mp4?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT1M1NjZGL3ZpZGVvLWNlcnJhZHVyYS1kaWdpdGFsLWh1ZWxsYS1vczU2NmYubXA0IiwiaWF0IjoxNzY4NjYyNTY4LCJleHAiOjIwODQwMjI1Njh9.-mpwSYuj0upuqFtmUyOkBGJX8MnB-9ZQGN7o3aNdFWs" type="video/mp4">
+                </video>
+            </div>
+            
+            <!-- Thumbnails -->
+            <div class="product-thumbnails">
+                <div class="thumbnail-item" onclick="openLightbox('https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/OS566F/cerradura-digital-huella-tarjeta-os566f.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT1M1NjZGL2NlcnJhZHVyYS1kaWdpdGFsLWh1ZWxsYS10YXJqZXRhLW9zNTY2Zi5qcGciLCJpYXQiOjE3Njg2NjI2MzYsImV4cCI6MjA4NDAyMjYzNn0.lb-fZ-CkHwJHhHfdJrSgHTruOwpNvzJNyACiJ-5aQKM')">
+                    <img src="https://mithwjbaaiippnokzuyn.supabase.co/storage/v1/object/sign/web/OS566F/cerradura-digital-huella-tarjeta-os566f.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9mMmQxNzQ5Zi0yZjUxLTQ2MjktYmQ2MC00MjA4YWI5ODdjOWQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ3ZWIvT1M1NjZGL2NlcnJhZHVyYS1kaWdpdGFsLWh1ZWxsYS10YXJqZXRhLW9zNTY2Zi5qcGciLCJpYXQiOjE3Njg2NjI2MzYsImV4cCI6MjA4NDAyMjYzNn0.lb-fZ-CkHwJHhHfdJrSgHTruOwpNvzJNyACiJ-5aQKM" alt="Cerradura OS566F">
+                    <div class="thumb-icon"><i class="fa-solid fa-expand"></i></div>
+                </div>
             </div>
         </div>
         
@@ -1582,6 +1706,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </a>
 
     <script>
+        // Lightbox functions
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Close lightbox on click outside
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+        
+        // Close lightbox on ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+        
         // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
