@@ -91,7 +91,7 @@
         script.onload = function() {
             if (window.vapiSDK) {
                 window.vapiSDK.run({
-                    apiKey: '', // No se necesita API key cuando se usa assistant ID público
+                    apiKey: '0463d2c5-554c-4d1d-87d3-3b0eef1c66e7',
                     assistant: VAPI_ASSISTANT_ID,
                     config: buttonConfig
                 });
