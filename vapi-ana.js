@@ -9,9 +9,10 @@
     const VAPI_ASSISTANT_ID = '1f9f79c5-377a-4c1a-b51a-7dfe0b9060ee';
 
     // Configuración del botón flotante
+    // Offset mayor para estar arriba del botón de WhatsApp (24px + 60px + 16px = 100px)
     const buttonConfig = {
         position: 'bottom-right',
-        offset: '24px',
+        offset: '100px',
         width: '64px',
         height: '64px',
         idle: {

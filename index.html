@@ -511,6 +511,49 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             border-radius: 50%;
         }
 
+        /* KEYPAD RESPONSIVE - Móvil */
+        @media (max-width: 768px) {
+            .keypad-ui {
+                display: none;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .keypad-ui {
+                width: 150px;
+                padding: 16px;
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                opacity: 0.7;
+            }
+            .keypad-camera {
+                width: 32px;
+                height: 32px;
+                margin-bottom: 12px;
+                font-size: 12px;
+            }
+            .keypad-grid {
+                gap: 6px;
+                margin-bottom: 10px;
+            }
+            .keypad-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 12px;
+                border-radius: 8px;
+            }
+            .keypad-status {
+                padding: 8px;
+                font-size: 10px;
+            }
+            .status-badge,
+            .hero-feature-chip {
+                display: none;
+            }
+        }
+
         .scroll-indicator {
             position: absolute;
             bottom: 40px;
@@ -2734,6 +2777,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             bottom: 24px;
             right: 24px;
             z-index: 100;
+        }
+
+        /* Ajuste para dejar espacio al botón de Vapi arriba */
+        @media (max-width: 768px) {
+            .whatsapp-btn {
+                bottom: 24px;
+            }
         }
 
         .whatsapp-btn a {
