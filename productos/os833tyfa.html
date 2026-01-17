@@ -1077,6 +1077,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             text-decoration: none;
         }
         
+        /* ELEVENLABS WIDGET - Posición arriba de WhatsApp */
+        elevenlabs-convai {
+            position: fixed !important;
+            bottom: 100px !important;
+            right: 24px !important;
+            z-index: 998 !important;
+        }
+        
         .whatsapp-float:hover {
             transform: scale(1.1);
             box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
@@ -1774,6 +1782,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         window.addEventListener('load', revealOnScroll);
     </script>
     <!-- ZAFESYS Ana - Asistente de Voz -->
-    <script src="../vapi-voice.js"></script>
+    <elevenlabs-convai agent-id="agent_0001kf74phvbew39yn2s1r4fzhbf"></elevenlabs-convai>
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
 </body>
 </html>
