@@ -46,7 +46,7 @@
         style.textContent = `
             .ana-voice-container {
                 position: fixed;
-                bottom: 100px;
+                bottom: 115px;
                 right: 24px;
                 z-index: 1000;
                 display: flex;
@@ -56,64 +56,84 @@
             }
             
             .ana-voice-label {
-                background: rgba(0, 0, 0, 0.75);
+                background: linear-gradient(135deg, rgba(34, 211, 238, 0.9) 0%, rgba(8, 145, 178, 0.9) 100%);
                 color: #fff;
-                padding: 6px 12px;
+                padding: 8px 14px;
                 border-radius: 20px;
-                font-size: 12px;
+                font-size: 13px;
                 font-weight: 600;
                 font-family: "Sora", sans-serif;
                 white-space: nowrap;
-                animation: labelPulse 2s ease-in-out infinite;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+                animation: labelBounce 2s ease-in-out infinite;
+                box-shadow: 0 4px 15px rgba(34, 211, 238, 0.3);
             }
             
-            @keyframes labelPulse {
-                0%, 100% { opacity: 1; transform: translateY(0); }
-                50% { opacity: 0.8; transform: translateY(-2px); }
-            }
-            
-            .ana-voice-label.hidden {
-                display: none;
+            @keyframes labelBounce {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-4px); }
             }
             
             .ana-voice-btn {
                 width: 60px;
                 height: 60px;
-                background: linear-gradient(135deg, #00A3E0 0%, #0077B5 100%);
+                background: linear-gradient(135deg, #22d3ee 0%, #0891b2 100%);
                 border: none;
                 border-radius: 50%;
                 cursor: pointer;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                box-shadow: 0 4px 20px rgba(0, 163, 224, 0.4);
+                box-shadow: 0 4px 20px rgba(34, 211, 238, 0.4);
                 transition: all 0.3s ease;
+                position: relative;
+            }
+            
+            .ana-voice-btn::before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                background: rgba(34, 211, 238, 0.3);
+                animation: pulse-ring 2s ease-out infinite;
+            }
+            
+            @keyframes pulse-ring {
+                0% { transform: scale(1); opacity: 0.6; }
+                100% { transform: scale(1.5); opacity: 0; }
             }
             
             .ana-voice-btn:hover {
                 transform: scale(1.1);
-                box-shadow: 0 6px 30px rgba(0, 163, 224, 0.5);
+                box-shadow: 0 6px 30px rgba(34, 211, 238, 0.5);
             }
             
-            .ana-voice-btn:active { 
-                transform: scale(0.95); 
-            }
+            .ana-voice-btn:active { transform: scale(0.95); }
             
             .ana-voice-btn svg { 
                 width: 28px; 
                 height: 28px; 
-                fill: white; 
+                fill: white;
+                position: relative;
+                z-index: 1;
             }
             
             .ana-voice-btn.active {
-                background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-                box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
-                animation: pulse-call 2s infinite;
+                background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+                box-shadow: 0 4px 20px rgba(34, 197, 94, 0.4);
+            }
+            
+            .ana-voice-btn.active::before {
+                background: rgba(34, 197, 94, 0.3);
             }
             
             .ana-voice-btn.active:hover { 
-                box-shadow: 0 6px 30px rgba(16, 185, 129, 0.5); 
+                box-shadow: 0 6px 30px rgba(34, 197, 94, 0.5); 
+            }
+            
+            .ana-voice-container.active .ana-voice-label {
+                background: linear-gradient(135deg, rgba(34, 197, 94, 0.9) 0%, rgba(22, 163, 74, 0.9) 100%);
+                box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
             }
             
             .ana-voice-btn.connecting {
@@ -122,27 +142,31 @@
                 pointer-events: none;
             }
             
-            @keyframes pulse-call {
-                0%, 100% { box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4); }
-                50% { box-shadow: 0 4px 30px rgba(16, 185, 129, 0.6); }
+            .ana-voice-btn.connecting::before {
+                background: rgba(245, 158, 11, 0.3);
+            }
+            
+            .ana-voice-container.connecting .ana-voice-label {
+                background: linear-gradient(135deg, rgba(245, 158, 11, 0.9) 0%, rgba(217, 119, 6, 0.9) 100%);
+                box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
             }
             
             @media (max-width: 768px) {
                 .ana-voice-container { 
-                    bottom: 95px; 
-                    right: 20px; 
+                    bottom: 105px; 
+                    right: 18px; 
                 }
                 .ana-voice-btn { 
-                    width: 54px; 
-                    height: 54px; 
+                    width: 56px; 
+                    height: 56px; 
                 }
                 .ana-voice-btn svg { 
                     width: 26px; 
                     height: 26px; 
                 }
                 .ana-voice-label {
-                    font-size: 11px;
-                    padding: 5px 10px;
+                    font-size: 12px;
+                    padding: 6px 12px;
                 }
             }
         `;
@@ -150,22 +174,22 @@
     }
 
     function createCustomButton() {
-        // Contenedor
+        // Container
         const container = document.createElement('div');
         container.className = 'ana-voice-container';
+        container.id = 'ana-voice-container';
         
-        // Label "¡Hablemos!"
+        // Label
         const label = document.createElement('div');
         label.className = 'ana-voice-label';
-        label.textContent = '¡Hablemos! 💬';
-        label.id = 'ana-label';
+        label.textContent = '💬 ¡Hablemos!';
+        label.id = 'ana-voice-label';
         
-        // Botón
+        // Button
         btn = document.createElement('button');
         btn.className = 'ana-voice-btn';
         btn.setAttribute('aria-label', 'Iniciar llamada con Ana, asesora virtual de ZAFESYS');
         btn.appendChild(createMicIcon());
-
         btn.addEventListener('click', handleButtonClick);
         
         container.appendChild(label);
@@ -193,7 +217,7 @@
             // Stop the stream immediately, SDK will request its own
             stream.getTracks().forEach(track => track.stop());
 
-            // Cargar SDK dinámicamente - CORRECTO: @11labs/client
+            // Cargar SDK dinámicamente
             console.log('[Ana] Loading ElevenLabs SDK...');
             const { Conversation } = await import('https://cdn.jsdelivr.net/npm/@11labs/client@latest/+esm');
 
@@ -249,28 +273,26 @@
     }
 
     function updateButtonState(state) {
-        const label = document.getElementById('ana-label');
+        const container = document.getElementById('ana-voice-container');
+        const label = document.getElementById('ana-voice-label');
         
         while (btn.firstChild) {
             btn.removeChild(btn.firstChild);
         }
 
         btn.classList.remove('active', 'connecting');
+        container.classList.remove('active', 'connecting');
 
         if (state === 'connecting') {
             btn.classList.add('connecting');
-            if (label) {
-                label.textContent = 'Conectando...';
-                label.classList.remove('hidden');
-            }
+            container.classList.add('connecting');
+            label.textContent = '⏳ Conectando...';
             btn.appendChild(createMicIcon());
         } else if (state === 'active') {
             isActive = true;
             btn.classList.add('active');
-            if (label) {
-                label.textContent = 'Hablando con Ana 🎙️';
-                label.classList.remove('hidden');
-            }
+            container.classList.add('active');
+            label.textContent = '🎙️ En llamada';
             btn.appendChild(createHangupIcon());
         }
     }
@@ -279,17 +301,16 @@
         isActive = false;
         conversation = null;
         
-        const label = document.getElementById('ana-label');
+        const container = document.getElementById('ana-voice-container');
+        const label = document.getElementById('ana-voice-label');
 
         while (btn.firstChild) {
             btn.removeChild(btn.firstChild);
         }
 
         btn.classList.remove('active', 'connecting');
-        if (label) {
-            label.textContent = '¡Hablemos! 💬';
-            label.classList.remove('hidden');
-        }
+        container.classList.remove('active', 'connecting');
+        label.textContent = '💬 ¡Hablemos!';
         btn.appendChild(createMicIcon());
     }
 
