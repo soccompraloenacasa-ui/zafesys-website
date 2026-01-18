@@ -1,7 +1,7 @@
 /**
  * ZAFESYS - Ana Voice Assistant
  * ElevenLabs Conversational AI Integration
- * Uses @elevenlabs/client SDK via CDN
+ * Uses @11labs/client SDK via CDN
  */
 
 (function() {
@@ -134,18 +134,20 @@
 
             // Solicitar permiso del micrófono
             console.log('[Ana] Requesting microphone permission...');
-            await navigator.mediaDevices.getUserMedia({ audio: true });
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
             console.log('[Ana] Microphone permission granted');
+            
+            // Stop the stream immediately, SDK will request its own
+            stream.getTracks().forEach(track => track.stop());
 
-            // Cargar SDK dinámicamente
+            // Cargar SDK dinámicamente - CORRECTO: @11labs/client
             console.log('[Ana] Loading ElevenLabs SDK...');
-            const { Conversation } = await import('https://cdn.jsdelivr.net/npm/@elevenlabs/client@latest/+esm');
+            const { Conversation } = await import('https://cdn.jsdelivr.net/npm/@11labs/client@latest/+esm');
 
             // Iniciar sesión de conversación
             console.log('[Ana] Starting conversation session...');
             conversation = await Conversation.startSession({
                 agentId: AGENT_ID,
-                connectionType: 'webrtc',
                 onConnect: function() {
                     console.log('[Ana] Connected!');
                     updateButtonState('active');
@@ -159,7 +161,7 @@
                     resetButton();
                 },
                 onModeChange: function(mode) {
-                    console.log('[Ana] Mode:', mode);
+                    console.log('[Ana] Mode:', mode.mode);
                 }
             });
 
