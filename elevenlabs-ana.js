@@ -38,86 +38,139 @@
     function init() {
         injectStyles();
         createCustomButton();
-        console.log('[ZAFESYS] Ana voice assistant ready');
+        console.log('[ZAFESYS] Ana voice button initialized');
     }
 
     function injectStyles() {
         const style = document.createElement('style');
-        style.textContent = [
-            '.ana-voice-btn {',
-            '    position: fixed;',
-            '    bottom: 90px;',
-            '    right: 24px;',
-            '    width: 56px;',
-            '    height: 56px;',
-            '    background: linear-gradient(135deg, #00A3E0 0%, #0077B5 100%);',
-            '    border: none;',
-            '    border-radius: 50%;',
-            '    cursor: pointer;',
-            '    z-index: 1000;',
-            '    display: flex;',
-            '    align-items: center;',
-            '    justify-content: center;',
-            '    box-shadow: 0 4px 20px rgba(0, 163, 224, 0.4);',
-            '    transition: all 0.3s ease;',
-            '}',
-            '.ana-voice-btn:hover {',
-            '    transform: scale(1.1);',
-            '    box-shadow: 0 6px 30px rgba(0, 163, 224, 0.5);',
-            '}',
-            '.ana-voice-btn:active { transform: scale(0.95); }',
-            '.ana-voice-btn svg { width: 24px; height: 24px; fill: white; }',
-            '.ana-voice-btn.active {',
-            '    background: linear-gradient(135deg, #10B981 0%, #059669 100%);',
-            '    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);',
-            '    animation: pulse-call 2s infinite;',
-            '}',
-            '.ana-voice-btn.active:hover { box-shadow: 0 6px 30px rgba(16, 185, 129, 0.5); }',
-            '.ana-voice-btn.connecting {',
-            '    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);',
-            '    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4);',
-            '    pointer-events: none;',
-            '}',
-            '@keyframes pulse-call {',
-            '    0%, 100% { box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4); }',
-            '    50% { box-shadow: 0 4px 30px rgba(16, 185, 129, 0.6); }',
-            '}',
-            '.ana-voice-btn::before {',
-            '    content: attr(data-tooltip);',
-            '    position: absolute;',
-            '    right: 70px;',
-            '    top: 50%;',
-            '    transform: translateY(-50%);',
-            '    background: rgba(0, 0, 0, 0.8);',
-            '    color: white;',
-            '    padding: 8px 12px;',
-            '    border-radius: 8px;',
-            '    font-size: 13px;',
-            '    font-family: "Sora", sans-serif;',
-            '    white-space: nowrap;',
-            '    opacity: 0;',
-            '    pointer-events: none;',
-            '    transition: opacity 0.3s;',
-            '}',
-            '.ana-voice-btn:hover::before { opacity: 1; }',
-            '@media (max-width: 768px) {',
-            '    .ana-voice-btn { bottom: 85px; right: 20px; width: 52px; height: 52px; }',
-            '    .ana-voice-btn svg { width: 22px; height: 22px; }',
-            '    .ana-voice-btn::before { display: none; }',
-            '}'
-        ].join('\n');
+        style.textContent = `
+            .ana-voice-container {
+                position: fixed;
+                bottom: 100px;
+                right: 24px;
+                z-index: 1000;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+            
+            .ana-voice-label {
+                background: rgba(0, 0, 0, 0.75);
+                color: #fff;
+                padding: 6px 12px;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: 600;
+                font-family: "Sora", sans-serif;
+                white-space: nowrap;
+                animation: labelPulse 2s ease-in-out infinite;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            }
+            
+            @keyframes labelPulse {
+                0%, 100% { opacity: 1; transform: translateY(0); }
+                50% { opacity: 0.8; transform: translateY(-2px); }
+            }
+            
+            .ana-voice-label.hidden {
+                display: none;
+            }
+            
+            .ana-voice-btn {
+                width: 60px;
+                height: 60px;
+                background: linear-gradient(135deg, #00A3E0 0%, #0077B5 100%);
+                border: none;
+                border-radius: 50%;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 4px 20px rgba(0, 163, 224, 0.4);
+                transition: all 0.3s ease;
+            }
+            
+            .ana-voice-btn:hover {
+                transform: scale(1.1);
+                box-shadow: 0 6px 30px rgba(0, 163, 224, 0.5);
+            }
+            
+            .ana-voice-btn:active { 
+                transform: scale(0.95); 
+            }
+            
+            .ana-voice-btn svg { 
+                width: 28px; 
+                height: 28px; 
+                fill: white; 
+            }
+            
+            .ana-voice-btn.active {
+                background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+                box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
+                animation: pulse-call 2s infinite;
+            }
+            
+            .ana-voice-btn.active:hover { 
+                box-shadow: 0 6px 30px rgba(16, 185, 129, 0.5); 
+            }
+            
+            .ana-voice-btn.connecting {
+                background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+                box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4);
+                pointer-events: none;
+            }
+            
+            @keyframes pulse-call {
+                0%, 100% { box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4); }
+                50% { box-shadow: 0 4px 30px rgba(16, 185, 129, 0.6); }
+            }
+            
+            @media (max-width: 768px) {
+                .ana-voice-container { 
+                    bottom: 95px; 
+                    right: 20px; 
+                }
+                .ana-voice-btn { 
+                    width: 54px; 
+                    height: 54px; 
+                }
+                .ana-voice-btn svg { 
+                    width: 26px; 
+                    height: 26px; 
+                }
+                .ana-voice-label {
+                    font-size: 11px;
+                    padding: 5px 10px;
+                }
+            }
+        `;
         document.head.appendChild(style);
     }
 
     function createCustomButton() {
+        // Contenedor
+        const container = document.createElement('div');
+        container.className = 'ana-voice-container';
+        
+        // Label "¡Hablemos!"
+        const label = document.createElement('div');
+        label.className = 'ana-voice-label';
+        label.textContent = '¡Hablemos! 💬';
+        label.id = 'ana-label';
+        
+        // Botón
         btn = document.createElement('button');
         btn.className = 'ana-voice-btn';
-        btn.setAttribute('data-tooltip', 'Habla con Ana');
         btn.setAttribute('aria-label', 'Iniciar llamada con Ana, asesora virtual de ZAFESYS');
         btn.appendChild(createMicIcon());
 
         btn.addEventListener('click', handleButtonClick);
-        document.body.appendChild(btn);
+        
+        container.appendChild(label);
+        container.appendChild(btn);
+        document.body.appendChild(container);
     }
 
     async function handleButtonClick() {
@@ -196,6 +249,8 @@
     }
 
     function updateButtonState(state) {
+        const label = document.getElementById('ana-label');
+        
         while (btn.firstChild) {
             btn.removeChild(btn.firstChild);
         }
@@ -204,12 +259,18 @@
 
         if (state === 'connecting') {
             btn.classList.add('connecting');
-            btn.setAttribute('data-tooltip', 'Conectando...');
+            if (label) {
+                label.textContent = 'Conectando...';
+                label.classList.remove('hidden');
+            }
             btn.appendChild(createMicIcon());
         } else if (state === 'active') {
             isActive = true;
             btn.classList.add('active');
-            btn.setAttribute('data-tooltip', 'Finalizar llamada');
+            if (label) {
+                label.textContent = 'Hablando con Ana 🎙️';
+                label.classList.remove('hidden');
+            }
             btn.appendChild(createHangupIcon());
         }
     }
@@ -217,13 +278,18 @@
     function resetButton() {
         isActive = false;
         conversation = null;
+        
+        const label = document.getElementById('ana-label');
 
         while (btn.firstChild) {
             btn.removeChild(btn.firstChild);
         }
 
         btn.classList.remove('active', 'connecting');
-        btn.setAttribute('data-tooltip', 'Habla con Ana');
+        if (label) {
+            label.textContent = '¡Hablemos! 💬';
+            label.classList.remove('hidden');
+        }
         btn.appendChild(createMicIcon());
     }
 
