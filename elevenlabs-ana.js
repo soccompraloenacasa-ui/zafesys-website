@@ -1,13 +1,16 @@
 /**
  * ZAFESYS - Ana Voice Assistant
- * Custom ElevenLabs Integration
- * Botón personalizado que inicia llamada de voz
+ * ElevenLabs Conversational AI Integration
+ * Uses @elevenlabs/client SDK via CDN
  */
 
 (function() {
     'use strict';
 
     const AGENT_ID = 'agent_0001kf74phvbew39yn2s1r4fzhbf';
+    let conversation = null;
+    let isActive = false;
+    let btn = null;
 
     // Crear icono SVG de micrófono
     function createMicIcon() {
@@ -35,197 +38,194 @@
     function init() {
         injectStyles();
         createCustomButton();
-        loadElevenLabsWidget();
+        console.log('[ZAFESYS] Ana voice assistant ready');
     }
 
     function injectStyles() {
         const style = document.createElement('style');
-        style.textContent = `
-            /* Ocultar widget de ElevenLabs */
-            elevenlabs-convai {
-                position: fixed !important;
-                bottom: -9999px !important;
-                right: -9999px !important;
-                opacity: 0 !important;
-                pointer-events: none !important;
-                z-index: -1 !important;
-            }
-
-            /* Botón personalizado Ana */
-            .ana-voice-btn {
-                position: fixed;
-                bottom: 90px;
-                right: 24px;
-                width: 56px;
-                height: 56px;
-                background: linear-gradient(135deg, #00A3E0 0%, #0077B5 100%);
-                border: none;
-                border-radius: 50%;
-                cursor: pointer;
-                z-index: 1000;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                box-shadow: 0 4px 20px rgba(0, 163, 224, 0.4);
-                transition: all 0.3s ease;
-            }
-
-            .ana-voice-btn:hover {
-                transform: scale(1.1);
-                box-shadow: 0 6px 30px rgba(0, 163, 224, 0.5);
-            }
-
-            .ana-voice-btn:active {
-                transform: scale(0.95);
-            }
-
-            .ana-voice-btn svg {
-                width: 24px;
-                height: 24px;
-                fill: white;
-            }
-
-            /* Estado activo (en llamada) */
-            .ana-voice-btn.active {
-                background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-                box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);
-                animation: pulse-call 2s infinite;
-            }
-
-            .ana-voice-btn.active:hover {
-                box-shadow: 0 6px 30px rgba(16, 185, 129, 0.5);
-            }
-
-            /* Estado conectando */
-            .ana-voice-btn.connecting {
-                background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-                box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4);
-            }
-
-            @keyframes pulse-call {
-                0%, 100% { box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4); }
-                50% { box-shadow: 0 4px 30px rgba(16, 185, 129, 0.6); }
-            }
-
-            /* Tooltip */
-            .ana-voice-btn::before {
-                content: attr(data-tooltip);
-                position: absolute;
-                right: 70px;
-                top: 50%;
-                transform: translateY(-50%);
-                background: rgba(0, 0, 0, 0.8);
-                color: white;
-                padding: 8px 12px;
-                border-radius: 8px;
-                font-size: 13px;
-                font-family: 'Sora', sans-serif;
-                white-space: nowrap;
-                opacity: 0;
-                pointer-events: none;
-                transition: opacity 0.3s;
-            }
-
-            .ana-voice-btn:hover::before { opacity: 1; }
-
-            /* Responsive */
-            @media (max-width: 768px) {
-                .ana-voice-btn {
-                    bottom: 85px;
-                    right: 20px;
-                    width: 52px;
-                    height: 52px;
-                }
-                .ana-voice-btn svg { width: 22px; height: 22px; }
-                .ana-voice-btn::before { display: none; }
-            }
-        `;
+        style.textContent = [
+            '.ana-voice-btn {',
+            '    position: fixed;',
+            '    bottom: 90px;',
+            '    right: 24px;',
+            '    width: 56px;',
+            '    height: 56px;',
+            '    background: linear-gradient(135deg, #00A3E0 0%, #0077B5 100%);',
+            '    border: none;',
+            '    border-radius: 50%;',
+            '    cursor: pointer;',
+            '    z-index: 1000;',
+            '    display: flex;',
+            '    align-items: center;',
+            '    justify-content: center;',
+            '    box-shadow: 0 4px 20px rgba(0, 163, 224, 0.4);',
+            '    transition: all 0.3s ease;',
+            '}',
+            '.ana-voice-btn:hover {',
+            '    transform: scale(1.1);',
+            '    box-shadow: 0 6px 30px rgba(0, 163, 224, 0.5);',
+            '}',
+            '.ana-voice-btn:active { transform: scale(0.95); }',
+            '.ana-voice-btn svg { width: 24px; height: 24px; fill: white; }',
+            '.ana-voice-btn.active {',
+            '    background: linear-gradient(135deg, #10B981 0%, #059669 100%);',
+            '    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4);',
+            '    animation: pulse-call 2s infinite;',
+            '}',
+            '.ana-voice-btn.active:hover { box-shadow: 0 6px 30px rgba(16, 185, 129, 0.5); }',
+            '.ana-voice-btn.connecting {',
+            '    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);',
+            '    box-shadow: 0 4px 20px rgba(245, 158, 11, 0.4);',
+            '    pointer-events: none;',
+            '}',
+            '@keyframes pulse-call {',
+            '    0%, 100% { box-shadow: 0 4px 20px rgba(16, 185, 129, 0.4); }',
+            '    50% { box-shadow: 0 4px 30px rgba(16, 185, 129, 0.6); }',
+            '}',
+            '.ana-voice-btn::before {',
+            '    content: attr(data-tooltip);',
+            '    position: absolute;',
+            '    right: 70px;',
+            '    top: 50%;',
+            '    transform: translateY(-50%);',
+            '    background: rgba(0, 0, 0, 0.8);',
+            '    color: white;',
+            '    padding: 8px 12px;',
+            '    border-radius: 8px;',
+            '    font-size: 13px;',
+            '    font-family: "Sora", sans-serif;',
+            '    white-space: nowrap;',
+            '    opacity: 0;',
+            '    pointer-events: none;',
+            '    transition: opacity 0.3s;',
+            '}',
+            '.ana-voice-btn:hover::before { opacity: 1; }',
+            '@media (max-width: 768px) {',
+            '    .ana-voice-btn { bottom: 85px; right: 20px; width: 52px; height: 52px; }',
+            '    .ana-voice-btn svg { width: 22px; height: 22px; }',
+            '    .ana-voice-btn::before { display: none; }',
+            '}'
+        ].join('\n');
         document.head.appendChild(style);
     }
 
     function createCustomButton() {
-        const btn = document.createElement('button');
+        btn = document.createElement('button');
         btn.className = 'ana-voice-btn';
         btn.setAttribute('data-tooltip', 'Habla con Ana');
         btn.setAttribute('aria-label', 'Iniciar llamada con Ana, asesora virtual de ZAFESYS');
         btn.appendChild(createMicIcon());
 
-        let isActive = false;
-
-        btn.addEventListener('click', function() {
-            const widget = document.querySelector('elevenlabs-convai');
-            if (!widget) {
-                console.error('[Ana] Widget no encontrado');
-                return;
-            }
-
-            const shadowRoot = widget.shadowRoot;
-            if (shadowRoot) {
-                const widgetButton = shadowRoot.querySelector('button') ||
-                                    shadowRoot.querySelector('[role="button"]');
-
-                if (widgetButton) {
-                    widgetButton.click();
-                    isActive = !isActive;
-                    updateButtonState(btn, isActive);
-                } else {
-                    // Mostrar widget temporalmente
-                    widget.style.cssText = 'position:fixed!important;bottom:90px!important;right:24px!important;opacity:1!important;pointer-events:auto!important;z-index:1001!important;';
-                    setTimeout(function() { widget.style.cssText = ''; }, 100);
-                }
-            }
-        });
-
+        btn.addEventListener('click', handleButtonClick);
         document.body.appendChild(btn);
-        console.log('[ZAFESYS] Ana voice button initialized');
     }
 
-    function updateButtonState(btn, isActive) {
-        // Limpiar contenido actual
+    async function handleButtonClick() {
+        if (isActive && conversation) {
+            await endConversation();
+        } else {
+            await startConversation();
+        }
+    }
+
+    async function startConversation() {
+        try {
+            updateButtonState('connecting');
+
+            // Solicitar permiso del micrófono
+            console.log('[Ana] Requesting microphone permission...');
+            await navigator.mediaDevices.getUserMedia({ audio: true });
+            console.log('[Ana] Microphone permission granted');
+
+            // Cargar SDK dinámicamente
+            console.log('[Ana] Loading ElevenLabs SDK...');
+            const { Conversation } = await import('https://cdn.jsdelivr.net/npm/@elevenlabs/client@latest/+esm');
+
+            // Iniciar sesión de conversación
+            console.log('[Ana] Starting conversation session...');
+            conversation = await Conversation.startSession({
+                agentId: AGENT_ID,
+                connectionType: 'webrtc',
+                onConnect: function() {
+                    console.log('[Ana] Connected!');
+                    updateButtonState('active');
+                },
+                onDisconnect: function() {
+                    console.log('[Ana] Disconnected');
+                    resetButton();
+                },
+                onError: function(error) {
+                    console.error('[Ana] Error:', error);
+                    resetButton();
+                },
+                onModeChange: function(mode) {
+                    console.log('[Ana] Mode:', mode);
+                }
+            });
+
+            isActive = true;
+            updateButtonState('active');
+            console.log('[Ana] Conversation started successfully');
+
+        } catch (error) {
+            console.error('[Ana] Failed to start conversation:', error);
+
+            if (error.name === 'NotAllowedError') {
+                alert('Para hablar con Ana, necesitas permitir el acceso al micrófono.');
+            } else {
+                alert('Error al conectar con Ana. Por favor intenta de nuevo.');
+            }
+
+            resetButton();
+        }
+    }
+
+    async function endConversation() {
+        try {
+            if (conversation) {
+                console.log('[Ana] Ending conversation...');
+                await conversation.endSession();
+                conversation = null;
+            }
+        } catch (error) {
+            console.error('[Ana] Error ending conversation:', error);
+        }
+        resetButton();
+    }
+
+    function updateButtonState(state) {
         while (btn.firstChild) {
             btn.removeChild(btn.firstChild);
         }
 
-        if (isActive) {
+        btn.classList.remove('active', 'connecting');
+
+        if (state === 'connecting') {
             btn.classList.add('connecting');
             btn.setAttribute('data-tooltip', 'Conectando...');
             btn.appendChild(createMicIcon());
-
-            setTimeout(function() {
-                if (btn.classList.contains('connecting')) {
-                    btn.classList.remove('connecting');
-                    btn.classList.add('active');
-                    btn.setAttribute('data-tooltip', 'Finalizar llamada');
-                    while (btn.firstChild) {
-                        btn.removeChild(btn.firstChild);
-                    }
-                    btn.appendChild(createHangupIcon());
-                }
-            }, 2000);
-        } else {
-            btn.classList.remove('active', 'connecting');
-            btn.setAttribute('data-tooltip', 'Habla con Ana');
-            btn.appendChild(createMicIcon());
+        } else if (state === 'active') {
+            isActive = true;
+            btn.classList.add('active');
+            btn.setAttribute('data-tooltip', 'Finalizar llamada');
+            btn.appendChild(createHangupIcon());
         }
     }
 
-    function loadElevenLabsWidget() {
-        if (document.querySelector('elevenlabs-convai')) return;
+    function resetButton() {
+        isActive = false;
+        conversation = null;
 
-        const widget = document.createElement('elevenlabs-convai');
-        widget.setAttribute('agent-id', AGENT_ID);
-
-        if (!document.querySelector('script[src*="elevenlabs/convai-widget"]')) {
-            const script = document.createElement('script');
-            script.src = 'https://unpkg.com/@elevenlabs/convai-widget-embed';
-            script.async = true;
-            script.type = 'text/javascript';
-            document.head.appendChild(script);
+        while (btn.firstChild) {
+            btn.removeChild(btn.firstChild);
         }
 
-        document.body.appendChild(widget);
+        btn.classList.remove('active', 'connecting');
+        btn.setAttribute('data-tooltip', 'Habla con Ana');
+        btn.appendChild(createMicIcon());
     }
 
+    // Inicializar
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {
