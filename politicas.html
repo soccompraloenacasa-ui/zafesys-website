@@ -10,7 +10,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Permissions-Policy" content="microphone=*">
-    <title>Políticas - ZAFESYS</title>
+    <title>Política de Privacidad - ZAFESYS</title>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -103,19 +103,46 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         /* Content styles */
         .policies-section {
             padding: 120px 40px 80px;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         .policies-title {
             font-size: 40px;
             font-weight: 700;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             text-align: center;
         }
 
+        .policies-subtitle {
+            font-size: 16px;
+            color: #9ca3af;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-divider {
+            text-align: center;
+            margin: 60px 0 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(6, 182, 212, 0.05));
+            border-radius: 16px;
+            border: 1px solid rgba(34, 211, 238, 0.2);
+        }
+
+        .section-divider h2 {
+            font-size: 28px;
+            color: #22d3ee;
+            margin-bottom: 8px;
+        }
+
+        .section-divider p {
+            font-size: 14px;
+            color: #9ca3af;
+        }
+
         .policy-block {
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.06);
             padding: 30px;
@@ -123,16 +150,75 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
 
         .policy-block h2 {
-            font-size: 24px;
+            font-size: 22px;
             margin-bottom: 16px;
             color: #22d3ee;
         }
 
+        .policy-block h3 {
+            font-size: 18px;
+            margin: 20px 0 12px;
+            color: #fff;
+        }
+
         .policy-block p {
-            font-size: 16px;
+            font-size: 15px;
             color: #d1d5db;
-            line-height: 1.6;
-            margin-bottom: 10px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .policy-block ul {
+            margin: 12px 0 12px 24px;
+            color: #d1d5db;
+        }
+
+        .policy-block li {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 8px;
+        }
+
+        .policy-block strong {
+            color: #fff;
+        }
+
+        .highlight-box {
+            background: rgba(34, 211, 238, 0.1);
+            border-left: 4px solid #22d3ee;
+            padding: 16px 20px;
+            border-radius: 0 12px 12px 0;
+            margin: 16px 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            color: #e5e7eb;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(6, 182, 212, 0.05));
+            border: 1px solid rgba(34, 211, 238, 0.3);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact-info h3 {
+            color: #22d3ee;
+            margin-bottom: 16px;
+            font-size: 20px;
+        }
+
+        .contact-info p {
+            color: #d1d5db;
+            margin-bottom: 8px;
+        }
+
+        .contact-info a {
+            color: #22d3ee;
+            text-decoration: underline;
         }
 
         /* Footer styles */
@@ -158,6 +244,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             font-size: 13px;
             color: #6b7280;
         }
+
+        @media (max-width: 768px) {
+            .policies-section {
+                padding: 100px 20px 60px;
+            }
+            .policies-title {
+                font-size: 28px;
+            }
+            .policy-block {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 
@@ -178,25 +276,152 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </nav>
 
     <section class="policies-section">
-        <h1 class="policies-title">Política de Privacidad y Tratamiento de Datos</h1>
+        <h1 class="policies-title">Política de Privacidad</h1>
+        <p class="policies-subtitle">Última actualización: 28 de enero de 2026</p>
+
+        <!-- SECCIÓN SITIO WEB -->
+        <div class="section-divider">
+            <h2><i class="fa-solid fa-globe"></i> Sitio Web</h2>
+            <p>Políticas para zafesys.com</p>
+        </div>
 
         <div class="policy-block">
             <h2>Habeas Data</h2>
-            <p>En cumplimiento de la Ley 1581 de 2012, ZAFESYS garantiza la protección de tus datos personales. La
-                información recolectada se utiliza exclusivamente para fines transaccionales, de envío y comunicación
-                relacionada con tus pedidos.</p>
+            <p>En cumplimiento de la Ley 1581 de 2012 y el Decreto 1377 de 2013 de Colombia, ZAFESYS garantiza la protección de tus datos personales. La información recolectada se utiliza exclusivamente para fines transaccionales, de envío y comunicación relacionada con tus pedidos.</p>
         </div>
 
         <div class="policy-block">
             <h2>Uso de la Información</h2>
-            <p>Tus datos (nombre, dirección, teléfono, correo) son usados solo para procesar pedidos y garantizar la
-                entrega. <strong>No compartimos ni vendemos tu información a terceros</strong>.</p>
+            <p>Tus datos (nombre, dirección, teléfono, correo) son usados solo para procesar pedidos y garantizar la entrega.</p>
+            <div class="highlight-box">
+                <p><strong>No compartimos ni vendemos tu información a terceros.</strong></p>
+            </div>
         </div>
 
         <div class="policy-block">
             <h2>Seguridad</h2>
-            <p>Nuestro sitio web cuenta con certificados SSL y pasarelas de pago seguras para proteger toda la
-                información transmitida.</p>
+            <p>Nuestro sitio web cuenta con certificados SSL y pasarelas de pago seguras para proteger toda la información transmitida.</p>
+        </div>
+
+        <!-- SECCIÓN APP MÓVIL -->
+        <div class="section-divider" id="app">
+            <h2><i class="fa-solid fa-mobile-screen-button"></i> Aplicación Móvil</h2>
+            <p>Políticas para ZAFESYS Instaladores (Android)</p>
+        </div>
+
+        <div class="policy-block">
+            <h2>Información General</h2>
+            <p><strong>ZAFESYS Instaladores</strong> es una aplicación móvil diseñada exclusivamente para los técnicos instaladores de cerraduras inteligentes de ZAFESYS. Esta aplicación permite gestionar las instalaciones asignadas, documentar el proceso y registrar la finalización de cada servicio.</p>
+            <p>Esta política describe qué información recopilamos a través de la aplicación, cómo la utilizamos y cómo la protegemos.</p>
+        </div>
+
+        <div class="policy-block">
+            <h2>Datos que Recopilamos</h2>
+            <p>La aplicación ZAFESYS Instaladores recopila los siguientes tipos de información:</p>
+            
+            <h3><i class="fa-solid fa-location-dot"></i> Ubicación (GPS)</h3>
+            <ul>
+                <li><strong>Qué recopilamos:</strong> Coordenadas GPS del dispositivo durante el horario laboral</li>
+                <li><strong>Para qué:</strong> Verificar la llegada del técnico a la dirección de instalación y optimizar rutas de servicio</li>
+                <li><strong>Cuándo:</strong> Solo cuando la aplicación está en uso activo</li>
+            </ul>
+
+            <h3><i class="fa-solid fa-camera"></i> Fotos</h3>
+            <ul>
+                <li><strong>Qué recopilamos:</strong> Fotografías tomadas antes y después de cada instalación</li>
+                <li><strong>Para qué:</strong> Documentar el estado del área de instalación, evidencia de trabajo completado y protección ante reclamos</li>
+                <li><strong>Almacenamiento:</strong> Las fotos se almacenan en servidores seguros de Cloudflare R2</li>
+            </ul>
+
+            <h3><i class="fa-solid fa-video"></i> Videos</h3>
+            <ul>
+                <li><strong>Qué recopilamos:</strong> Videos cortos del proceso de instalación</li>
+                <li><strong>Para qué:</strong> Documentación del servicio y capacitación</li>
+                <li><strong>Almacenamiento:</strong> Los videos se almacenan en servidores seguros de Cloudflare R2</li>
+            </ul>
+
+            <h3><i class="fa-solid fa-signature"></i> Firma Digital</h3>
+            <ul>
+                <li><strong>Qué recopilamos:</strong> Firma digital del cliente al finalizar la instalación</li>
+                <li><strong>Para qué:</strong> Confirmación de recibido y satisfacción del servicio</li>
+                <li><strong>Almacenamiento:</strong> Las firmas se almacenan de forma segura asociadas a cada instalación</li>
+            </ul>
+
+            <h3><i class="fa-solid fa-mobile"></i> Información del Dispositivo</h3>
+            <ul>
+                <li><strong>Qué recopilamos:</strong> Modelo del dispositivo, versión del sistema operativo, identificador único</li>
+                <li><strong>Para qué:</strong> Diagnóstico de errores y mejora de la aplicación</li>
+            </ul>
+        </div>
+
+        <div class="policy-block">
+            <h2>Uso de la Información</h2>
+            <p>La información recopilada se utiliza exclusivamente para:</p>
+            <ul>
+                <li>Gestionar y asignar instalaciones a técnicos</li>
+                <li>Verificar la realización correcta de los servicios</li>
+                <li>Documentar el antes y después de cada instalación</li>
+                <li>Proteger tanto al cliente como a la empresa ante posibles disputas</li>
+                <li>Calcular tiempos de instalación y optimizar procesos</li>
+                <li>Mejorar la calidad del servicio</li>
+            </ul>
+            <div class="highlight-box">
+                <p><strong>No vendemos, alquilamos ni compartimos información personal con terceros para fines de marketing.</strong></p>
+            </div>
+        </div>
+
+        <div class="policy-block">
+            <h2>Permisos de la Aplicación</h2>
+            <p>La aplicación solicita los siguientes permisos del dispositivo:</p>
+            <ul>
+                <li><strong>Cámara:</strong> Para tomar fotos y videos de las instalaciones</li>
+                <li><strong>Ubicación:</strong> Para registrar la llegada al sitio de instalación</li>
+                <li><strong>Almacenamiento:</strong> Para guardar temporalmente archivos antes de subirlos</li>
+                <li><strong>Internet:</strong> Para sincronizar datos con el servidor</li>
+            </ul>
+            <p>Todos los permisos son necesarios para el funcionamiento correcto de la aplicación y solo se activan cuando el usuario los autoriza.</p>
+        </div>
+
+        <div class="policy-block">
+            <h2>Seguridad de los Datos</h2>
+            <p>Implementamos medidas de seguridad para proteger tu información:</p>
+            <ul>
+                <li>Transmisión de datos mediante conexiones HTTPS cifradas</li>
+                <li>Almacenamiento en servidores seguros con acceso restringido</li>
+                <li>Autenticación de usuarios para acceder a la aplicación</li>
+                <li>Copias de seguridad regulares</li>
+            </ul>
+        </div>
+
+        <div class="policy-block">
+            <h2>Retención de Datos</h2>
+            <p>Los datos de las instalaciones (fotos, videos, firmas) se conservan por un período de <strong>5 años</strong> para cumplir con obligaciones legales y de garantía. Después de este período, los datos son eliminados de forma segura.</p>
+            <p>Los datos de ubicación se conservan por <strong>90 días</strong> para fines operativos.</p>
+        </div>
+
+        <div class="policy-block">
+            <h2>Derechos del Usuario</h2>
+            <p>De acuerdo con la Ley 1581 de 2012, tienes derecho a:</p>
+            <ul>
+                <li><strong>Conocer:</strong> Acceder a tus datos personales almacenados</li>
+                <li><strong>Actualizar:</strong> Corregir información inexacta o incompleta</li>
+                <li><strong>Revocar:</strong> Solicitar la eliminación de tus datos cuando ya no sean necesarios</li>
+                <li><strong>Presentar quejas:</strong> Ante la Superintendencia de Industria y Comercio (SIC)</li>
+            </ul>
+            <p>Para ejercer estos derechos, contáctanos a través de los canales indicados abajo.</p>
+        </div>
+
+        <div class="policy-block">
+            <h2>Cambios en esta Política</h2>
+            <p>Podemos actualizar esta política de privacidad ocasionalmente. Notificaremos cualquier cambio significativo a través de la aplicación o por correo electrónico. Te recomendamos revisar esta página periódicamente.</p>
+        </div>
+
+        <div class="contact-info">
+            <h3><i class="fa-solid fa-envelope"></i> Contacto</h3>
+            <p>Si tienes preguntas sobre esta política de privacidad, contáctanos:</p>
+            <p><strong>ZAFESYS Colombia</strong></p>
+            <p>Email: <a href="mailto:contacto@zafesys.com">contacto@zafesys.com</a></p>
+            <p>WhatsApp: <a href="https://wa.me/573001234567">+57 300 123 4567</a></p>
         </div>
     </section>
 
@@ -205,11 +430,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>© 2026 ZAFESYS Colombia. Todos los derechos reservados.</p>
             <div style="display:flex;gap:20px;">
                 <a href="politicas.html" style="color:#6b7280;font-size:13px;">Privacidad</a>
-                <a href="politicas.html" style="color:#6b7280;font-size:13px;">Términos</a>
+                <a href="devoluciones.html" style="color:#6b7280;font-size:13px;">Devoluciones</a>
             </div>
         </div>
     </footer>
-    <!-- ZAFESYS Ana - Asistente de Voz -->
     <!-- ZAFESYS Ana - Asistente de Voz -->
     <script src="elevenlabs-ana.js"></script>
 </body>
